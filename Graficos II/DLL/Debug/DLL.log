@@ -1,4 +1,1 @@
-﻿  GameBase.cpp
-c:\users\administrador\source\repos\graficos ii\dll\exports.h(3): warning C4005: 'ENGINE_API': redefinición de macro
-  c:\users\administrador\source\repos\graficos ii\dll\exports.h(3): note: argumentos de la línea de comandos: vea la definición anterior de 'ENGINE_API'
-  DLL.vcxproj -> c:\Users\administrador\source\repos\Graficos II\Debug\DLL.dll
+﻿  DLL.vcxproj -> C:\Users\Administrador\Desktop\Graficos-II\Graficos II\Debug\DLL.dll

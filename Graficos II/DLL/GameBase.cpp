@@ -12,8 +12,11 @@ bool GameBase::Start()
 {
 	if (!wind->Start(800, 600, "Prueva"))
 		return false;
-	if (!rend->Start())
+	if (!rend->Start(wind))
 		return false;
+
+	rend->SetClearColor(0, 0, 1, 1);
+
 	return OnStart();
 }
 
@@ -30,6 +33,8 @@ void GameBase::loop()
 	do
 	{
 		quit = OnLoop();
+		rend->ClearWindow();
+		rend->SwapBuffer();
 		wind->PollEvents();
-	} while (!wind->ShouldClose && quit);
+	} while (!wind->ShouldClose() && quit);
 }

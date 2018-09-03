@@ -5,13 +5,17 @@
 
 class ENGINE_API Renderer
 {
+private:
+	Window* _window;
 public:
 	Renderer();
 	~Renderer();
 	bool Start(Window* window);
 	bool Stop();
-	void SetClearColor();
+	void SetClearColor(float r, float g, float b, float a);
 	void SwapBuffer();
 	void ClearWindow();
+	unsigned int GenBuffer(float* buffer, int size);
+	void Draw();
 };
 

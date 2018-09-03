@@ -121,11 +121,11 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\..\..\..\Desktop\Graficos-II\Graficos II\Exe\Game.cpp" />
-    <ClCompile Include="..\..\..\..\Desktop\Graficos-II\Graficos II\Exe\Main.cpp" />
+    <ClInclude Include="..\..\..\..\Desktop\Graficos-II\Graficos II\Exe\Game.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\..\..\..\Desktop\Graficos-II\Graficos II\Exe\Game.h" />
+    <ClCompile Include="Game.cpp" />
+    <ClCompile Include="Main.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
