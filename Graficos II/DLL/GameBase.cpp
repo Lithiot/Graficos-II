@@ -34,6 +34,7 @@ void GameBase::loop()
 	{
 		quit = OnLoop();
 		rend->ClearWindow();
+		OnDraw();
 		rend->SwapBuffer();
 		wind->PollEvents();
 	} while (!wind->ShouldClose() && quit);

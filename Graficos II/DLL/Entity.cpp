@@ -1,11 +1,8 @@
 #include "Entity.h"
 
-
-
-Entity::Entity()
+Entity::Entity(Renderer* rend) : renderer(rend)
 {
 }
-
 
 Entity::~Entity()
 {

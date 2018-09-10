@@ -1,6 +1,6 @@
 #include "Renderer.h"
-#include <GLFW\glfw3.h>
 #include <GL\glew.h>
+#include <GLFW\glfw3.h>
 
 Renderer::Renderer()
 {
@@ -14,9 +14,12 @@ bool Renderer::Start(Window* window)
 {	
 	_window = window;
 	glfwMakeContextCurrent((GLFWwindow*) window->GetWindowPtr());
-	GLuint VertexArrayID;
-	glGenVertexArrays(1, &VertexArrayID);
-	glBindVertexArray(VertexArrayID);
+	if (glewInit() != GLEW_OK) {
+		fprintf(stderr, "Falló al inicializar GLEW\n");
+		return -1;
+	}
+	glGenVertexArrays(1, (GLuint*)&VertexArrayID);
+	glBindVertexArray((GLuint)VertexArrayID);
 	std::cout << "Renderer::Start()" << std::endl;
 	return true;
 }
@@ -55,10 +58,10 @@ unsigned int Renderer::GenBuffer(float* buffer, int size)
 	return vertexbuffer;
 }
 
-void Renderer::Draw()
+void Renderer::Draw(unsigned int vtxbuffer, int size)
 {
 	glEnableVertexAttribArray(0);
-	glBindBuffer(GL_ARRAY_BUFFER, vertexbuffer);
+	glBindBuffer(GL_ARRAY_BUFFER, vtxbuffer);
 	glVertexAttribPointer(
 		0,                  
 		3,                  
@@ -68,6 +71,6 @@ void Renderer::Draw()
 		(void*)0            
 	);
 
-	glDrawArrays(GL_TRIANGLES, 0, 3); 
+	glDrawArrays(GL_TRIANGLES, 0, size); 
 	glDisableVertexAttribArray(0);
 }

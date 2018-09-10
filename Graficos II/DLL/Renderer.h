@@ -7,6 +7,8 @@ class ENGINE_API Renderer
 {
 private:
 	Window* _window;
+
+	void* VertexArrayID;
 public:
 	Renderer();
 	~Renderer();
@@ -16,6 +18,6 @@ public:
 	void SwapBuffer();
 	void ClearWindow();
 	unsigned int GenBuffer(float* buffer, int size);
-	void Draw();
+	void Draw(unsigned int vtxbuffer, int size);
 };
 

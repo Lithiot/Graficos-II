@@ -6,12 +6,13 @@ class ENGINE_API GameBase
 {
 private:
 	int quit;
-	Renderer* rend;
 	Window* wind;
 protected:
 	virtual bool OnStart() = 0;
 	virtual bool OnStop() = 0;
 	virtual bool OnLoop() = 0;
+	virtual bool OnDraw() = 0;
+	Renderer* rend;
 public:
 	GameBase();
 	~GameBase();

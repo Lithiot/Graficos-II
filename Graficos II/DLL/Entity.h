@@ -1,14 +1,13 @@
 #pragma once
-class Entity
+#include "Renderer.h"
+class ENGINE_API Entity
 {
-private:
-
 protected:
-	Entity();
-
+	Renderer* renderer;
 public:
+	virtual void Draw() = 0;
 
-	virtual void draw() = 0;
+	Entity(Renderer* rend);
 	~Entity();
 };
 

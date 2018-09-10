@@ -1,18 +1,19 @@
 #pragma once
 #include "Entity.h"
 #include "Material.h"
-class Triangle : public Entity
+class ENGINE_API Triangle : public Entity
 {
 private:
 	float* vertexes;
-	float* bufferID;
+	int cantVertex;
+	unsigned int bufferID;
 	Material* material;
 protected:
-	Triangle();
-public:
-	
-	void Draw() override;
 
+public:
+	Triangle(Renderer* rend);
 	~Triangle();
+	void Draw() override;
+	void setVertex(float* vertex, int cant);
 };
 
