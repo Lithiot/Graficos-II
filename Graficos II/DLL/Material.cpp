@@ -92,10 +92,13 @@ unsigned int  Material::LoadShaders(const char * vertex_file_path, const char * 
 	glDeleteShader(VertexShaderID);
 	glDeleteShader(FragmentShaderID);
 
-	this->ProgramID = ProgramID;
+	programID = ProgramID;
 	return ProgramID;
 }
-void Material::Bind()
+
+void Material::Bind(glm::mat4 mvp)
 {
-	glUseProgram(ProgramID);
+	glUseProgram(programID);
+	GLuint MatrixID = glGetUniformLocation(programID, "MVP");
+	glUniformMatrix4fv(MatrixID, 1, GL_FALSE, &mvp[0][0]);
 }
