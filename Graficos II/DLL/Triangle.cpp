@@ -27,5 +27,13 @@ void Triangle::setVertex(float* vertex, int cant)
 
 void Triangle::Draw() 
 {
+	if (material != NULL)
+		material->Bind();
+
 	renderer->Draw(bufferID, cantVertex);
+}
+
+void Triangle::SetMaterial(Material* mat) 
+{
+	material = mat;
 }

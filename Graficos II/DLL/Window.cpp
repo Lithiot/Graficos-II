@@ -16,16 +16,12 @@ bool Window::Start(int width,  int height, const char* name)
 		std::cout << "gflwInit() no pudo ser iniciado" << std::endl;
 		return false;
 	}
-	
-
 	window = glfwCreateWindow(width, height, name, NULL, NULL);
-	
 	if (!window)
 	{
 		glfwTerminate();
 		return false;
 	}
-
 	std::cout << "Ventana iniciada" << std::endl;
 	return true;
 }

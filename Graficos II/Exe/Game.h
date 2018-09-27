@@ -5,6 +5,8 @@ class Game : public GameBase
 {
 private:
 	Triangle* triangle1;
+	Material* mat1;
+	unsigned int programID;
 public:
 	Game();
 	~Game();

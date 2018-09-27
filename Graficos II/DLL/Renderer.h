@@ -7,7 +7,6 @@ class ENGINE_API Renderer
 {
 private:
 	Window* _window;
-
 	void* VertexArrayID;
 public:
 	Renderer();

@@ -12,10 +12,13 @@ Game::~Game()
 
 bool Game::OnStart()
 {
+	mat1 = new Material();
+	programID = mat1->LoadShaders("vertexshader.txt", "fragmentshader.txt");
 	triangle1 = new Triangle(rend);
+	triangle1->SetMaterial(mat1);
 	std::cout << "Game::Start()" << std::endl;
 	return true;
-}
+} 
 
 bool Game::OnStop()
 {

@@ -11,9 +11,10 @@ private:
 protected:
 
 public:
-	Triangle(Renderer* rend);
-	~Triangle();
+	Triangle (Renderer* rend);
+	~Triangle ();
 	void Draw() override;
-	void setVertex(float* vertex, int cant);
+	void setVertex (float* vertex, int cant);
+	void SetMaterial (Material* mat);
 };
 
