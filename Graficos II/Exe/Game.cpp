@@ -32,7 +32,7 @@ bool Game::OnLoop()
 	return true;
 }
 
-bool Game::OnDraw() 
+bool Game::OnDraw()
 {
 	triangle1->Draw();
 	return true;
