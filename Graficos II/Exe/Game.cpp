@@ -16,6 +16,8 @@ bool Game::OnStart()
 	programID = mat1->LoadShaders("vertexshader.txt", "fragmentshader.txt");
 	triangle1 = new Triangle(rend);
 	triangle1->SetMaterial(mat1);
+	square1 = new Square(rend);
+	square1->SetMaterial(mat1);
 	std::cout << "Game::Start()" << std::endl;
 	return true;
 } 
@@ -28,6 +30,8 @@ bool Game::OnStop()
 
 bool Game::OnLoop()
 {
+	triangle1->SetTranslation(5, 0, 0);
+	square1->SetTranslation(-5, 0, 0);
 	std::cout << "Game::Loop()" << std::endl;
 	return true;
 }
@@ -35,5 +39,6 @@ bool Game::OnLoop()
 bool Game::OnDraw()
 {
 	triangle1->Draw();
+	square1->Draw();
 	return true;
 }

@@ -1,34 +1,37 @@
-#include "Triangle.h"
+#include "Square.h"
 
-Triangle::Triangle(Renderer* rend) : Entity(rend)
+
+
+Square::Square(Renderer* rend) : Entity(rend)
 {
 	material = NULL;
 	vertexes = NULL;
 	vertexColors = NULL;
 	vertexBufferID = -1;
 	colorBufferID = -1;
-	cantVertex = 3;
+	cantVertex = 4;
 
 	SetVertex(vertexes, cantVertex);
 	SetColors(vertexColors, cantVertex);
 }
 
-Triangle::~Triangle()
+Square::~Square()
 {
 }
 
-void Triangle::SetVertex(float* vertex, int cant)
+void Square::SetVertex(float* vertex, int cant)
 {
-	vertex = new float[9]{
+	vertex = new float[12]{
 		-1.0f, -1.0f, 0.0f,
 		1.0f, -1.0f, 0.0f,
-		0.0f,  1.0f, 0.0f,
+		-1.0f,  1.0f, 0.0f,
+		1.0f, 1.0f, 0.0f
 	};
 
 	vertexBufferID = renderer->GenVertexBuffer(vertex, sizeof(float) * cant * 3);
 }
 
-void Triangle::SetColors(float* vColor, int cant)
+void Square::SetColors(float* vColor, int cant) 
 {
 	vColor = new float[12]{
 		0.583f,  0.771f,  0.014f,
@@ -40,12 +43,12 @@ void Triangle::SetColors(float* vColor, int cant)
 	colorBufferID = renderer->GenColorBuffer(vColor, sizeof(float) * cant * 3);
 }
 
-void Triangle::Draw() 
+void Square::Draw()
 {
 	renderer->LoadIdentityMatrix();
 	renderer->SetModel(model);
 
-	if (material != NULL) 
+	if (material != NULL)
 	{
 		material->Bind();
 		material->SetMatrixProperty("MVP", renderer->GetMVP());
@@ -53,7 +56,7 @@ void Triangle::Draw()
 	renderer->Draw(vertexBufferID, colorBufferID, cantVertex);
 }
 
-void Triangle::SetMaterial(Material* mat) 
+void Square::SetMaterial(Material* mat)
 {
 	material = mat;
 }

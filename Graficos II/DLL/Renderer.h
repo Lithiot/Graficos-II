@@ -21,16 +21,13 @@ public:
 	void SetClearColor(float r, float g, float b, float a);
 	void SwapBuffer();
 	void ClearWindow();
-	unsigned int GenBuffer(float* buffer, int size);
-	void Draw(unsigned int vtxbuffer, int size);
+	unsigned int GenVertexBuffer(float* buffer, int size);
+	unsigned int GenColorBuffer(float* buffer, int size);
+	void Draw(unsigned int vtxbuffer, unsigned int colorBuffer, int size);
 	void UpdateMVP();
 	void SetModel(glm::mat4 mod);
-	glm::mat4& GetMVP();
 	void LoadIdentityMatrix();
-	glm::mat4 GenerateMVP(glm::mat4 model);
 	void MultiplyModel(glm::mat4 mod);
-	void BeginDraw();
-	void EndDraw();
-	void BindBuffer();
+	glm::mat4& GetMVP();
 };
 

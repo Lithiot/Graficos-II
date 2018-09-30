@@ -25,10 +25,6 @@ public:
 	void SetRotationY(float y);
 	void SetRotationZ(float z);
 	void SetScale(float x, float y, float z);
-	glm::vec3 GetTranslation();
-	float GetRotationX();
-	float GetRotationY();
-	float GetRotationZ();
-	glm::vec3 GetScale();
+	
 };
 

@@ -1,7 +1,7 @@
 #pragma once
 #include "Entity.h"
 #include "Material.h"
-class ENGINE_API Triangle : public Entity
+class ENGINE_API Square : public Entity
 {
 private:
 	float* vertexes;
@@ -12,10 +12,10 @@ private:
 	Material* material;
 	void SetVertex(float* vertex, int cant);
 public:
-	Triangle (Renderer* rend);
-	~Triangle ();
+	Square(Renderer* rend);
+	~Square();
 	void Draw() override;
+	void SetMaterial(Material* mat);
 	void SetColors(float* vColor, int cant);
-	void SetMaterial (Material* mat);
 };
 

@@ -59,20 +59,25 @@ void Renderer::ClearWindow()
 	glClear(GL_COLOR_BUFFER_BIT);
 }
 
-unsigned int Renderer::GenBuffer(float* buffer, int size) 
+unsigned int Renderer::GenVertexBuffer(float* buffer, int size) 
 {
 	unsigned int vertexbuffer;
-
 	glGenBuffers(1, &vertexbuffer);
-
 	glBindBuffer(GL_ARRAY_BUFFER, vertexbuffer);
-
 	glBufferData(GL_ARRAY_BUFFER, size, buffer, GL_STATIC_DRAW);
-
 	return vertexbuffer;
 }
 
-void Renderer::Draw(unsigned int vtxbuffer, int size)
+unsigned int Renderer::GenColorBuffer(float* buffer, int size)
+{
+	unsigned int colorbuffer;
+	glGenBuffers(1, &colorbuffer);
+	glBindBuffer(GL_ARRAY_BUFFER, colorbuffer);
+	glBufferData(GL_ARRAY_BUFFER, size, buffer, GL_STATIC_DRAW);
+	return colorbuffer;
+}
+
+void Renderer::Draw(unsigned int vtxbuffer, unsigned int colorBuffer, int size)
 {
 	glEnableVertexAttribArray(0);
 	glBindBuffer(GL_ARRAY_BUFFER, vtxbuffer);
@@ -84,9 +89,21 @@ void Renderer::Draw(unsigned int vtxbuffer, int size)
 		0,                  
 		(void*)0            
 	);
+
+	glEnableVertexAttribArray(1);
+	glBindBuffer(GL_ARRAY_BUFFER, colorBuffer);
+	glVertexAttribPointer(
+		1,
+		3,
+		GL_FLOAT,
+		GL_FALSE,
+		0,
+		(void*)0
+	);
 	
-	glDrawArrays(GL_TRIANGLES, 0, size); 
+	glDrawArrays(GL_TRIANGLE_STRIP, 0, size); 
 	glDisableVertexAttribArray(0);
+	glDisableVertexAttribArray(1);
 }
 
 void Renderer::UpdateMVP()
