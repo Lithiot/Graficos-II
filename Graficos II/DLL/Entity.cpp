@@ -58,3 +58,25 @@ void Entity::UpdateModel()
 {
 	model = translationMatrix * rotationMatrix * scaleMatrix;
 }
+
+glm::vec3 Entity::GetTranslation() 
+{
+	return translation;
+}
+
+float Entity::GetRotationX() 
+{
+	return rotation[0];
+}
+float Entity::GetRotationY() 
+{
+	return rotation[1];
+}
+float Entity::GetRotationZ() 
+{
+	return rotation[2];
+}
+glm::vec3 Entity::GetScale() 
+{
+	return scale;
+}

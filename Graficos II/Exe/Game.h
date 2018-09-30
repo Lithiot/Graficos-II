@@ -9,6 +9,7 @@ private:
 	Square* square1;
 	Material* mat1;
 	unsigned int programID;
+	float vel;
 public:
 	Game();
 	~Game();

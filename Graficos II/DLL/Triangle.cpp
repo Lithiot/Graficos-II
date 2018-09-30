@@ -30,11 +30,10 @@ void Triangle::SetVertex(float* vertex, int cant)
 
 void Triangle::SetColors(float* vColor, int cant)
 {
-	vColor = new float[12]{
+	vColor = new float[9]{
 		0.583f,  0.771f,  0.014f,
 		0.609f,  0.115f,  0.436f,
 		0.327f,  0.483f,  0.844f,
-		0.822f,  0.569f,  0.201f,
 	};
 
 	colorBufferID = renderer->GenColorBuffer(vColor, sizeof(float) * cant * 3);
