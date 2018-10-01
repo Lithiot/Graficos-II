@@ -12,7 +12,6 @@ Triangle::Triangle(Renderer* rend) : Shape(rend)
 	};
 
 	SetVertex(vertexes, cantVertex);
-	SetColors(vertexColors, cantVertex);
 }
 
 Triangle::~Triangle()
