@@ -3,21 +3,22 @@
 Circle::Circle(Renderer* rend) : Shape(rend)
 {
 	type = 'c';
-	cantVertex = 8;
-	int radius = 5;
+	cantVertex = 20;
+	float radius = 1;
 
 	vertexes = new float[cantVertex * 3];
-	vertexes[0] = 0.0f;
-	vertexes[1] = 0.0f;
-	vertexes[2] = 0.0f;
-	float degrees = (cantVertex - 2.0f / 360.0f);
-	float auxAngle = 0.0f;
-	for (int i = 1; i < cantVertex; i += 3) 
+	glm::vec3 vec;
+	float angle = 0.0f;
+	float PI = 3.14f;
+	float degrees = 360.0f / cantVertex;
+
+	for (int i = 0; i < cantVertex * 3; i += 3)
 	{
-		vertexes[i] = cos(auxAngle) * radius;
-		vertexes[i + 1] = sin(auxAngle) * radius;
-		vertexes[i + 2] = 0.0f;
-		auxAngle += degrees;
+		vec = glm::vec3(cos(angle), sin(angle), 0) * radius;
+		vertexes[i] = vec.x;
+		vertexes[i + 1] = vec.y;
+		vertexes[i + 2] = vec.z;
+		angle += degrees * PI / 180.0f;
 	}
 
 	SetVertex(vertexes, cantVertex);
