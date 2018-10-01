@@ -1,13 +1,15 @@
 #include "Triangle.h"
 
-Triangle::Triangle(Renderer* rend) : Entity(rend)
+Triangle::Triangle(Renderer* rend) : Shape(rend)
 {
-	material = NULL;
-	vertexes = NULL;
-	vertexColors = NULL;
-	vertexBufferID = -1;
-	colorBufferID = -1;
+	type = 't';
 	cantVertex = 3;
+
+	vertexes = new float[9]{
+		-1.0f, -1.0f, 0.0f,
+		1.0f, -1.0f, 0.0f,
+		0.0f,  1.0f, 0.0f,
+	};
 
 	SetVertex(vertexes, cantVertex);
 	SetColors(vertexColors, cantVertex);
@@ -15,28 +17,6 @@ Triangle::Triangle(Renderer* rend) : Entity(rend)
 
 Triangle::~Triangle()
 {
-}
-
-void Triangle::SetVertex(float* vertex, int cant)
-{
-	vertex = new float[9]{
-		-1.0f, -1.0f, 0.0f,
-		1.0f, -1.0f, 0.0f,
-		0.0f,  1.0f, 0.0f,
-	};
-
-	vertexBufferID = renderer->GenVertexBuffer(vertex, sizeof(float) * cant * 3);
-}
-
-void Triangle::SetColors(float* vColor, int cant)
-{
-	vColor = new float[9]{
-		0.583f,  0.771f,  0.014f,
-		0.609f,  0.115f,  0.436f,
-		0.327f,  0.483f,  0.844f,
-	};
-
-	colorBufferID = renderer->GenColorBuffer(vColor, sizeof(float) * cant * 3);
 }
 
 void Triangle::Draw() 
@@ -49,10 +29,9 @@ void Triangle::Draw()
 		material->Bind();
 		material->SetMatrixProperty("MVP", renderer->GetMVP());
 	}
-	renderer->Draw(vertexBufferID, colorBufferID, cantVertex);
-}
 
-void Triangle::SetMaterial(Material* mat) 
-{
-	material = mat;
+	renderer->EnableAtribArray(0);
+	renderer->BindBuffer(vertexBufferID, 0);
+	renderer->Draw(type, cantVertex);
+	renderer->DisableBuffer(0);
 }

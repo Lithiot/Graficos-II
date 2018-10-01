@@ -1,15 +1,23 @@
 #include "Square.h"
 
-
-
-Square::Square(Renderer* rend) : Entity(rend)
+Square::Square(Renderer* rend) : Shape(rend)
 {
-	material = NULL;
-	vertexes = NULL;
-	vertexColors = NULL;
-	vertexBufferID = -1;
-	colorBufferID = -1;
+	type = 's';
 	cantVertex = 4;
+
+	vertexes = new float[cantVertex * 3]{
+		-1.0f, -1.0f, 0.0f,
+		1.0f, -1.0f, 0.0f,
+		-1.0f,  1.0f, 0.0f,
+		1.0f, 1.0f, 0.0f
+	};
+
+	vertexColors = new float[cantVertex * 3]{
+		0.583f,  0.771f,  0.014f,
+		0.609f,  0.115f,  0.436f,
+		0.327f,  0.483f,  0.844f,
+		0.822f,  0.569f,  0.201f,
+	};
 
 	SetVertex(vertexes, cantVertex);
 	SetColors(vertexColors, cantVertex);
@@ -17,30 +25,6 @@ Square::Square(Renderer* rend) : Entity(rend)
 
 Square::~Square()
 {
-}
-
-void Square::SetVertex(float* vertex, int cant)
-{
-	vertex = new float[12]{
-		-1.0f, -1.0f, 0.0f,
-		1.0f, -1.0f, 0.0f,
-		-1.0f,  1.0f, 0.0f,
-		1.0f, 1.0f, 0.0f
-	};
-
-	vertexBufferID = renderer->GenVertexBuffer(vertex, sizeof(float) * cant * 3);
-}
-
-void Square::SetColors(float* vColor, int cant) 
-{
-	vColor = new float[12]{
-		0.583f,  0.771f,  0.014f,
-		0.609f,  0.115f,  0.436f,
-		0.327f,  0.483f,  0.844f,
-		0.822f,  0.569f,  0.201f,
-	};
-
-	colorBufferID = renderer->GenColorBuffer(vColor, sizeof(float) * cant * 3);
 }
 
 void Square::Draw()
@@ -53,10 +37,12 @@ void Square::Draw()
 		material->Bind();
 		material->SetMatrixProperty("MVP", renderer->GetMVP());
 	}
-	renderer->Draw(vertexBufferID, colorBufferID, cantVertex);
-}
 
-void Square::SetMaterial(Material* mat)
-{
-	material = mat;
+	renderer->EnableAtribArray(0);
+	renderer->EnableAtribArray(1);
+	renderer->BindBuffer(vertexBufferID, 0);
+	renderer->BindBufferColor(colorBufferID, 1);
+	renderer->Draw(type, cantVertex);
+	renderer->DisableBuffer(0);
+	renderer->DisableBuffer(1);
 }

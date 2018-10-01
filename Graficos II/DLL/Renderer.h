@@ -23,7 +23,11 @@ public:
 	void ClearWindow();
 	unsigned int GenVertexBuffer(float* buffer, int size);
 	unsigned int GenColorBuffer(float* buffer, int size);
-	void Draw(unsigned int vtxbuffer, unsigned int colorBuffer, int size);
+	void EnableAtribArray(int id);
+	void BindBuffer(unsigned int vtxbuffer, int id);
+	void BindBufferColor(unsigned int colorBuffer, int id);
+	void Draw(char type, int size);
+	void DisableBuffer(int id);
 	void UpdateMVP();
 	void SetModel(glm::mat4 mod);
 	void LoadIdentityMatrix();

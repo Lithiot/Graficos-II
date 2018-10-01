@@ -77,33 +77,50 @@ unsigned int Renderer::GenColorBuffer(float* buffer, int size)
 	return colorbuffer;
 }
 
-void Renderer::Draw(unsigned int vtxbuffer, unsigned int colorBuffer, int size)
+void Renderer::EnableAtribArray(int id) 
 {
-	glEnableVertexAttribArray(0);
+	glEnableVertexAttribArray(id);
+}
+
+void Renderer::BindBuffer(unsigned int vtxbuffer, int id)
+{
 	glBindBuffer(GL_ARRAY_BUFFER, vtxbuffer);
 	glVertexAttribPointer(
-		0,                  
-		3,                  
-		GL_FLOAT,           
-		GL_FALSE,           
-		0,                  
-		(void*)0            
-	);
-
-	glEnableVertexAttribArray(1);
-	glBindBuffer(GL_ARRAY_BUFFER, colorBuffer);
-	glVertexAttribPointer(
-		1,
+		id,
 		3,
 		GL_FLOAT,
 		GL_FALSE,
 		0,
 		(void*)0
 	);
-	
-	glDrawArrays(GL_TRIANGLE_STRIP, 0, size); 
-	glDisableVertexAttribArray(0);
-	glDisableVertexAttribArray(1);
+}
+
+void Renderer::BindBufferColor(unsigned int colorBuffer, int id)
+{
+	glBindBuffer(GL_ARRAY_BUFFER, colorBuffer);
+	glVertexAttribPointer(
+		id,
+		3,
+		GL_FLOAT,
+		GL_FALSE,
+		0,
+		(void*)0
+	);
+}
+
+void Renderer::Draw(char type, int size) 
+{
+	if(type == 't')
+		glDrawArrays(GL_TRIANGLE_STRIP, 0, size);
+	else if(type == 's')
+		glDrawArrays(GL_TRIANGLE_STRIP, 0, size);
+	else if(type == 'c')
+		glDrawArrays(GL_TRIANGLE_FAN, 0, size);
+}
+
+void Renderer::DisableBuffer(int id) 
+{
+	glDisableVertexAttribArray(id);
 }
 
 void Renderer::UpdateMVP()
