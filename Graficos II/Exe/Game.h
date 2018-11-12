@@ -1,5 +1,6 @@
 #pragma once
 #include <GameBase.h>
+#include <TextureLoader.h>
 #include <Triangle.h>
 #include <Square.h>
 #include <Circle.h>
@@ -11,6 +12,7 @@ private:
 	Circle* circle1;
 	Material* mat1;
 	Material* mat2;
+	Material* mat3;
 	unsigned int programID;
 	float vel;
 public:

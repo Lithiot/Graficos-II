@@ -23,9 +23,11 @@ public:
 	void ClearWindow();
 	unsigned int GenVertexBuffer(float* buffer, int size);
 	unsigned int GenColorBuffer(float* buffer, int size);
+	unsigned int GenTextureBuffer(int width, int height, const void* data);
 	void EnableAtribArray(int id);
 	void BindBuffer(unsigned int vtxbuffer, int id);
 	void BindBufferColor(unsigned int colorBuffer, int id);
+	void BindTextureBuffer(unsigned int txtrebuffer, unsigned int atribId);
 	void Draw(char type, int size);
 	void DisableBuffer(int id);
 	void UpdateMVP();

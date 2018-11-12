@@ -1,22 +1,20 @@
 #pragma once
-#include "Exports.h"
+#include "Exports.h" 
+#include <stdio.h>
+#include <stdlib.h>
 
 struct InfoBMP
 {
-	unsigned char header[54];
 	unsigned int dataPos;
 	unsigned int width, height;
 	unsigned int imageSize;
-	unsigned char  * data;
+	unsigned char* data;
 };
 
-class ENGINE_API TextureLoader
+static class ENGINE_API TextureLoader
 {
-private:
-	InfoBMP info;
 public:
-	TextureLoader();
-	~TextureLoader();
-	unsigned int loadBMP(const char * imagepath);
+	static InfoBMP LoadBMP(const char* BMPname);
+	static bool RightBMPFormat(unsigned char  BMPheader[], FILE * BMPfile);
 };
 

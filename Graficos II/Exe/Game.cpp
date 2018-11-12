@@ -11,15 +11,28 @@ Game::~Game()
 bool Game::OnStart()
 {
 	mat1 = new Material();
-	mat2 = new Material();
 	programID = mat1->LoadShaders("vertexshader.txt", "fragmentshader.txt");
 	triangle1 = new Triangle(rend);
 	triangle1->SetMaterial(mat1);
-	circle1 = new Circle(rend);
-	circle1->SetMaterial(mat1);
-	programID = mat2->LoadShaders("colorvertexshader.txt", "colorfragmentshader.txt");
+	
+	mat3 = new Material();
+	programID = mat3->LoadShaders("texturevertexshader.txt", "texturefragmentshader.txt");
 	square1 = new Square(rend);
-	square1->SetMaterial(mat2);
+	square1->SetMaterial(mat3);
+	//circle1 = new Circle(rend);
+	//circle1->SetMaterial(mat1);
+	
+	//mat2 = new Material();
+	//programID = mat2->LoadShaders("colorvertexshader.txt", "colorfragmentshader.txt");
+
+	
+
+	triangle1->SetTranslation(6, 0, 0);
+	//square1->SetTranslation(3, 0, 0);
+	circle1->SetTranslation(0, 0, 0);
+
+	unsigned char i = TextureLoader::LoadBMP("uvtemplate.bmp");
+
 	std::cout << "Game::Start()" << std::endl;
 	return true;
 } 
@@ -41,8 +54,8 @@ bool Game::OnLoop()
 
 bool Game::OnDraw()
 {
-	circle1->Draw();
-	triangle1->Draw();
-	square1->Draw();
+	//circle1->Draw();
+	//triangle1->Draw();
+	//square1->Draw();
 	return true;
 }
