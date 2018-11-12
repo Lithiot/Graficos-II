@@ -1,15 +1,17 @@
 #pragma once
 #include "Entity.h"
 #include "Material.h"
+#include "TextureLoader.h"
 class ENGINE_API Shape : public Entity
 {
 private:
-
+	
 protected:
+	InfoBMP header;
 	char type;
 	float* vertexes;
 	float* vertexColors;
-	float* vertexTexture;
+	float* vertexUVTexture;
 	int cantVertex;
 	unsigned int vertexBufferID;
 	unsigned int colorBufferID;
@@ -23,4 +25,5 @@ public:
 	void SetColors(float* vColor, int cant);
 	void SetVertex(float* vertex, int cant);
 	void SetTextures(float* vertex, int cant);
+	void LoadTexture(const char* name);
 };

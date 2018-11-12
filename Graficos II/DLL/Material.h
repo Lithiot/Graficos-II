@@ -13,5 +13,6 @@ public:
 	unsigned int LoadShaders(const char* vertex_file_path, const char* fragment_file_path);
 	void Bind();
 	void SetMatrixProperty(const char* name, glm::mat4& mvp);
+	void SetTextures(float* vertex, int cant);
 };
 
