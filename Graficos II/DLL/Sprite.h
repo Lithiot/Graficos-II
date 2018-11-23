@@ -1,6 +1,6 @@
 #pragma once
 #include "Shape.h"
-class Sprite : public Shape
+class ENGINE_API Sprite : public Shape
 {
 private:
 	const char* file;

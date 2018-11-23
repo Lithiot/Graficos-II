@@ -12,8 +12,7 @@ Sprite::Sprite(Renderer* rend) : Shape(rend)
 		-1.0f, 1.0f , 0.0f ,
 		1.0f, 1.0f , 0.0f
 	};
-	SetVertex(vertexes, 4);
-
+	
 	vertexUVTexture = new float[8]
 	{
 		0.0f,0.0f,
@@ -21,6 +20,8 @@ Sprite::Sprite(Renderer* rend) : Shape(rend)
 		1.0f,0.0f,
 		1.0f,1.0f
 	};
+
+	SetVertex(vertexes, 4);
 	SetTextures(vertexUVTexture, cantVertex);
 }
 
@@ -38,12 +39,13 @@ void Sprite::Draw()
 		material->Bind();
 		material->SetMatrixProperty("MVP", renderer->GetMVP());
 	}
-
+	
 	renderer->EnableAtribArray(0);
 	renderer->EnableAtribArray(1);
 	renderer->BindBuffer(vertexBufferID, 0);
-	renderer->BindTextureBuffer(colorBufferID, 1);
+	renderer->BindTextureBuffer(textureBufferId, 1);
 	renderer->Draw(type, cantVertex);
 	renderer->DisableBuffer(0);
 	renderer->DisableBuffer(1);
+	
 }

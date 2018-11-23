@@ -124,11 +124,11 @@ void Renderer::BindBufferColor(unsigned int colorBuffer, int id)
 	);
 }
 
-void Renderer::BindTextureBuffer(unsigned int txtrebuffer, unsigned int atribId)
+void Renderer::BindTextureBuffer(unsigned int txtrebuffer, unsigned int id)
 {
 	glBindBuffer(GL_ARRAY_BUFFER, txtrebuffer);
 	glVertexAttribPointer(
-		atribId,
+		id,
 		2,
 		GL_FLOAT,
 		GL_FALSE,
