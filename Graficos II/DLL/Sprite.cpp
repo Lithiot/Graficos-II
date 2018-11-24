@@ -38,6 +38,7 @@ void Sprite::Draw()
 	{
 		material->Bind();
 		material->SetMatrixProperty("MVP", renderer->GetMVP());
+		material->BindTexture("myTextureSampler", textureBufferId);
 	}
 	
 	renderer->EnableAtribArray(0);
