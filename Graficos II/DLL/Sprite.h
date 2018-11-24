@@ -10,5 +10,7 @@ public:
 	Sprite(Renderer* rend);
 	~Sprite();
 	void Draw() override;
+	void SetTextures(float* vertex, int cant);
+	void LoadTexture(const char* name);
 };
 

@@ -16,6 +16,7 @@ protected:
 	unsigned int vertexBufferID;
 	unsigned int colorBufferID;
 	unsigned int textureBufferId;
+	unsigned int textureUVBufferId;
 	Material* material;
 	virtual void Draw() = 0;
 public:
@@ -24,6 +25,5 @@ public:
 	void SetMaterial(Material* mat);
 	void SetColors(float* vColor, int cant);
 	void SetVertex(float* vertex, int cant);
-	void SetTextures(float* vertex, int cant);
-	void LoadTexture(const char* name);
+
 };
