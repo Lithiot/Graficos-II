@@ -1,16 +1,19 @@
 #pragma once
 #include "Shape.h"
+#include "Animacion.h"
 class ENGINE_API Sprite : public Shape
 {
 private:
 	const char* file;
+	Animacion* animator;
 	unsigned int textureBufferId;
 	unsigned int textureVtxCount;
 public:
-	Sprite(Renderer* rend);
+	Sprite(Renderer* rend, float y, float x, int totalFrames);
 	~Sprite();
 	void Draw() override;
 	void SetTextures(float* vertex, int cant);
 	void LoadTexture(const char* name);
+	void UpdateFrame();
 };
 

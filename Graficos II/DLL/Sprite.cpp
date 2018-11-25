@@ -1,9 +1,10 @@
 #include "Sprite.h"
 
-Sprite::Sprite(Renderer* rend) : Shape(rend)
+Sprite::Sprite(Renderer* rend, float y, float x, int totalFrames) : Shape(rend)
 {
 	type = 's';
 	cantVertex = 4;
+	animator = new Animacion(y, x, totalFrames);
 
 	vertexes = new float[12]
 	{
@@ -13,13 +14,7 @@ Sprite::Sprite(Renderer* rend) : Shape(rend)
 		1.0f, 1.0f , 0.0f
 	};
 	
-	vertexUVTexture = new float[8]
-	{
-		0.0f,0.0f,
-		1.0f,0.0f,
-		0.0f,1.0f,
-		1.0f,1.0f 
-	};
+	vertexUVTexture = animator->CalculateFrame();
 
 	SetVertex(vertexes, 4);
 	SetTextures(vertexUVTexture, 4);
@@ -60,4 +55,10 @@ void Sprite::Draw()
 	renderer->DisableBuffer(0);
 	renderer->DisableBuffer(1);
 	
+}
+
+void Sprite::UpdateFrame() 
+{
+	vertexUVTexture = animator->CalculateFrame();
+	SetTextures(vertexUVTexture, 4);
 }

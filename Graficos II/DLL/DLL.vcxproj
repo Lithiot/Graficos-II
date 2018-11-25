@@ -124,6 +124,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="Animacion.h" />
     <ClInclude Include="Circle.h" />
     <ClInclude Include="Entity.h" />
     <ClInclude Include="Exports.h" />
@@ -139,6 +140,7 @@
     <ClInclude Include="Window.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Animacion.cpp" />
     <ClCompile Include="Circle.cpp" />
     <ClCompile Include="Entity.cpp" />
     <ClCompile Include="GameBase.cpp" />
