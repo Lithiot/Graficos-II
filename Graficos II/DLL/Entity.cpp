@@ -2,11 +2,12 @@
 #define GLM_ENABLE_EXPERIMENTAL
 #include <glm/gtx/transform.hpp>
 
-Entity::Entity(Renderer* rend) : renderer(rend), model(1.0f), 
+Entity::Entity(Renderer* rend, float width, float height, Layers layer) : renderer(rend), model(1.0f), 
 								 translation(0.0f, 0.0f, 0.0f), rotation(0.0f, 0.0f, 0.0f),
 								 scale(1.0f, 1.0f, 1.0f), translationMatrix(1.0f),
 								 rotationMatrix(1.0f), scaleMatrix(1.0f)
 {
+	collider = new BoundingBox(width, height, layer);
 }
 
 Entity::~Entity()
@@ -54,12 +55,12 @@ void Entity::SetScale(float x, float y, float z)
 	UpdateModel();
 }
 
-void Entity::UpdateModel() 
+void Entity::UpdateModel()
 {
 	model = translationMatrix * rotationMatrix * scaleMatrix;
 }
 
-glm::vec3 Entity::GetTranslation() 
+glm::vec3 Entity::GetTranslation()
 {
 	return translation;
 }
@@ -79,4 +80,8 @@ float Entity::GetRotationZ()
 glm::vec3 Entity::GetScale() 
 {
 	return scale;
+}
+int Entity::GetLayer() 
+{
+	return collider->GetLayer();
 }
