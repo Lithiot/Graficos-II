@@ -33,6 +33,7 @@ void GameBase::loop()
 {
 	do
 	{
+		//DeltaTime::Instance()->Update();
 		quit = OnLoop();
 		rend->ClearWindow();
 		OnDraw();

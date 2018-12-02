@@ -9,7 +9,7 @@ private:
 	unsigned int textureBufferId;
 	unsigned int textureVtxCount;
 public:
-	Sprite(Renderer* rend, float y, float x, int totalFrames);
+	Sprite(Renderer* rend, float x, float y, int totalFrames);
 	~Sprite();
 	void Draw() override;
 	void SetTextures(float* vertex, int cant);

@@ -1,20 +1,16 @@
 #pragma once
 #include "Exports.h"
 #include "Entity.h"
-#include <vector>
+#include "Layers.h"
 #include <list>
-#include <iterator>
+#include <vector>
 
 using namespace std;
-
-enum Layers
-{
-	player,	Enemy, Count
-};
 
 class ENGINE_API CollisionManager
 {
 private:
+	static CollisionManager* instance;
 	vector<list<Entity*>*> registeredEntities;
 public:
 	CollisionManager();
@@ -23,5 +19,14 @@ public:
 	void CheckCollisions();
 	void ResolveCollision(Entity* A, Entity* B);
 	void CollisionResolver(int i, int j);
+
+	static CollisionManager* Instance()
+	{
+		if (instance == NULL)
+		{
+			instance = new CollisionManager();
+		}
+		return instance;
+	}
 };
 

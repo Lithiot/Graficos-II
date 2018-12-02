@@ -1,5 +1,6 @@
 #pragma once
 #include "Exports.h"
+#include "DeltaTime.h"
 class ENGINE_API Animacion
 {
 private:
@@ -8,6 +9,8 @@ private:
 	float timer;
 	float cantY;
 	float cantX;
+	float row;
+	float column;
 	float frameWidth;
 	float frameHeight;
 	float* frame;

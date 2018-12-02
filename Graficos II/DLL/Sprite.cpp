@@ -1,17 +1,17 @@
 #include "Sprite.h"
 
-Sprite::Sprite(Renderer* rend, float y, float x, int totalFrames) : Shape(rend)
+Sprite::Sprite(Renderer* rend, float x, float y, int totalFrames) : Shape(rend)
 {
 	type = 's';
 	cantVertex = 4;
-	animator = new Animacion(y, x, totalFrames);
+	animator = new Animacion(x, y, totalFrames);
 
 	vertexes = new float[12]
 	{
-		-1.0f,-1.0f , 0.0f ,
-		1.0f,-1.0f , 0.0f ,
 		-1.0f, 1.0f , 0.0f ,
-		1.0f, 1.0f , 0.0f
+		1.0f, 1.0f , 0.0f ,
+		-1.0f, -1.0f , 0.0f ,
+		1.0f, -1.0f , 0.0f
 	};
 	
 	vertexUVTexture = animator->CalculateFrame();
@@ -57,7 +57,7 @@ void Sprite::Draw()
 	
 }
 
-void Sprite::UpdateFrame() 
+void Sprite::UpdateFrame()
 {
 	vertexUVTexture = animator->CalculateFrame();
 	SetTextures(vertexUVTexture, 4);
