@@ -27,6 +27,7 @@ Circle::Circle(Renderer* rend) : Shape(rend)
 
 Circle::~Circle()
 {
+	delete vertexes;
 }
 
 void Circle::Draw()

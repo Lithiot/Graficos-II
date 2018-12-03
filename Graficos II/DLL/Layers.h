@@ -6,6 +6,8 @@ enum Layers
 {
 	player = 0,
 	Enemy,
+	meh,
+	entities,
 	Count
 };
 

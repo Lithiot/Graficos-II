@@ -13,6 +13,7 @@ CollisionManager::CollisionManager()
 
 CollisionManager::~CollisionManager()
 {
+	
 }
 
 void CollisionManager::RegisterEntity(Entity* entity)

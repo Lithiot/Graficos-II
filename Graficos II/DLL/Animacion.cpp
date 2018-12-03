@@ -8,6 +8,7 @@ Animacion::Animacion(float x, float y, int totalframes) : cantX(x), cantY(y), ac
 
 Animacion::~Animacion()
 {
+	delete frame;
 }
 
 void Animacion::SetActualFrame(int frame)

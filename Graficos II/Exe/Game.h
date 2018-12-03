@@ -10,10 +10,17 @@
 class Game : public GameBase
 {
 private:
-	Sprite* sprite2;
+	Triangle* triangle1;
+	Square* square1;
+	Circle* circle1;
 	Sprite* sprite1;
+	Sprite* sprite2;
+	Sprite* sprite3;
+	Material* mat1;
 	Material* mat2;
 	Material* mat3;
+	Material* mat4;
+	Material* mat5;
 	unsigned int programID;
 	float vel;
 public:
