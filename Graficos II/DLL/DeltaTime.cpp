@@ -37,3 +37,8 @@ void DeltaTime::Update()
 	deltaTime = CalculateDeltaTime();
 	lastTime = currentTime;
 }
+
+void DeltaTime::DestroyInstance() 
+{
+	delete instance;
+}

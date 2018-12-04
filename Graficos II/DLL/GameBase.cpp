@@ -7,6 +7,8 @@ GameBase::GameBase() :wind(new Window()), rend(new Renderer()), quit(false)
 
 GameBase::~GameBase()
 {
+	delete wind;
+	delete rend;
 }
 
 bool GameBase::Start()

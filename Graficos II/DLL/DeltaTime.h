@@ -17,6 +17,7 @@ public:
 	void SetCurrentTime(double time);
 	double CalculateDeltaTime();
 	void Update();
+	void DestroyInstance();
 
 	static DeltaTime* Instance()
 	{

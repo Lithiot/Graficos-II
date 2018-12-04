@@ -22,6 +22,8 @@ Sprite::Sprite(Renderer* rend, float x, float y, int totalFrames) : Shape(rend)
 
 Sprite::~Sprite()
 {
+	delete animator;
+	delete[] vertexes;
 }
 
 void Sprite::SetTextures(float* vertex, int cant)

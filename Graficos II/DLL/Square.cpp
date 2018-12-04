@@ -25,6 +25,8 @@ Square::Square(Renderer* rend) : Shape(rend)
 
 Square::~Square()
 {
+	delete[] vertexes;
+	delete[] vertexColors;
 }
 
 void Square::Draw()

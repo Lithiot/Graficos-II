@@ -10,6 +10,7 @@ Entity::Entity(Renderer* rend) : renderer(rend), model(1.0f),
 }
 Entity::~Entity()
 {
+	delete collider;
 }
 void Entity::SetTranslation(float x, float y, float z)
 {

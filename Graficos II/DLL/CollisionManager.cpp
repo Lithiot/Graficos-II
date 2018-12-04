@@ -13,7 +13,7 @@ CollisionManager::CollisionManager()
 
 CollisionManager::~CollisionManager()
 {
-	
+	registeredEntities.clear();
 }
 
 void CollisionManager::RegisterEntity(Entity* entity)
@@ -117,5 +117,9 @@ void CollisionManager::ResolveCollision(Entity* A, Entity* B)
 			}
 		}
 	}
+}
 
+void CollisionManager::DestroyInstance() 
+{
+	delete instance;
 }

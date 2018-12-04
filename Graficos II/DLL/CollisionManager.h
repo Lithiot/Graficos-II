@@ -19,6 +19,7 @@ public:
 	void CheckCollisions();
 	void ResolveCollision(Entity* A, Entity* B);
 	void CollisionResolver(int i, int j);
+	void DestroyInstance();
 
 	static CollisionManager* Instance()
 	{
