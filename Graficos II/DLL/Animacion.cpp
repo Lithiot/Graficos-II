@@ -27,7 +27,7 @@ float* Animacion::CalculateFrame()
 	{
 		frame[0] = 0.0f;
 		frame[1] = 0.0f;
-		frame[2] = frameWidth ;
+		frame[2] = frameWidth;
 		frame[3] = 0.0f;
 		frame[4] = 0.0f;
 		frame[5] = -frameHeight;

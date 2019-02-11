@@ -22,6 +22,7 @@ Game::~Game()
 
 bool Game::OnStart()
 {	
+	
 	mat1 = new Material();
 	programID = mat1->LoadShaders("colorvertexshader.txt", "colorfragmentshader.txt");
 	square1 = new Square(rend);
@@ -63,6 +64,11 @@ bool Game::OnStart()
 	sprite3->LoadTexture("megaman.bmp");
 	sprite3->SetCollider(1.8f, 1.8f, meh, false);
 	CollisionManager::Instance()->RegisterEntity(sprite3);
+	
+
+	tileMat = new Material();
+	programID = tileMat->LoadShaders("texturevertexshader.txt", "texturefragmentshader.txt");
+	tilemap1 = new Tilemap(rend, "map.csv", 18, 18, tileMat, "tiles.bmp", 10, 4);
 
 	sprite1->SetTranslation(-5, 0, 0);
 	sprite2->SetTranslation(0, 0, 0);
@@ -70,6 +76,7 @@ bool Game::OnStart()
 	triangle1->SetTranslation(-5, 5, 0);
 	square1->SetTranslation(5, 5, 0);
 	circle1->SetTranslation(-5, -5, 0);
+	
 
 	std::cout << "Game::Start()" << std::endl;
 	return true;
@@ -84,26 +91,32 @@ bool Game::OnStop()
 bool Game::OnLoop()
 {
 	DeltaTime::Instance()->Update();
-
+	
 	sprite1->UpdateFrame();
 	sprite2->UpdateFrame();
 	sprite3->UpdateFrame();
 
 	sprite1->SetTranslation(sprite1->GetPosX() + 0.01f, sprite1->GetPosY(), 0.0f);
 	sprite3->SetTranslation(sprite3->GetPosX(), sprite3->GetPosY() - 0.01f, 0.0f);
-
+	
 	CollisionManager::Instance()->CheckCollisions();
+	
 	std::cout << "Game::Loop()" << std::endl;
 	return true;
 }
 
 bool Game::OnDraw()
 {
+	/*
 	sprite1->Draw();
 	sprite2->Draw();
 	sprite3->Draw();
 	triangle1->Draw();
-	square1->Draw();
 	circle1->Draw();
+	square1->Draw();
+	*/
+	
+	 tilemap1->Drawtiles();
+
 	return true;
 }

@@ -19,7 +19,8 @@ void Entity::SetTranslation(float x, float y, float z)
 	translation[2] = z;
 
 	translationMatrix = glm::translate(glm::mat4(1.0f), translation);
-	collider->SetPosition(translation);
+	if(collider)
+		collider->SetPosition(translation);
 	UpdateModel();
 }
 void Entity::SetRotationX(float x) 

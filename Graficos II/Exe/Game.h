@@ -6,6 +6,7 @@
 #include <Square.h>
 #include <Circle.h>
 #include <Sprite.h>
+#include <Tilemap.h>
 #include <DeltaTime.h>
 class Game : public GameBase
 {
@@ -21,6 +22,9 @@ private:
 	Material* mat3;
 	Material* mat4;
 	Material* mat5;
+	Material* tileMat;
+	Tilemap* tilemap1;
+	Tile* tile;
 	unsigned int programID;
 	float vel;
 public:
