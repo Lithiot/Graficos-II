@@ -5,12 +5,15 @@
 #include <vector>
 #include "Tile.h"
 #include "Exports.h"
+#include "CollisionManager.h"
 using namespace std;
 class ENGINE_API Tilemap
 {
 private:
+	Renderer* renderer;
 	const char* file;
 	vector<int>* mapIds;
+	vector<int>* collisionableIds;
 	vector<Tile*>* tiles;
 	Material* tilesMat;
 	float height;
@@ -24,5 +27,7 @@ public:
 	~Tilemap();
 	void Loadfile();
 	void Drawtiles();
+	void RegisterCollisionableIds(int id);
+	void LoadTiles();
 };
 

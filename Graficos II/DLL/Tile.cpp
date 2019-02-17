@@ -63,13 +63,16 @@ void Tile::CalculateTile()
 	vertexUVTexture = new float[8];
 	
 	vertexUVTexture[0] = 0.0f;
-	vertexUVTexture[1] = 0.0f;
+	vertexUVTexture[1] = 1.0f;
+
 	vertexUVTexture[2] = tileW;
-	vertexUVTexture[3] = 0.0f;
+	vertexUVTexture[3] = 1.0f;
+	
 	vertexUVTexture[4] = 0.0f;
-	vertexUVTexture[5] = -tileH;
+	vertexUVTexture[5] = 1.0f - tileH;
+	
 	vertexUVTexture[6] = tileW;
-	vertexUVTexture[7] = -tileH;
+	vertexUVTexture[7] = 1.0f - tileH;
 
 	int row = 0;
 	int column = id;
@@ -80,19 +83,20 @@ void Tile::CalculateTile()
 		row++;
 	}
 
-	if (id > 29)
-		row += 2;
-
-	if(id < 20 && id > 9)
-		row -= 2;
-
 	vertexUVTexture[0] += tileW * column;
-	vertexUVTexture[1] += tileH * row;
+	vertexUVTexture[1] -= tileH * row;
+
 	vertexUVTexture[2] += tileW * column;
-	vertexUVTexture[3] += tileH * row;
+	vertexUVTexture[3] -= tileH * row;
+
 	vertexUVTexture[4] += tileW * column;
-	vertexUVTexture[5] += tileH * row;
+	vertexUVTexture[5] -= tileH * row;
+
 	vertexUVTexture[6] += tileW * column;
-	vertexUVTexture[7] += tileH * row;
-	
+	vertexUVTexture[7] -= tileH * row;
+}
+
+int Tile::GetId() 
+{
+	return id;
 }

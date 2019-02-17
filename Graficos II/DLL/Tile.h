@@ -15,5 +15,6 @@ public:
 	void SetTextures(float* vertex, int cant);
 	void LoadTexture(const char* name);
 	void CalculateTile();
+	int GetId();
 };
 

@@ -27,20 +27,20 @@ bool Game::OnStart()
 	programID = mat1->LoadShaders("colorvertexshader.txt", "colorfragmentshader.txt");
 	square1 = new Square(rend);
 	square1->SetMaterial(mat1);
-	square1->SetCollider(2.0f, 2.0f, entities, true);
-	CollisionManager::Instance()->RegisterEntity(square1);
+	square1->SetCollider(2.0f, 2.0f, Entities, true);
+	//CollisionManager::Instance()->RegisterEntity(square1);
 
 	mat2 = new Material();
 	programID = mat2->LoadShaders("vertexshader.txt", "fragmentshader.txt");
 	circle1 = new Circle(rend);
 	circle1->SetMaterial(mat2);
-	circle1->SetCollider(2.0f, 2.0f, entities, true);
-	CollisionManager::Instance()->RegisterEntity(circle1);
+	circle1->SetCollider(2.0f, 2.0f, Entities, true);
+	//CollisionManager::Instance()->RegisterEntity(circle1);
 
 	triangle1 = new Triangle(rend);
 	triangle1->SetMaterial(mat1);
-	triangle1->SetCollider(2.0f, 2.0f, entities, true);
-	CollisionManager::Instance()->RegisterEntity(triangle1);
+	triangle1->SetCollider(2.0f, 2.0f, Entities, true);
+	//CollisionManager::Instance()->RegisterEntity(triangle1);
 
 	mat3 = new Material();
 	programID = mat3->LoadShaders("texturevertexshader.txt", "texturefragmentshader.txt");
@@ -48,7 +48,7 @@ bool Game::OnStart()
 	sprite1->SetMaterial(mat3);
 	sprite1->LoadTexture("megaman.bmp");
 	sprite1->SetCollider(1.8f, 1.8f, player, false);
-	CollisionManager::Instance()->RegisterEntity(sprite1);
+	//CollisionManager::Instance()->RegisterEntity(sprite1);
 
 	mat4 = new Material();
 	programID = mat4->LoadShaders("texturevertexshader.txt", "texturefragmentshader.txt");
@@ -56,19 +56,21 @@ bool Game::OnStart()
 	sprite2->SetMaterial(mat4);
 	sprite2->LoadTexture("uvtemplate.bmp");
 	sprite2->SetCollider(2.0f, 2.0f, Enemy, false);
-	CollisionManager::Instance()->RegisterEntity(sprite2);
+	//CollisionManager::Instance()->RegisterEntity(sprite2);
 
 	programID = mat3->LoadShaders("texturevertexshader.txt", "texturefragmentshader.txt");
 	sprite3 = new Sprite(rend, 8.0f, 2.0f, 14);
 	sprite3->SetMaterial(mat3);
 	sprite3->LoadTexture("megaman.bmp");
-	sprite3->SetCollider(1.8f, 1.8f, meh, false);
+	sprite3->SetCollider(1.8f, 1.8f, player, false);
 	CollisionManager::Instance()->RegisterEntity(sprite3);
 	
 
 	tileMat = new Material();
 	programID = tileMat->LoadShaders("texturevertexshader.txt", "texturefragmentshader.txt");
-	tilemap1 = new Tilemap(rend, "map.csv", 18, 18, tileMat, "tiles.bmp", 10, 4);
+	tilemap1 = new Tilemap(rend, "mapaGraficos.csv", 18, 18, tileMat, "Tileset.bmp", 9, 5);
+	tilemap1->RegisterCollisionableIds(0);
+	tilemap1->RegisterCollisionableIds(38);
 
 	sprite1->SetTranslation(-5, 0, 0);
 	sprite2->SetTranslation(0, 0, 0);
@@ -110,13 +112,13 @@ bool Game::OnDraw()
 	/*
 	sprite1->Draw();
 	sprite2->Draw();
-	sprite3->Draw();
 	triangle1->Draw();
 	circle1->Draw();
 	square1->Draw();
 	*/
 	
-	 tilemap1->Drawtiles();
+	tilemap1->Drawtiles();
+	sprite3->Draw();
 
 	return true;
 }
