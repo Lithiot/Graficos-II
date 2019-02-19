@@ -182,3 +182,8 @@ void Renderer::LoadIdentityMatrix()
 {
 	model = glm::mat4(1.0f);
 }
+
+Window* Renderer::GetWindow()
+{
+	return _window;
+}

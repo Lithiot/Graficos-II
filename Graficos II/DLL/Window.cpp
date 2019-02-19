@@ -11,6 +11,10 @@ Window::~Window()
 
 bool Window::Start(int width,  int height, const char* name) 
 {
+	_width = width;
+	_height = height;
+	_name = name;
+
 	if (!glfwInit()) 
 	{
 		std::cout << "gflwInit() no pudo ser iniciado" << std::endl;
@@ -51,4 +55,19 @@ void Window::PollEvents()
 void* Window::GetWindowPtr() 
 {
 	return window;
+}
+
+int Window::GetWidth() 
+{
+	return _width;
+}
+
+int Window::GetHeight() 
+{
+	return _height;
+}
+
+const char* Window::GetName() 
+{
+	return _name;
 }

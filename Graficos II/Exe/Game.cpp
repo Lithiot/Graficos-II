@@ -64,16 +64,16 @@ bool Game::OnStart()
 	sprite3->LoadTexture("megaman.bmp");
 	sprite3->SetCollider(1.8f, 1.8f, Entities, false);
 	CollisionManager::Instance()->RegisterEntity(sprite3);
-
+	
 	tileMat = new Material();
 	programID = tileMat->LoadShaders("texturevertexshader.txt", "texturefragmentshader.txt");
 	tileMap = new Tilemap(rend, 10, 10, "mapaGraficos.csv", 9.0f, 5.0f);
 	tileMap->SetMaterial(tileMat);
 	tileMap->LoadTexture("Tileset.bmp");
 
-	tileMap->SetScale(10, 10, 10);
-
-
+	//tileMap->SetScale(1, 1, 0);
+	cout << "Tilemap position is " << tileMap->GetPosX() << ", " << tileMap->GetPosY() << ", " << tileMap->GetPosZ() << endl;
+	
 	sprite1->SetTranslation(-5, 0, 0);
 	sprite2->SetTranslation(0, 0, 0);
 	sprite3->SetTranslation(0, 5, 0);

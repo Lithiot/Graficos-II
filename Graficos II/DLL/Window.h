@@ -5,6 +5,9 @@ class ENGINE_API Window
 {
 private:
 	void* window;
+	int _width;
+	int _height;
+	const char* _name;
 public:
 	Window();
 	~Window();
@@ -13,4 +16,7 @@ public:
 	void* GetWindowPtr();
 	bool ShouldClose();
 	void PollEvents();
+	int GetWidth();
+	int GetHeight();
+	const char* GetName();
 };

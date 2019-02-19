@@ -1,7 +1,7 @@
 #include "Tilemap.h"
 
-Tilemap::Tilemap(Renderer* rend, float width, float height, const char* filename, float cantTilesX, float cantTilesY) 
-		: Shape(rend), mapWidth(width), mapHeight(height), cantX(cantTilesX), cantY(cantTilesY)
+Tilemap::Tilemap(Renderer* rend, float width, float height, const char* filename, float cantTilesX, float cantTilesY)
+	: Shape(rend), mapWidth(width), mapHeight(height), cantX(cantTilesX), cantY(cantTilesY)
 {
 	type = 's';
 	cantVertex = width * height * 4 * 3;
@@ -9,38 +9,40 @@ Tilemap::Tilemap(Renderer* rend, float width, float height, const char* filename
 
 	vertexes = new float[cantVertex];
 
-	float tileW = 2.0f / width;
-	float tileH = 2.0f / height;
+	float tileW = 32.0f;
+	float tileH = 32.0f;
+
+	float screenH = rend->GetWindow()->GetHeight();
+	float screenW = rend->GetWindow()->GetWidth();
 
 	int column = 0;
 	int row = 0;
-
+	
 	// Debug variables
 	int j = 1;
 	int b = 1;
 
 	cout << "Creating tilemap Vertexes" << endl;
-
 	for (int i = 0; i < cantVertex; i = i + 12)
 	{
 		// Coordenada 1
-		vertexes[i] = -1.0f + tileW * column;
-		vertexes[i + 1] = 1.0f - tileH * row;
+		vertexes[i] = 0.0f + tileW * column;
+		vertexes[i + 1] = (screenH - tileH) - tileH * row;
 		vertexes[i + 2] = 0.0f;
 
 		// Coordenada 2
-		vertexes[i + 3] = (-1.0f + tileW) + tileW * column;
-		vertexes[i + 4] = 1.0f - tileH * row;
+		vertexes[i + 3] = (0.0f + tileW) + tileW * column;
+		vertexes[i + 4] = (screenH - tileH) - tileH * row;
 		vertexes[i + 5] = 0.0f;
 		
 		// Coordenada 3
-		vertexes[i + 6] = -1.0f + tileW * column;
-		vertexes[i + 7] = (1.0f - tileH) - tileH * row;
+		vertexes[i + 6] = 0.0f + tileW * column;
+		vertexes[i + 7] = screenH - tileH * row;
 		vertexes[i + 8] = 0.0f;
 		
 		// Coordenada 4
-		vertexes[i + 9] = (-1.0f + tileW) + tileW * column;
-		vertexes[i + 10] = (1.0f - tileH) - tileH * row;
+		vertexes[i + 9] = (0.0f + tileW) + tileW * column;
+		vertexes[i + 10] = screenH - tileH * row;
 		vertexes[i + 11] = 0.0f;
 
 		if (column >= width - 1)
@@ -170,6 +172,5 @@ void Tilemap::LoadUVs()
 		vertexUVTexture[i + 7] -= textureH * row;
 
 		idIndex++;
-
 	}
 }

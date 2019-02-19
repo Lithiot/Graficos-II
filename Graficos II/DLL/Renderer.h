@@ -34,6 +34,7 @@ public:
 	void SetModel(glm::mat4 mod);
 	void LoadIdentityMatrix();
 	void MultiplyModel(glm::mat4 mod);
+	Window* GetWindow();
 	glm::mat4& GetMVP();
 };
 
