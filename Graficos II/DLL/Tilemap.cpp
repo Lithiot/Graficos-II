@@ -1,34 +1,114 @@
 #include "Tilemap.h"
 
-Tilemap::Tilemap(Renderer* rend, const char* filename, float levelW, float levelH, Material* mat,
-				 const char* texturefile, float maxTilesX, float maxTilesY)
-	   : file(filename), mapIds(new vector<int>()), width(levelW), height(levelH), tilesMat(mat),
-		 tilesX(maxTilesX), tilesY(maxTilesY), texture(texturefile), renderer(rend)
+Tilemap::Tilemap(Renderer* rend, float width, float height, const char* filename, float cantTilesX, float cantTilesY) 
+		: Shape(rend), mapWidth(width), mapHeight(height), cantX(cantTilesX), cantY(cantTilesY)
 {
-	Loadfile();
-	collisionableIds = new vector<int>();
-	tiles = new vector<Tile*>();
+	type = 's';
+	cantVertex = width * height * 4 * 3;
+	cantUVvertex = width * height * 4 * 2;
 
-	LoadTiles();
+	vertexes = new float[cantVertex];
 
+	float tileW = 2.0f / width;
+	float tileH = 2.0f / height;
+
+	int column = 0;
+	int row = 0;
+
+	// Debug variables
+	int j = 1;
+	int b = 1;
+
+	cout << "Creating tilemap Vertexes" << endl;
+
+	for (int i = 0; i < cantVertex; i = i + 12)
+	{
+		// Coordenada 1
+		vertexes[i] = -1.0f + tileW * column;
+		vertexes[i + 1] = 1.0f - tileH * row;
+		vertexes[i + 2] = 0.0f;
+
+		// Coordenada 2
+		vertexes[i + 3] = (-1.0f + tileW) + tileW * column;
+		vertexes[i + 4] = 1.0f - tileH * row;
+		vertexes[i + 5] = 0.0f;
+		
+		// Coordenada 3
+		vertexes[i + 6] = -1.0f + tileW * column;
+		vertexes[i + 7] = (1.0f - tileH) - tileH * row;
+		vertexes[i + 8] = 0.0f;
+		
+		// Coordenada 4
+		vertexes[i + 9] = (-1.0f + tileW) + tileW * column;
+		vertexes[i + 10] = (1.0f - tileH) - tileH * row;
+		vertexes[i + 11] = 0.0f;
+
+		if (column >= width - 1)
+		{
+			column = 0;
+			row++;
+		}
+		else
+			column++;
+
+		cout << "|========== Tile " << b << " ==========|" << endl;
+		cout << "Vertex " << j << " = X: " << vertexes[i] << ", Y: " << vertexes[i + 1] << ", Z: " << vertexes[i + 2] << endl;
+		j++;
+		cout << "Vertex " << j << " = X: " << vertexes[i + 3] << ", Y: " << vertexes[i + 4] << ", Z: " << vertexes[i + 5] << endl;
+		j++;
+		cout << "Vertex " << j << " = X: " << vertexes[i + 6] << ", Y: " << vertexes[i + 7] << ", Z: " << vertexes[i + 8] << endl;
+		j++;
+		cout << "Vertex " << j << " = X: " << vertexes[i + 9] << ", Y: " << vertexes[i + 10] << ", Z: " << vertexes[i + 11] << endl;
+		b++;
+	}
+
+	mapIds = new vector<int>();
+	LoadMapIDs(filename);
+
+	vertexUVTexture = new float[cantUVvertex];
+	LoadUVs();
+
+	SetVertex(vertexes, cantVertex);
+	SetTextures(vertexUVTexture, cantUVvertex);
 }
 
 Tilemap::~Tilemap()
 {
 }
 
-void Tilemap::LoadTiles() 
+void Tilemap::SetTextures(float* vertex, int cant)
 {
-	for (int i = 0; i < mapIds->size(); i++)
-	{
-		Tile* x = new Tile(renderer, mapIds->at(i), tilesX, tilesY);
-		x->SetMaterial(tilesMat);
-		x->LoadTexture(texture);
-		tiles->push_back(x);
-	}
+	textureUVBufferId = renderer->GenVertexBuffer(vertex, sizeof(float)* cant * 2);
 }
 
-void Tilemap::Loadfile()
+void Tilemap::LoadTexture(const char* name)
+{
+	header = TextureLoader::LoadBMP(name);
+	textureBufferId = renderer->GenTextureBuffer(header.width, header.height, header.data);
+}
+
+void Tilemap::Draw()
+{
+	renderer->LoadIdentityMatrix();
+	renderer->SetModel(model);
+
+	if (material != NULL)
+	{
+		material->Bind();
+		material->SetMatrixProperty("MVP", renderer->GetMVP());
+		material->BindTexture("myTextureSampler", textureBufferId);
+	}
+
+	renderer->EnableAtribArray(0);
+	renderer->EnableAtribArray(1);
+	renderer->BindBuffer(vertexBufferID, 0);
+	renderer->BindTextureBuffer(textureUVBufferId, 1);
+	renderer->Draw(type, cantVertex);
+	renderer->DisableBuffer(0);
+	renderer->DisableBuffer(1);
+}
+
+void Tilemap::LoadMapIDs(const char* file) 
 {
 	string buffer;
 	ifstream tileFile(file);
@@ -39,43 +119,57 @@ void Tilemap::Loadfile()
 	}
 }
 
-void Tilemap::Drawtiles()
+void Tilemap::LoadUVs()
 {
-	// esquinas son
-	// -9, 9		9, 9
-	//
-	// -9, -9		9, -9
+	float textureW = 1 / cantX;
+	float textureH = 1 / cantY;
 
-	int x = -9;
-	int y = 9;
+	int idIndex = 0;
 
-	for (int i = 0; i < tiles->size(); i++)
+	for (int i = 0; i < cantUVvertex; i = i + 8)
 	{
-		tiles->at(i)->SetTranslation(x, y, 0);
-		tiles->at(i)->Draw();
+		// Coordenada 1
+		vertexUVTexture[i] = 0.0f;
+		vertexUVTexture[i + 1] = 1.0f;
 
-		x += 2;
-		if (x > 10) 
+		// Coordenada 2
+		vertexUVTexture[i + 2] = textureW;
+		vertexUVTexture[i + 3] = 1.0f;
+
+		// Coordenada 3
+		vertexUVTexture[i + 4] = 0.0f;
+		vertexUVTexture[i + 5] = 1.0f - textureH;
+
+		// Coordenada 4
+		vertexUVTexture[i + 6] = textureW;
+		vertexUVTexture[i + 7] = 1.0f - textureH;
+		
+		int row = 0;
+		int column = mapIds->at(idIndex);
+
+		while (column >= cantX)
 		{
-			x = -9;
-			y -= 2;
+			column -= cantX;
+			row++;
 		}
-	}
-}
 
-void Tilemap::RegisterCollisionableIds(int id) 
-{
-	collisionableIds->push_back(id);
+		// Coordenada 1
+		vertexUVTexture[i] += textureW * column;
+		vertexUVTexture[i + 1] -= textureH * row;
 
-	for (int i = 0; i < tiles->size(); i++)
-	{
-		for (int j = 0; j < collisionableIds->size(); j++)
-		{
-			if (tiles->at(i)->GetId() == collisionableIds->at(j)) 
-			{
-				tiles->at(i)->SetCollider(2.0f, 2.0f, Tiles, true);
-				CollisionManager::Instance()->RegisterEntity(tiles->at(i));
-			}
-		}
+		// Coordenada 2
+		vertexUVTexture[i + 2] += textureW * column;
+		vertexUVTexture[i + 3] -= textureH * row;
+
+		// Coordenada 3
+		vertexUVTexture[i + 4] += textureW * column;
+		vertexUVTexture[i + 5] -= textureH * row;
+
+		// Coordenada 4
+		vertexUVTexture[i + 6] += textureW * column;
+		vertexUVTexture[i + 7] -= textureH * row;
+
+		idIndex++;
+
 	}
 }

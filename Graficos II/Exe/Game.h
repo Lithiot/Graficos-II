@@ -23,8 +23,7 @@ private:
 	Material* mat4;
 	Material* mat5;
 	Material* tileMat;
-	Tilemap* tilemap1;
-	Tile* tile;
+	Tilemap* tileMap;
 	unsigned int programID;
 	float vel;
 public:

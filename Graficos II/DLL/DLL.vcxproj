@@ -140,7 +140,6 @@
     <ClInclude Include="Square.h" />
     <ClInclude Include="TextureLoader.h" />
     <ClInclude Include="DeltaTime.h" />
-    <ClInclude Include="Tile.h" />
     <ClInclude Include="Tilemap.h" />
     <ClInclude Include="Triangle.h" />
     <ClInclude Include="Window.h" />
@@ -159,7 +158,6 @@
     <ClCompile Include="Square.cpp" />
     <ClCompile Include="TextureLoader.cpp" />
     <ClCompile Include="DeltaTime.cpp" />
-    <ClCompile Include="Tile.cpp" />
     <ClCompile Include="Tilemap.cpp" />
     <ClCompile Include="Triangle.cpp" />
     <ClCompile Include="Window.cpp" />
