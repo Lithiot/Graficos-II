@@ -15,6 +15,8 @@ private:
 	float cantX;
 	float cantY;
 	vector<int>* mapIds;
+	vector<vector<int>> indexes;
+	vector<float> vertexArrayPos;
 public:
 	Tilemap(Renderer* rend, float width, float height, const char* filename, float cantTilesX, float cantTilesY);
 	~Tilemap();

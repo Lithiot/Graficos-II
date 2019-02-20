@@ -3,14 +3,49 @@
 Tilemap::Tilemap(Renderer* rend, float width, float height, const char* filename, float cantTilesX, float cantTilesY)
 	: Shape(rend), mapWidth(width), mapHeight(height), cantX(cantTilesX), cantY(cantTilesY)
 {
-	type = 's';
+	type = 'q';
 	cantVertex = width * height * 4 * 3;
 	cantUVvertex = width * height * 4 * 2;
 
+	indexes = vector<vector<int>>(width, vector<int>(height));
 	vertexes = new float[cantVertex];
+	
+	vertexArrayPos.clear();
+	for (int i = 0; i < width; i++)
+	{
+		for (int j = 0; j < height; j++)
+		{
 
-	float tileW = 32.0f;
-	float tileH = 32.0f;
+			int col = j * 2;
+			int row = i * 2;
+
+			vertexArrayPos.push_back(-10.0f + col);
+			vertexArrayPos.push_back(10.0f - row);
+			vertexArrayPos.push_back(0.0f);
+
+			vertexArrayPos.push_back(-10.0f + col);
+			vertexArrayPos.push_back(8.0f - row);
+			vertexArrayPos.push_back(0.0f);
+
+			vertexArrayPos.push_back(-8.0f + col);
+			vertexArrayPos.push_back(8.0f - row);
+			vertexArrayPos.push_back(0.0f);
+
+			vertexArrayPos.push_back(-8.0f + col);
+			vertexArrayPos.push_back(10.0f - row);
+			vertexArrayPos.push_back(0.0f);
+		}
+	}
+	float* p = &vertexArrayPos[0];
+	
+	for (int i = 0; i < vertexArrayPos.size(); i++)
+	{
+		cout << vertexArrayPos[i] << endl;
+	}
+	
+	
+	/*float tileW = 2.0f;
+	float tileH = 2.0f;
 
 	float screenH = rend->GetWindow()->GetHeight();
 	float screenW = rend->GetWindow()->GetWidth();
@@ -26,23 +61,23 @@ Tilemap::Tilemap(Renderer* rend, float width, float height, const char* filename
 	for (int i = 0; i < cantVertex; i = i + 12)
 	{
 		// Coordenada 1
-		vertexes[i] = 0.0f + tileW * column;
-		vertexes[i + 1] = (screenH - tileH) - tileH * row;
+		vertexes[i] = -10.0f + tileW * column;
+		vertexes[i + 1] = 10.0f - tileH * row;
 		vertexes[i + 2] = 0.0f;
 
 		// Coordenada 2
-		vertexes[i + 3] = (0.0f + tileW) + tileW * column;
-		vertexes[i + 4] = (screenH - tileH) - tileH * row;
+		vertexes[i + 3] = (-10.0f + tileW) + tileW * column;
+		vertexes[i + 4] = 10.0f - tileH * row;
 		vertexes[i + 5] = 0.0f;
 		
 		// Coordenada 3
-		vertexes[i + 6] = 0.0f + tileW * column;
-		vertexes[i + 7] = screenH - tileH * row;
+		vertexes[i + 6] = -10.0f + tileW * column;
+		vertexes[i + 7] = (10.0f - tileH) - tileH * row;
 		vertexes[i + 8] = 0.0f;
 		
 		// Coordenada 4
-		vertexes[i + 9] = (0.0f + tileW) + tileW * column;
-		vertexes[i + 10] = screenH - tileH * row;
+		vertexes[i + 9] = (-10.0f + tileW) + tileW * column;
+		vertexes[i + 10] = (10.0f - tileH) - tileH * row;
 		vertexes[i + 11] = 0.0f;
 
 		if (column >= width - 1)
@@ -63,15 +98,18 @@ Tilemap::Tilemap(Renderer* rend, float width, float height, const char* filename
 		cout << "Vertex " << j << " = X: " << vertexes[i + 9] << ", Y: " << vertexes[i + 10] << ", Z: " << vertexes[i + 11] << endl;
 		b++;
 	}
-
+	*/
 	mapIds = new vector<int>();
 	LoadMapIDs(filename);
 
 	vertexUVTexture = new float[cantUVvertex];
 	LoadUVs();
 
-	SetVertex(vertexes, cantVertex);
+	SetVertex(p, cantVertex);
+	
 	SetTextures(vertexUVTexture, cantUVvertex);
+
+	//glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
 }
 
 Tilemap::~Tilemap()
@@ -135,16 +173,16 @@ void Tilemap::LoadUVs()
 		vertexUVTexture[i + 1] = 1.0f;
 
 		// Coordenada 2
-		vertexUVTexture[i + 2] = textureW;
-		vertexUVTexture[i + 3] = 1.0f;
+		vertexUVTexture[i + 2] = 0.0f;
+		vertexUVTexture[i + 3] = 1.0f - textureH;
 
 		// Coordenada 3
-		vertexUVTexture[i + 4] = 0.0f;
+		vertexUVTexture[i + 4] = textureW;
 		vertexUVTexture[i + 5] = 1.0f - textureH;
 
 		// Coordenada 4
 		vertexUVTexture[i + 6] = textureW;
-		vertexUVTexture[i + 7] = 1.0f - textureH;
+		vertexUVTexture[i + 7] = 1.0f;
 		
 		int row = 0;
 		int column = mapIds->at(idIndex);

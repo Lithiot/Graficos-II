@@ -67,20 +67,19 @@ bool Game::OnStart()
 	
 	tileMat = new Material();
 	programID = tileMat->LoadShaders("texturevertexshader.txt", "texturefragmentshader.txt");
-	tileMap = new Tilemap(rend, 10, 10, "mapaGraficos.csv", 9.0f, 5.0f);
+	tileMap = new Tilemap(rend, 10, 10, "TilemapTest.csv", 10.0f, 7.0f);
 	tileMap->SetMaterial(tileMat);
-	tileMap->LoadTexture("Tileset.bmp");
-
-	//tileMap->SetScale(1, 1, 0);
+	tileMap->LoadTexture("TileMap.bmp");
 	cout << "Tilemap position is " << tileMap->GetPosX() << ", " << tileMap->GetPosY() << ", " << tileMap->GetPosZ() << endl;
 	
 	sprite1->SetTranslation(-5, 0, 0);
 	sprite2->SetTranslation(0, 0, 0);
 	sprite3->SetTranslation(0, 5, 0);
 	triangle1->SetTranslation(-5, 5, 0);
-	square1->SetTranslation(5, 5, 0);
+	square1->SetTranslation(0, 0, 0);
 	circle1->SetTranslation(-5, -5, 0);
 	
+	//tileMap->SetTranslation(0, 5, 0);
 
 	std::cout << "Game::Start()" << std::endl;
 	return true;
@@ -105,7 +104,7 @@ bool Game::OnLoop()
 	
 	CollisionManager::Instance()->CheckCollisions();
 	
-	std::cout << "Game::Loop()" << std::endl;
+	std::cout << "Game::Loop()" <<  std::endl;
 	return true;
 }
 

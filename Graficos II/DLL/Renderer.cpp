@@ -143,12 +143,14 @@ void Renderer::BindTextureBuffer(unsigned int txtrebuffer, unsigned int id)
 
 void Renderer::Draw(char type, int size) 
 {
-	if(type == 't')
+	if (type == 't')
 		glDrawArrays(GL_TRIANGLE_STRIP, 0, size);
-	else if(type == 's')
+	else if (type == 's')
 		glDrawArrays(GL_TRIANGLE_STRIP, 0, size);
-	else if(type == 'c')
+	else if (type == 'c')
 		glDrawArrays(GL_TRIANGLE_FAN, 0, size);
+	else if (type == 'q')
+		glDrawArrays(GL_QUADS, 0, size);
 }
 
 void Renderer::DisableBuffer(int id) 
@@ -186,4 +188,9 @@ void Renderer::LoadIdentityMatrix()
 Window* Renderer::GetWindow()
 {
 	return _window;
+}
+
+void Renderer::DeleteBuffers(unsigned int _buffer) 
+{
+	glDeleteBuffers(1, &_buffer);
 }

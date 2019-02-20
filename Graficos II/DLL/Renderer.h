@@ -36,5 +36,6 @@ public:
 	void MultiplyModel(glm::mat4 mod);
 	Window* GetWindow();
 	glm::mat4& GetMVP();
+	void DeleteBuffers(unsigned int _buffer);
 };
 

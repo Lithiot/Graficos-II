@@ -13,6 +13,7 @@ protected:
 	float* vertexColors;
 	float* vertexUVTexture;
 	int cantVertex;
+	bool shouldDispose;
 	unsigned int vertexBufferID;
 	unsigned int colorBufferID;
 	unsigned int textureBufferId;
@@ -25,5 +26,5 @@ public:
 	void SetMaterial(Material* mat);
 	void SetColors(float* vColor, int cant);
 	void SetVertex(float* vertex, int cant);
-
+	void Dispose();
 };
