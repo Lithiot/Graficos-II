@@ -21,7 +21,7 @@ void Shape::SetVertex(float* vertex, int cant)
 {
 	Dispose();
 	shouldDispose = true;
-	vertexBufferID = renderer->GenVertexBuffer(vertex, sizeof(float) * cant * 3);
+	vertexBufferID = renderer->GenVertexBuffer(vertex, sizeof(float) * cant* 3);
 }
 
 void Shape::SetColors(float* vColor, int cant)

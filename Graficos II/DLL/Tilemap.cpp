@@ -7,9 +7,10 @@ Tilemap::Tilemap(Renderer* rend, float width, float height, const char* filename
 	cantVertex = width * height * 4 * 3;
 	cantUVvertex = width * height * 4 * 2;
 
-	indexes = vector<vector<int>>(width, vector<int>(height));
 	vertexes = new float[cantVertex];
 	
+	/*
+	indexes = vector<vector<int>>(width, vector<int>(height));
 	vertexArrayPos.clear();
 	for (int i = 0; i < width; i++)
 	{
@@ -42,9 +43,9 @@ Tilemap::Tilemap(Renderer* rend, float width, float height, const char* filename
 	{
 		cout << vertexArrayPos[i] << endl;
 	}
+	*/
 	
-	
-	/*float tileW = 2.0f;
+	float tileW = 2.0f;
 	float tileH = 2.0f;
 
 	float screenH = rend->GetWindow()->GetHeight();
@@ -66,20 +67,20 @@ Tilemap::Tilemap(Renderer* rend, float width, float height, const char* filename
 		vertexes[i + 2] = 0.0f;
 
 		// Coordenada 2
-		vertexes[i + 3] = (-10.0f + tileW) + tileW * column;
-		vertexes[i + 4] = 10.0f - tileH * row;
+		vertexes[i + 3] = -10.0f + tileW * column;
+		vertexes[i + 4] = (10.0f - tileH) - tileH * row;
 		vertexes[i + 5] = 0.0f;
 		
 		// Coordenada 3
-		vertexes[i + 6] = -10.0f + tileW * column;
+		vertexes[i + 6] = (-10.0f + tileW) + tileW * column;
 		vertexes[i + 7] = (10.0f - tileH) - tileH * row;
 		vertexes[i + 8] = 0.0f;
-		
+
 		// Coordenada 4
 		vertexes[i + 9] = (-10.0f + tileW) + tileW * column;
-		vertexes[i + 10] = (10.0f - tileH) - tileH * row;
+		vertexes[i + 10] = 10.0f - tileH * row;
 		vertexes[i + 11] = 0.0f;
-
+		
 		if (column >= width - 1)
 		{
 			column = 0;
@@ -98,14 +99,14 @@ Tilemap::Tilemap(Renderer* rend, float width, float height, const char* filename
 		cout << "Vertex " << j << " = X: " << vertexes[i + 9] << ", Y: " << vertexes[i + 10] << ", Z: " << vertexes[i + 11] << endl;
 		b++;
 	}
-	*/
+	
 	mapIds = new vector<int>();
 	LoadMapIDs(filename);
 
 	vertexUVTexture = new float[cantUVvertex];
 	LoadUVs();
 
-	SetVertex(p, cantVertex);
+	SetTilemapVertex(vertexes, cantVertex);
 	
 	SetTextures(vertexUVTexture, cantUVvertex);
 
@@ -118,7 +119,7 @@ Tilemap::~Tilemap()
 
 void Tilemap::SetTextures(float* vertex, int cant)
 {
-	textureUVBufferId = renderer->GenVertexBuffer(vertex, sizeof(float)* cant * 2);
+	textureUVBufferId = renderer->GenVertexBuffer(vertex, sizeof(float)* cant);
 }
 
 void Tilemap::LoadTexture(const char* name)
@@ -211,4 +212,9 @@ void Tilemap::LoadUVs()
 
 		idIndex++;
 	}
+}
+
+void Tilemap::SetTilemapVertex(float* vertex, int cant)
+{
+	vertexBufferID = renderer->GenVertexBuffer(vertex, sizeof(float) * cant);
 }

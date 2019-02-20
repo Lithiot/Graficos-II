@@ -67,7 +67,7 @@ bool Game::OnStart()
 	
 	tileMat = new Material();
 	programID = tileMat->LoadShaders("texturevertexshader.txt", "texturefragmentshader.txt");
-	tileMap = new Tilemap(rend, 10, 10, "TilemapTest.csv", 10.0f, 7.0f);
+	tileMap = new Tilemap(rend, 10, 10, "tilemapTest.csv", 10.0f, 7.0f);
 	tileMap->SetMaterial(tileMat);
 	tileMap->LoadTexture("TileMap.bmp");
 	cout << "Tilemap position is " << tileMap->GetPosX() << ", " << tileMap->GetPosY() << ", " << tileMap->GetPosZ() << endl;
@@ -78,8 +78,6 @@ bool Game::OnStart()
 	triangle1->SetTranslation(-5, 5, 0);
 	square1->SetTranslation(0, 0, 0);
 	circle1->SetTranslation(-5, -5, 0);
-	
-	//tileMap->SetTranslation(0, 5, 0);
 
 	std::cout << "Game::Start()" << std::endl;
 	return true;

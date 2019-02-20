@@ -25,5 +25,6 @@ public:
 	void LoadTexture(const char* name);
 	void LoadUVs();
 	void LoadMapIDs(const char* file);
+	void SetTilemapVertex(float* vertex, int cant);
 };
 
