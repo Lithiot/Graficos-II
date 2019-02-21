@@ -67,14 +67,14 @@ bool Game::OnStart()
 	
 	tileMat = new Material();
 	programID = tileMat->LoadShaders("texturevertexshader.txt", "texturefragmentshader.txt");
-	tileMap = new Tilemap(rend, 10, 10, "tilemapTest.csv", 10.0f, 7.0f);
+	tileMap = new Tilemap(rend, 32, 12, "mapa.csv", 9.0f, 5.0f);
 	tileMap->SetMaterial(tileMat);
-	tileMap->LoadTexture("TileMap.bmp");
+	tileMap->LoadTexture("tileset.bmp");
 	cout << "Tilemap position is " << tileMap->GetPosX() << ", " << tileMap->GetPosY() << ", " << tileMap->GetPosZ() << endl;
 	
 	sprite1->SetTranslation(-5, 0, 0);
 	sprite2->SetTranslation(0, 0, 0);
-	sprite3->SetTranslation(0, 5, 0);
+	sprite3->SetTranslation(2, -2, 0);
 	triangle1->SetTranslation(-5, 5, 0);
 	square1->SetTranslation(0, 0, 0);
 	circle1->SetTranslation(-5, -5, 0);
@@ -98,10 +98,12 @@ bool Game::OnLoop()
 	sprite3->UpdateFrame();
 
 	sprite1->SetTranslation(sprite1->GetPosX() + 0.01f, sprite1->GetPosY(), 0.0f);
-	sprite3->SetTranslation(sprite3->GetPosX(), sprite3->GetPosY() - 0.01f, 0.0f);
-	
+	sprite3->SetTranslation(sprite3->GetPosX() + 0.01f, sprite3->GetPosY(), 0.0f);
+
+	tileMap->UpdateTilemap(sprite3->GetPosX(), sprite3->GetPosY());
+
 	CollisionManager::Instance()->CheckCollisions();
-	
+	rend->CameraFollow(sprite3->GetTranslation());
 	std::cout << "Game::Loop()" <<  std::endl;
 	return true;
 }
@@ -113,11 +115,11 @@ bool Game::OnDraw()
 	sprite2->Draw();
 	triangle1->Draw();
 	circle1->Draw();
-	square1->Draw();
-	sprite3->Draw();
-	*/
+	square1->Draw();*/
+	
 
 	tileMap->Draw();
+	//sprite3->Draw();
 
 	return true;
 }

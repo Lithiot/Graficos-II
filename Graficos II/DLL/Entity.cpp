@@ -5,7 +5,7 @@
 Entity::Entity(Renderer* rend) : renderer(rend), model(1.0f), 
 								 translation(0.0f, 0.0f, 0.0f), rotation(0.0f, 0.0f, 0.0f),
 								 scale(1.0f, 1.0f, 1.0f), translationMatrix(1.0f),
-								 rotationMatrix(1.0f), scaleMatrix(1.0f)
+								 rotationMatrix(1.0f), scaleMatrix(1.0f), collider(NULL)
 {
 }
 Entity::~Entity()

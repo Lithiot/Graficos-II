@@ -1,62 +1,19 @@
 #include "Tilemap.h"
 
 Tilemap::Tilemap(Renderer* rend, float width, float height, const char* filename, float cantTilesX, float cantTilesY)
-	: Shape(rend), mapWidth(width), mapHeight(height), cantX(cantTilesX), cantY(cantTilesY)
+		: Shape(rend), mapWidth(width), mapHeight(height), cantX(cantTilesX), cantY(cantTilesY), lastPosX(0), lastPosY(0), xPos(0), yPos(0)
 {
 	type = 'q';
-	cantVertex = width * height * 4 * 3;
-	cantUVvertex = width * height * 4 * 2;
+	cantVertex = 12 * 12 * 4 * 3;
+	cantUVvertex = 12 * 12 * 4 * 2;
 
 	vertexes = new float[cantVertex];
 	
-	/*
-	indexes = vector<vector<int>>(width, vector<int>(height));
-	vertexArrayPos.clear();
-	for (int i = 0; i < width; i++)
-	{
-		for (int j = 0; j < height; j++)
-		{
-
-			int col = j * 2;
-			int row = i * 2;
-
-			vertexArrayPos.push_back(-10.0f + col);
-			vertexArrayPos.push_back(10.0f - row);
-			vertexArrayPos.push_back(0.0f);
-
-			vertexArrayPos.push_back(-10.0f + col);
-			vertexArrayPos.push_back(8.0f - row);
-			vertexArrayPos.push_back(0.0f);
-
-			vertexArrayPos.push_back(-8.0f + col);
-			vertexArrayPos.push_back(8.0f - row);
-			vertexArrayPos.push_back(0.0f);
-
-			vertexArrayPos.push_back(-8.0f + col);
-			vertexArrayPos.push_back(10.0f - row);
-			vertexArrayPos.push_back(0.0f);
-		}
-	}
-	float* p = &vertexArrayPos[0];
-	
-	for (int i = 0; i < vertexArrayPos.size(); i++)
-	{
-		cout << vertexArrayPos[i] << endl;
-	}
-	*/
-	
-	float tileW = 2.0f;
-	float tileH = 2.0f;
-
-	float screenH = rend->GetWindow()->GetHeight();
-	float screenW = rend->GetWindow()->GetWidth();
+	tileW = 2.0f;
+	tileH = 2.0f;
 
 	int column = 0;
 	int row = 0;
-	
-	// Debug variables
-	int j = 1;
-	int b = 1;
 
 	cout << "Creating tilemap Vertexes" << endl;
 	for (int i = 0; i < cantVertex; i = i + 12)
@@ -81,30 +38,21 @@ Tilemap::Tilemap(Renderer* rend, float width, float height, const char* filename
 		vertexes[i + 10] = 10.0f - tileH * row;
 		vertexes[i + 11] = 0.0f;
 		
-		if (column >= width - 1)
+		if (column >= 12 - 1)
 		{
 			column = 0;
 			row++;
 		}
 		else
 			column++;
-
-		cout << "|========== Tile " << b << " ==========|" << endl;
-		cout << "Vertex " << j << " = X: " << vertexes[i] << ", Y: " << vertexes[i + 1] << ", Z: " << vertexes[i + 2] << endl;
-		j++;
-		cout << "Vertex " << j << " = X: " << vertexes[i + 3] << ", Y: " << vertexes[i + 4] << ", Z: " << vertexes[i + 5] << endl;
-		j++;
-		cout << "Vertex " << j << " = X: " << vertexes[i + 6] << ", Y: " << vertexes[i + 7] << ", Z: " << vertexes[i + 8] << endl;
-		j++;
-		cout << "Vertex " << j << " = X: " << vertexes[i + 9] << ", Y: " << vertexes[i + 10] << ", Z: " << vertexes[i + 11] << endl;
-		b++;
 	}
 	
 	mapIds = new vector<int>();
+	bidimensionalIDs = vector<vector<int>>(height, vector<int>(width));
 	LoadMapIDs(filename);
 
 	vertexUVTexture = new float[cantUVvertex];
-	LoadUVs();
+	UpdateTilemap(lastPosX, lastPosY);
 
 	SetTilemapVertex(vertexes, cantVertex);
 	
@@ -158,6 +106,19 @@ void Tilemap::LoadMapIDs(const char* file)
 	{
 		mapIds->push_back(stoi(buffer));
 	}
+
+	int count = 0;
+
+	for (int i = 0; i < mapHeight; i++)
+	{
+		for (int j = 0; j < mapWidth; j++)
+		{
+			bidimensionalIDs[i][j] = mapIds->at(count);
+			count++;
+		}
+	}
+
+	mapIds->clear();
 }
 
 void Tilemap::LoadUVs()
@@ -212,9 +173,34 @@ void Tilemap::LoadUVs()
 
 		idIndex++;
 	}
+
+	mapIds->clear();
 }
 
 void Tilemap::SetTilemapVertex(float* vertex, int cant)
 {
 	vertexBufferID = renderer->GenVertexBuffer(vertex, sizeof(float) * cant);
+}
+
+void Tilemap::UpdateTilemap(float x, float y) 
+{
+	if (lastPosX + 2.0f <= x) 
+	{
+		xPos++;
+		this->SetTranslation(this->GetPosX() + 2.0f, this->GetPosY(), this->GetPosZ());
+		lastPosX = x;
+		lastPosY = y;
+		cout << "Tilemap position is now " << GetPosX() << ", " << GetPosY() << ", " << GetPosZ() << endl;
+	}
+
+	for (int i = yPos; i < yPos + 12; i++)
+	{
+		for (int j = xPos; j < xPos + 12; j++)
+		{
+			mapIds->push_back(bidimensionalIDs.at(i).at(j));
+		}
+	}
+
+	LoadUVs();
+	SetTextures(vertexUVTexture, cantUVvertex);
 }

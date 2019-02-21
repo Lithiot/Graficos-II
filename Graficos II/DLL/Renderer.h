@@ -37,5 +37,7 @@ public:
 	Window* GetWindow();
 	glm::mat4& GetMVP();
 	void DeleteBuffers(unsigned int _buffer);
+	void CameraFollow(glm::vec3 lookAt);
+
 };
 

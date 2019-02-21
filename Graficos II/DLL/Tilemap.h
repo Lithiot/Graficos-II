@@ -14,9 +14,15 @@ private:
 	int cantUVvertex;
 	float cantX;
 	float cantY;
+	float tileW;
+	float tileH;
+	float xPos;
+	float yPos;
+	float lastPosY;
+	float lastPosX;
 	vector<int>* mapIds;
-	vector<vector<int>> indexes;
-	vector<float> vertexArrayPos;
+	vector<int> tilesWithCollides;
+	vector<vector<int>> bidimensionalIDs;
 public:
 	Tilemap(Renderer* rend, float width, float height, const char* filename, float cantTilesX, float cantTilesY);
 	~Tilemap();
@@ -26,5 +32,6 @@ public:
 	void LoadUVs();
 	void LoadMapIDs(const char* file);
 	void SetTilemapVertex(float* vertex, int cant);
+	void UpdateTilemap(float x, float y);
 };
 
