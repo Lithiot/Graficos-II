@@ -22,14 +22,10 @@ bool Renderer::Start(Window* window)
 	glGenVertexArrays(1, (GLuint*)&VertexArrayID);
 	glBindVertexArray((GLuint)VertexArrayID);
 
-	projection = glm::ortho(-10.0f, 10.0f, -10.0f, 10.0f, 0.0f, 100.0f);
+	SetProjectionOrtho(-10.0f, 10.0f, -10.0f, 10.0f, 0.0f, 100.0f);
 
-	view = glm::lookAt(
-		glm::vec3(0, 0, 3), 
-		glm::vec3(0, 0, 0), 
-		glm::vec3(0, 1, 0)
-	);
-	
+	SetViewMatrix(glm::vec3(0, 0, 3), glm::vec3(0, 0, 0), glm::vec3(0, 1, 0));
+
 	model = glm::mat4(1.0f);
 
 	UpdateMVP();
@@ -181,4 +177,19 @@ void Renderer::MultiplyModel(glm::mat4 mod)
 void Renderer::LoadIdentityMatrix() 
 {
 	model = glm::mat4(1.0f);
+}
+
+void Renderer::SetProjectionOrtho(float left, float right, float bottom, float top, float zNear, float zFar)
+{
+	projection = glm::ortho(left, right, bottom, top, zNear, zFar);
+}
+
+void Renderer::SetProjectionPerspective(float fovy, float aspect, float zNear, float zFar)
+{
+	projection = glm::perspective(fovy, aspect, zNear, zFar);
+}
+
+void Renderer::SetViewMatrix(glm::vec3 eye, glm::vec3 center, glm::vec3 up) 
+{
+	view = glm::lookAt(eye, center, up);
 }

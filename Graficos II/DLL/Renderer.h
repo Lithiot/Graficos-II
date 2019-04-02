@@ -34,6 +34,9 @@ public:
 	void SetModel(glm::mat4 mod);
 	void LoadIdentityMatrix();
 	void MultiplyModel(glm::mat4 mod);
+	void SetProjectionOrtho(float left, float right, float bottom, float top, float zNear, float zFar);
+	void SetProjectionPerspective(float fovy, float aspect, float zNear, float zFar);
+	void SetViewMatrix(glm::vec3 eye, glm::vec3 center, glm::vec3 up);
 	glm::mat4& GetMVP();
 };
 
