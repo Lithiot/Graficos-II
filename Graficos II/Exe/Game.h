@@ -7,6 +7,7 @@
 #include <Circle.h>
 #include <Sprite.h>
 #include <DeltaTime.h>
+#include <Camera.h>
 class Game : public GameBase
 {
 private:
@@ -21,6 +22,7 @@ private:
 	Material* mat3;
 	Material* mat4;
 	Material* mat5;
+	Camera* cam;
 	unsigned int programID;
 	float vel;
 public:

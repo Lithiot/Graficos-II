@@ -64,6 +64,8 @@ bool Game::OnStart()
 	sprite3->SetCollider(1.8f, 1.8f, meh, false);
 	CollisionManager::Instance()->RegisterEntity(sprite3);
 
+	cam = new Camera(rend);
+
 	sprite1->SetTranslation(-5, 0, 0);
 	sprite2->SetTranslation(0, 0, 0);
 	sprite3->SetTranslation(0, 5, 0);
@@ -89,8 +91,11 @@ bool Game::OnLoop()
 	sprite2->UpdateFrame();
 	sprite3->UpdateFrame();
 
-	sprite1->SetTranslation(sprite1->GetPosX() + 0.01f, sprite1->GetPosY(), 0.0f);
-	sprite3->SetTranslation(sprite3->GetPosX(), sprite3->GetPosY() - 0.01f, 0.0f);
+	//sprite1->SetTranslation(sprite1->GetPosX() + 0.01f, sprite1->GetPosY(), 0.0f);
+	//sprite3->SetTranslation(sprite3->GetPosX(), sprite3->GetPosY() - 0.01f, 0.0f);
+
+	rend->SetProjectionPerspective(90, 16.4, 0, 100);
+	cam->Strafe(-1.0f);
 
 	CollisionManager::Instance()->CheckCollisions();
 	std::cout << "Game::Loop()" << std::endl;
