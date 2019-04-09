@@ -73,6 +73,8 @@ bool Game::OnStart()
 	square1->SetTranslation(5, 5, 0);
 	circle1->SetTranslation(-5, -5, 0);
 
+	vel = 0.0f;
+
 	std::cout << "Game::Start()" << std::endl;
 	return true;
 } 
@@ -94,8 +96,9 @@ bool Game::OnLoop()
 	//sprite1->SetTranslation(sprite1->GetPosX() + 0.01f, sprite1->GetPosY(), 0.0f);
 	//sprite3->SetTranslation(sprite3->GetPosX(), sprite3->GetPosY() - 0.01f, 0.0f);
 
-	rend->SetProjectionPerspective(90, 16.4, 0, 100);
-	cam->Strafe(-1.0f);
+	rend->SetProjectionPerspective(glm::radians(45.0f), 16.0f/4.0f, 0.0f, 100.0f);
+
+	cam->Strafe(1.0f);
 
 	CollisionManager::Instance()->CheckCollisions();
 	std::cout << "Game::Loop()" << std::endl;

@@ -19,6 +19,6 @@ public:
 	void Roll(float velocity);
 	void Yaw(float velocity);
 	void Pitch(float velocity);
-	void updateViewMatrix();
+	void UpdateViewMatrix();
 };
 

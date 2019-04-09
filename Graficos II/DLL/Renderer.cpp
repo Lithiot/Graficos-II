@@ -182,14 +182,17 @@ void Renderer::LoadIdentityMatrix()
 void Renderer::SetProjectionOrtho(float left, float right, float bottom, float top, float zNear, float zFar)
 {
 	projection = glm::ortho(left, right, bottom, top, zNear, zFar);
+	UpdateMVP();
 }
 
 void Renderer::SetProjectionPerspective(float fovy, float aspect, float zNear, float zFar)
 {
 	projection = glm::perspective(fovy, aspect, zNear, zFar);
+	UpdateMVP();
 }
 
 void Renderer::SetViewMatrix(glm::vec3 eye, glm::vec3 center, glm::vec3 up) 
 {
 	view = glm::lookAt(eye, center, up);
+	UpdateMVP();
 }
