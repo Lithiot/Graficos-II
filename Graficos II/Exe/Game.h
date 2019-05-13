@@ -8,6 +8,7 @@
 #include <Sprite.h>
 #include <DeltaTime.h>
 #include <Camera.h>
+#include <Cube.h>
 class Game : public GameBase
 {
 private:
@@ -23,6 +24,7 @@ private:
 	Material* mat4;
 	Material* mat5;
 	Camera* cam;
+	Cube* cube1;
 	unsigned int programID;
 	float vel;
 public:

@@ -75,14 +75,11 @@ unsigned int Renderer::GenColorBuffer(float* buffer, int size)
 
 unsigned int Renderer::GenTextureBuffer(int width, int height, const void* data)
 {
-	// Se Crea una textura OpenGL 
 	unsigned int  texturebuffer;
 	glGenTextures(1, &texturebuffer);
-
-	// Se "Ata" la nueva textura : Todas las futuras funciones de texturas van a modificar esta textura 
+	
 	glBindTexture(GL_TEXTURE_2D, texturebuffer);
 
-	// Se le pasa la imagen a OpenGL 
 	glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB, width, height, 0, GL_BGR, GL_UNSIGNED_BYTE, data);
 
 	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_NEAREST);
@@ -91,6 +88,18 @@ unsigned int Renderer::GenTextureBuffer(int width, int height, const void* data)
 	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_NEAREST);
 
 	return texturebuffer;
+}
+
+unsigned int Renderer::GenIndexBuffer(unsigned int* buffer, int size)
+{
+	unsigned int IndexBuffer;
+	
+	glGenBuffers(1, &IndexBuffer);
+	
+	glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, IndexBuffer);
+	
+	glBufferData(GL_ELEMENT_ARRAY_BUFFER, size * sizeof(unsigned int), &buffer[0], GL_STATIC_DRAW);
+	return IndexBuffer;
 }
 
 void Renderer::EnableAtribArray(int id) 
@@ -137,14 +146,21 @@ void Renderer::BindTextureBuffer(unsigned int txtrebuffer, unsigned int id)
 	);
 }
 
+void Renderer::BindIndexBuffer(unsigned int bufferID)
+{
+	glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, bufferID);
+}
+
 void Renderer::Draw(char type, int size) 
 {
-	if(type == 't')
+	if (type == 't')
 		glDrawArrays(GL_TRIANGLE_STRIP, 0, size);
-	else if(type == 's')
+	else if (type == 's')
 		glDrawArrays(GL_TRIANGLE_STRIP, 0, size);
-	else if(type == 'c')
+	else if (type == 'c')
 		glDrawArrays(GL_TRIANGLE_FAN, 0, size);
+	else if (type == 'm')
+		glDrawElements(GL_TRIANGLES, size, GL_UNSIGNED_INT, (void*)0);
 }
 
 void Renderer::DisableBuffer(int id) 
