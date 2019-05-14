@@ -23,14 +23,16 @@ Cube::Cube(Renderer* rend) : Shape(rend)
 
 	vertexColors = new float[8 * 3]
 	{
-		0.583f,  0.771f,  0.014f,
-		0.609f,  0.115f,  0.436f,
-		0.327f,  0.483f,  0.844f,
-		0.822f,  0.569f,  0.201f,
-		0.583f,  0.771f,  0.014f,
-		0.609f,  0.115f,  0.436f,
-		0.327f,  0.483f,  0.844f,
-		0.822f,  0.569f,  0.201f,
+		// front colors
+		 1.0, 0.0, 0.0,
+		 0.0, 1.0, 0.0,
+		 0.0, 0.0, 1.0,
+		 1.0, 1.0, 1.0,
+		// back colors
+		 1.0, 0.0, 0.0,
+		 0.0, 1.0, 0.0,
+		 0.0, 0.0, 1.0,
+		1.0, 1.0, 1.0
 	};
 	SetColors(vertexColors, cantVertex);
 
@@ -84,9 +86,9 @@ void Cube::Draw()
 	renderer->EnableAtribArray(0);
 	renderer->EnableAtribArray(1);
 	renderer->BindBuffer(vertexBufferID, 0);
-	renderer->BindTextureBuffer(colorBufferID, 1);
+	renderer->BindBufferColor(colorBufferID, 1);
 	renderer->BindIndexBuffer(IndexBufferId);
-	renderer->Draw(type, cantVertex);
+	renderer->Draw(type, 36); // cambiar para que sea 36 el valor
 	renderer->DisableBuffer(0);
 	renderer->DisableBuffer(1);
 }

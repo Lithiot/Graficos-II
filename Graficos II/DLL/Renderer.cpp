@@ -31,6 +31,10 @@ bool Renderer::Start(Window* window)
 	UpdateMVP();
 
 	std::cout << "Renderer::Start()" << std::endl;
+
+	glEnable(GL_DEPTH_TEST);
+	glDepthFunc(GL_LESS);
+
 	return true;
 }
 
@@ -52,7 +56,7 @@ void Renderer::SwapBuffer()
 
 void Renderer::ClearWindow() 
 {
-	glClear(GL_COLOR_BUFFER_BIT);
+	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 }
 
 unsigned int Renderer::GenVertexBuffer(float* buffer, int size) 
