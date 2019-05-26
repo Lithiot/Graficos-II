@@ -97,12 +97,18 @@ unsigned int Renderer::GenTextureBuffer(int width, int height, const void* data)
 unsigned int Renderer::GenIndexBuffer(unsigned int* buffer, int size)
 {
 	unsigned int IndexBuffer;
-	
 	glGenBuffers(1, &IndexBuffer);
-	
 	glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, IndexBuffer);
-	
 	glBufferData(GL_ELEMENT_ARRAY_BUFFER, size * sizeof(unsigned int), &buffer[0], GL_STATIC_DRAW);
+	return IndexBuffer;
+}
+
+unsigned int Renderer::GenIndexBuffer(std::vector<unsigned int> index)
+{
+	unsigned int IndexBuffer;
+	glGenBuffers(1, &IndexBuffer);
+	glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, IndexBuffer);
+	glBufferData(GL_ELEMENT_ARRAY_BUFFER, index.size() * sizeof(unsigned int), &index[0], GL_STATIC_DRAW);
 	return IndexBuffer;
 }
 
@@ -150,9 +156,19 @@ void Renderer::BindTextureBuffer(unsigned int txtrebuffer, unsigned int id)
 	);
 }
 
+void Renderer::BindMeshBuffer(unsigned int indexbuffer)
+{
+	glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, indexbuffer);
+}
+
 void Renderer::BindIndexBuffer(unsigned int bufferID)
 {
 	glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, bufferID);
+}
+
+void Renderer::DrawIndexBuffer(int indexcount)
+{
+	glDrawElements(GL_TRIANGLES, indexcount, GL_UNSIGNED_INT, (void*)0);
 }
 
 void Renderer::Draw(char type, int size) 

@@ -3,6 +3,7 @@
 #include <iostream>
 #include "Window.h"
 #include <glm/gtc/matrix_transform.hpp>
+#include <vector>
 
 class ENGINE_API Renderer
 {
@@ -25,11 +26,14 @@ public:
 	unsigned int GenColorBuffer(float* buffer, int size);
 	unsigned int GenTextureBuffer(int width, int height, const void* data);
 	unsigned int GenIndexBuffer(unsigned int* buffer, int size);
+	unsigned int GenIndexBuffer(std::vector<unsigned int> index);
 	void EnableAtribArray(int id);
 	void BindBuffer(unsigned int vtxbuffer, int id);
 	void BindBufferColor(unsigned int colorBuffer, int id);
 	void BindTextureBuffer(unsigned int txtrebuffer, unsigned int atribId);
+	void BindMeshBuffer(unsigned int indexbuffer);
 	void BindIndexBuffer(unsigned int bufferID);
+	void DrawIndexBuffer(int indexcount);
 	void Draw(char type, int size);
 	void DisableBuffer(int id);
 	void UpdateMVP();

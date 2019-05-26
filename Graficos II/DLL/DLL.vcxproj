@@ -138,7 +138,9 @@ COPY "$(SolutionDir)external\AssImp\lib\" "$(OutDir)" /Y</Command>
     <ClInclude Include="Layers.h" />
     <ClInclude Include="Libs.h" />
     <ClInclude Include="Material.h" />
+    <ClInclude Include="Mesh.h" />
     <ClInclude Include="MeshImporter.h" />
+    <ClInclude Include="MeshLoader.h" />
     <ClInclude Include="Renderer.h" />
     <ClInclude Include="Shape.h" />
     <ClInclude Include="Sprite.h" />
@@ -159,7 +161,9 @@ COPY "$(SolutionDir)external\AssImp\lib\" "$(OutDir)" /Y</Command>
     <ClCompile Include="GameBase.cpp" />
     <ClCompile Include="InputManager.cpp" />
     <ClCompile Include="Material.cpp" />
+    <ClCompile Include="Mesh.cpp" />
     <ClCompile Include="MeshImporter.cpp" />
+    <ClCompile Include="MeshLoader.cpp" />
     <ClCompile Include="Renderer.cpp" />
     <ClCompile Include="Shape.cpp" />
     <ClCompile Include="Sprite.cpp" />

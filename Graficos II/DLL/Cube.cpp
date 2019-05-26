@@ -36,7 +36,7 @@ Cube::Cube(Renderer* rend) : Shape(rend)
 	};
 	SetColors(vertexColors, cantVertex);
 
-
+	indexCount = 36;
 	unsigned int indexes[36] = 
 	{
 		// Front
@@ -58,7 +58,7 @@ Cube::Cube(Renderer* rend) : Shape(rend)
 		0, 1, 5,
 		0, 5, 4
 	};
-	SetIndexes(indexes, 36);
+	SetIndexes(indexes, indexCount);
 	
 }
 
@@ -88,7 +88,7 @@ void Cube::Draw()
 	renderer->BindBuffer(vertexBufferID, 0);
 	renderer->BindBufferColor(colorBufferID, 1);
 	renderer->BindIndexBuffer(IndexBufferId);
-	renderer->Draw(type, 36); // cambiar para que sea 36 el valor
+	renderer->Draw(type, indexCount);
 	renderer->DisableBuffer(0);
 	renderer->DisableBuffer(1);
 }

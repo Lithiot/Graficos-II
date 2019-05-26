@@ -9,22 +9,17 @@
 #include <DeltaTime.h>
 #include <Camera.h>
 #include <Cube.h>
+#include <Mesh.h>
+
 class Game : public GameBase
 {
 private:
-	Triangle* triangle1;
-	Square* square1;
-	Circle* circle1;
-	Sprite* sprite1;
-	Sprite* sprite2;
-	Sprite* sprite3;
 	Material* mat1;
 	Material* mat2;
-	Material* mat3;
-	Material* mat4;
-	Material* mat5;
 	Camera* cam;
-	Cube* cube1;
+	Mesh* mesh1;
+	Mesh* mesh2;
+	Cube* cube;
 	unsigned int programID;
 	float vel;
 public:

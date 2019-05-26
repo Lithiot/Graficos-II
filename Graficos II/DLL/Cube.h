@@ -8,6 +8,7 @@ private:
 	unsigned int textureBufferId;
 	unsigned int textureVtxCount;
 	unsigned int IndexBufferId;
+	int indexCount;
 public:
 	Cube(Renderer* rend);
 	~Cube();
