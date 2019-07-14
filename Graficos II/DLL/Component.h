@@ -1,14 +1,27 @@
 #pragma once
-class Component
+#include <string>
+#include "Exports.h"
+#include "Renderer.h"
+
+using namespace std;
+
+class ENGINE_API Component
 {
 private:
+	string name;
+
+protected:
+	Renderer* rend;
 
 public:
-	Component();
+	Component(Renderer* renderer);
 	~Component();
-	void Start();
-	void Destroy();
-	void Draw(); virtual
-	void Update();
+
+	virtual void Start() = 0;
+	virtual void Destroy() = 0;
+	virtual void Draw() = 0;
+	virtual void Update() = 0;
+
+	string GetName();
 };
 

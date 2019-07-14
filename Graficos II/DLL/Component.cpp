@@ -1,6 +1,6 @@
 #include "Component.h"
 
-Component::Component()
+Component::Component(Renderer* renderer) : rend(renderer)
 {
 }
 
@@ -8,18 +8,11 @@ Component::~Component()
 {
 }
 
-void Component::Start() 
-{
-}
-
-void Component::Destroy() 
-{
-}
-
-void Component::Draw() 
-{	
-}
-
 void Component::Update() 
 {
+}
+
+string Component::GetName() 
+{
+	return name;
 }

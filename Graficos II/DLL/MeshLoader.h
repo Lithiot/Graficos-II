@@ -15,6 +15,7 @@
 #include "../external/glfw-3.2.1/include/GLFW/glfw3.h"
 #include "../external/glm-0.9.9.0/glm/glm.hpp"
 #include "../external/glm-0.9.9.0/glm/glm.hpp"
+#include "Node.h"
 
 using namespace std;
 using namespace Assimp;
@@ -29,7 +30,7 @@ private:
 	void InitMesh(unsigned int _index, const aiMesh* _paiMesh, vector<MeshEntry>& _meshEntries, Renderer* _renderer);
 
 public:
-	void LoadMesh(const string& _modelPath, const string& _texturePath, vector<MeshEntry>& _meshEntries, vector<InfoBMP>& _meshTextures, Renderer* _renderer);
+	void LoadMesh( const string& _modelPath, const string& _texturePath, vector<MeshEntry>& _meshEntries, vector<InfoBMP>& _meshTextures, Renderer* _renderer);
 	static MeshLoader* GetInstance()
 	{
 		if (instance == NULL)

@@ -1,11 +1,11 @@
 #pragma once
 
-#include "Shape.h"
+#include "Component.h"
 #include "Exports.h"
 #include "MeshLoader.h"
 #include "TextureLoader.h"
 
-class ENGINE_API Mesh : public Shape
+class ENGINE_API MeshComponent : public Component
 {
 private:
 	char* texturePath;
@@ -14,8 +14,12 @@ private:
 	vector<unsigned int> buffersTextureID;
 
 public:
+	MeshComponent(string modelPath, string _texturePath, Renderer* rend);
+	~MeshComponent();
+
+	void Start() override;
+	void Update() override;
 	void Draw() override;
-	void Update();
-	Mesh(string _modelPath, string _texturePath, Renderer* _renderer);
-	~Mesh();
+	void Destroy() override;
 };
+

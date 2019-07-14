@@ -14,6 +14,7 @@ Mesh::Mesh(string modelPath, string _texturePath, Renderer* rend) : Shape(rend)
 		buffersTextureID.push_back(rend->GenTextureBuffer(meshTextures[i].width, meshTextures[i].height, meshTextures[i].data));
 	}
 }
+
 Mesh::~Mesh()
 {
 }

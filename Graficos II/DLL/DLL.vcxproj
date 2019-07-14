@@ -140,6 +140,7 @@ COPY "$(SolutionDir)external\AssImp\lib\" "$(OutDir)" /Y</Command>
     <ClInclude Include="Libs.h" />
     <ClInclude Include="Material.h" />
     <ClInclude Include="Mesh.h" />
+    <ClInclude Include="MeshComponent.h" />
     <ClInclude Include="MeshImporter.h" />
     <ClInclude Include="MeshLoader.h" />
     <ClInclude Include="Node.h" />
@@ -149,6 +150,7 @@ COPY "$(SolutionDir)external\AssImp\lib\" "$(OutDir)" /Y</Command>
     <ClInclude Include="Square.h" />
     <ClInclude Include="TextureLoader.h" />
     <ClInclude Include="DeltaTime.h" />
+    <ClInclude Include="Transform.h" />
     <ClInclude Include="Triangle.h" />
     <ClInclude Include="Window.h" />
   </ItemGroup>
@@ -165,6 +167,7 @@ COPY "$(SolutionDir)external\AssImp\lib\" "$(OutDir)" /Y</Command>
     <ClCompile Include="InputManager.cpp" />
     <ClCompile Include="Material.cpp" />
     <ClCompile Include="Mesh.cpp" />
+    <ClCompile Include="MeshComponent.cpp" />
     <ClCompile Include="MeshImporter.cpp" />
     <ClCompile Include="MeshLoader.cpp" />
     <ClCompile Include="Node.cpp" />
@@ -174,6 +177,7 @@ COPY "$(SolutionDir)external\AssImp\lib\" "$(OutDir)" /Y</Command>
     <ClCompile Include="Square.cpp" />
     <ClCompile Include="TextureLoader.cpp" />
     <ClCompile Include="DeltaTime.cpp" />
+    <ClCompile Include="Transform.cpp" />
     <ClCompile Include="Triangle.cpp" />
     <ClCompile Include="Window.cpp" />
   </ItemGroup>
