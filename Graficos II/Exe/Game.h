@@ -10,14 +10,13 @@
 #include <Camera.h>
 #include <Cube.h>
 #include <Mesh.h>
-#include <Node.h>
 #include <InputManager.h>
 
 class Game : public GameBase
 {
 private:
 	Camera* cam;
-	Node* sceneNode;
+	Node* nodeForCamera;
 	unsigned int programID;
 	float vel;
 public:

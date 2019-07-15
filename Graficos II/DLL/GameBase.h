@@ -2,6 +2,7 @@
 #include "Exports.h"
 #include "Renderer.h"
 #include "Window.h"
+#include "Node.h"
 
 class ENGINE_API GameBase
 {
@@ -14,6 +15,7 @@ protected:
 	virtual bool OnLoop() = 0;
 	virtual bool OnDraw() = 0;
 	Renderer* rend;
+	Node* sceneNode;
 
 public:
 	GameBase();

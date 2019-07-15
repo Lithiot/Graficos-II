@@ -13,16 +13,20 @@ Game::~Game()
 
 bool Game::OnStart()
 {
-	cam = new Camera(rend);
 	InputManager::GetInstance()->SetWindow(GetWindow());
 
-	sceneNode = new Node("Scene Node", rend);
+	nodeForCamera = new Node("Node for Camera", rend);
+	sceneNode->AddChild(nodeForCamera);
+	cam = new Camera(rend);
+	nodeForCamera->AddComponent(cam);
 
-	sceneNode->AddChild(MeshLoader::GetInstance()->LoadMesh("Rifle.fbx", "rifle_texture.bmp", rend));
-
+	sceneNode->AddChild(MeshLoader::GetInstance()->LoadMesh("Rifle.fbx", "Rifle_texture.bmp", rend));
 	
+	sceneNode->GetChildAtIndex(1)->GetTransform()->Move(0.0f, 0.0f, 70.0f);
 
-	rend->SetProjectionPerspective(45.0f, 16.0f / 4.0f, 0.1f, 1000.0f);
+	rend->SetProjectionPerspective(45.0f, 2.4f, 0.1f, 100000.0f);
+	
+	sceneNode->GetChildAtIndex(1)->GetChildAtIndex(1)->GetTransform()->Move(0.0f, -20.0f, 0.0f);
 
 	std::cout << "Game::Start()" << std::endl;
 	return true;
@@ -39,8 +43,9 @@ bool Game::OnLoop()
 	DeltaTime::Instance()->Update();
 	CollisionManager::Instance()->CheckCollisions();
 
-	sceneNode->GetChildAtIndex(0)->GetTransform()->RotateY(5.0f * DeltaTime::Instance()->GetDeltaTime());
-	sceneNode->GetChildAtIndex(0)->GetTransform()->Move(0, 0, -10.0f * DeltaTime::Instance()->GetDeltaTime());
+	sceneNode->GetChildAtIndex(1)->GetTransform()->RotateY(1.0f * DeltaTime::Instance()->GetDeltaTime());
+	sceneNode->GetChildAtIndex(1)->GetChildAtIndex(1)->GetTransform()->RotateY(-3.0f * DeltaTime::Instance()->GetDeltaTime());
+	
 	
 
 	if (InputManager::GetInstance()->GetKeyDown(DownKey))

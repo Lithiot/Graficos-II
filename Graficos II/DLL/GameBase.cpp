@@ -19,6 +19,8 @@ bool GameBase::Start()
 	if (!rend->Start(wind))
 		return false;
 
+	sceneNode = new Node("SceneNode", rend);
+
 	rend->SetClearColor(0, 0, 1, 1);
 
 	return OnStart();
@@ -38,6 +40,7 @@ void GameBase::loop()
 	{
 		quit = OnLoop();
 		rend->ClearWindow();
+		sceneNode->Update();
 		OnDraw();
 		rend->SwapBuffer();
 		wind->PollEvents();

@@ -39,9 +39,7 @@ void Transform::UpdateModel()
 
 void Transform::Translate(float x, float y, float z) 
 {
-	position[0] = x;
-	position[1] = y;
-	position[2] = z;
+	position = glm::vec3(x, y, z);
 
 	translationMatrixLocal = translate(glm::mat4(1.0f), position);
 

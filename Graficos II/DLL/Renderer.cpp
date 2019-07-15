@@ -232,8 +232,30 @@ void Renderer::SetProjectionPerspective(float fovy, float aspect, float zNear, f
 	UpdateMVP();
 }
 
+void Renderer::SetProjectionMatrix(glm::mat4 projection) 
+{
+	this->projection = projection;
+	UpdateMVP();
+}
+
+glm::mat4 Renderer::GetProjection() 
+{
+	return projection;
+}
+
 void Renderer::SetViewMatrix(glm::vec3 eye, glm::vec3 center, glm::vec3 up) 
 {
 	view = glm::lookAt(eye, center, up);
 	UpdateMVP();
+}
+
+void Renderer::SetViewMatrix(glm::mat4 view)
+{
+	this->view = view;
+	UpdateMVP();
+}
+
+glm::mat4 Renderer::GetViewMatrix() 
+{
+	return view;
 }

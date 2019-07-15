@@ -34,6 +34,11 @@ void Node::RemoveNodeAtIndex(unsigned int i)
 
 void Node::Update() 
 {
+	for (int i = 0; i < components->size(); i++)
+	{
+		components->at(i)->Update();
+	}
+
 	for (int i = 0; i < childs->size(); i++)
 	{
 		childs->at(i)->Update();
@@ -43,6 +48,8 @@ void Node::Update()
 void Node::Draw() 
 {
 	glm::mat4 originalModel = rend->GetModel();
+	glm::mat4 originalProjection = rend->GetProjection();
+	glm::mat4 originalView = rend->GetViewMatrix();
 	rend->MultiplyModel(transform->GetModel());
 
 	for (int i = 0; i < components->size(); i++)
@@ -56,6 +63,8 @@ void Node::Draw()
 	}
 
 	rend->SetModel(originalModel);
+	rend->SetViewMatrix(originalView);
+	rend->SetProjectionMatrix(originalProjection);
 }
 
 string Node::GetName() 
