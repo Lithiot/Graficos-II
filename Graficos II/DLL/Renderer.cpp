@@ -204,6 +204,11 @@ void Renderer::SetModel(glm::mat4 mod)
 	UpdateMVP();
 }
 
+glm::mat4 Renderer::GetModel() 
+{
+	return model;
+}
+
 void Renderer::MultiplyModel(glm::mat4 mod) 
 {
 	model *= mod;

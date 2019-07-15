@@ -3,6 +3,7 @@
 
 Mesh::Mesh(string modelPath, string _texturePath, Renderer* rend) : Shape(rend)
 {
+	/*
 	this->texturePath = new char[_texturePath.size() + 1];
 	_texturePath.copy(this->texturePath, _texturePath.size() + 1);
 	this->texturePath[_texturePath.size()] = '\0';
@@ -13,6 +14,7 @@ Mesh::Mesh(string modelPath, string _texturePath, Renderer* rend) : Shape(rend)
 	{
 		buffersTextureID.push_back(rend->GenTextureBuffer(meshTextures[i].width, meshTextures[i].height, meshTextures[i].data));
 	}
+	*/
 }
 
 Mesh::~Mesh()
@@ -21,11 +23,11 @@ Mesh::~Mesh()
 
 void Mesh::Update()
 {
-	Entity::UpdateModel();
+	//Entity::UpdateModel();
 }
 
 void Mesh::Draw()
-{
+{/*
 	renderer->LoadIdentityMatrix();
 	renderer->SetModel(model);
 	if (material != NULL) 
@@ -45,4 +47,5 @@ void Mesh::Draw()
 	}
 	renderer->DisableBuffer(0);
 	renderer->DisableBuffer(1);
+	*/
 }

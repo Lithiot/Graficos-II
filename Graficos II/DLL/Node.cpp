@@ -1,8 +1,8 @@
 #include "Node.h"
 
-Node::Node(string name, Renderer* rend) : childs(new std::vector<Node*>)
+Node::Node(string name, Renderer* rend) : childs(new std::vector<Node*>), components(new std::vector<Component*>), transform(new Transform(rend)), name(name), rend(rend)
 {
-	transform = new Transform();
+	AddComponent(transform);
 }
 
 Node::~Node()
@@ -13,6 +13,11 @@ Node::~Node()
 void Node::AddChild(Node* child) 
 {
 	childs->push_back(child);
+}
+
+void Node::AddComponent(Component* component) 
+{
+	components->push_back(component);
 }
 
 Node* Node::GetChildAtIndex(unsigned int i)
@@ -37,13 +42,28 @@ void Node::Update()
 
 void Node::Draw() 
 {
+	glm::mat4 originalModel = rend->GetModel();
+	rend->MultiplyModel(transform->GetModel());
+
+	for (int i = 0; i < components->size(); i++)
+	{
+		components->at(i)->Draw();
+	}
+
 	for (int i = 0; i < childs->size(); i++)
 	{
 		childs->at(i)->Draw();
 	}
+
+	rend->SetModel(originalModel);
 }
 
 string Node::GetName() 
 {
 	return name;
+}
+
+Transform* Node::GetTransform() 
+{
+	return transform;
 }

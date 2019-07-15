@@ -11,7 +11,7 @@ using namespace glm;
 #include "Component.h"
 #include "Renderer.h"
 
-class Transform : public Component
+class ENGINE_API Transform : public Component
 {
 private:
 	mat4 model;
@@ -35,8 +35,18 @@ public:
 	void UpdateModel();
 
 	void Translate(float x, float y, float z);
-	void RotateX(float x);
-	void RotateY(float y);
-	void RotateZ(float z);
+	void SetRotationX(float x);
+	void SetRotationY(float y);
+	void SetRotationZ(float z);
 	void Scale(float x, float y, float z);
+
+	void Move(float x, float y, float z);
+	void RotateX(float velocity);
+	void RotateY(float velocity);
+	void RotateZ(float velocity);
+
+	mat4 GetModel();
+	float GetRotX();
+	float GetRotY();
+	float GetRotZ();
 };

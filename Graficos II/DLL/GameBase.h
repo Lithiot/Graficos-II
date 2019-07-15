@@ -21,4 +21,6 @@ public:
 	bool Start();
 	bool Stop();
 	void loop();
+
+	Window* GetWindow();
 };

@@ -1,8 +1,9 @@
 #include "Transform.h"
 
 Transform::Transform(Renderer* rend) : Component(rend), model(mat4(1.0f)), translationMatrixLocal(mat4(1.0f)), rotationMatrixLocal(mat4(1.0f)),
-						 scaleMatrixLocal(mat4(1.0f))
+									   scaleMatrixLocal(mat4(1.0f))
 {
+	position = rotation = scale = vec3(0.0f);
 }
 
 Transform::~Transform()
@@ -11,9 +12,24 @@ Transform::~Transform()
 
 void Transform::Start() 
 {
-	position = rotation = scale = vec3(0.0f);
+	
 
 	UpdateModel();
+}
+
+void Transform::Update() 
+{
+	
+}
+
+void Transform::Draw() 
+{
+	
+}
+
+void Transform::Destroy() 
+{
+	
 }
 
 void Transform::UpdateModel() 
@@ -32,7 +48,16 @@ void Transform::Translate(float x, float y, float z)
 	UpdateModel();
 }
 
-void Transform::RotateX(float x) 
+void Transform::Move(float x, float y, float z) 
+{
+	position[0] += x;
+	position[1] += y;
+	position[2] += z;
+
+	Translate(position[0], position[1], position[2]);
+}
+
+void Transform::SetRotationX(float x) 
 {
 	rotation[0] = x;
 	
@@ -41,22 +66,40 @@ void Transform::RotateX(float x)
 	UpdateModel();
 }
 
-void Transform::RotateY(float x)
+void Transform::RotateX(float velocity) 
 {
-	rotation[0] = x;
+	rotation[0] += velocity;
+	SetRotationX(rotation[0]);
+}
 
-	rotationMatrixLocal = glm::rotate(glm::mat4(1.0f), x, glm::vec3(1, 0, 0));
+void Transform::SetRotationY(float y)
+{
+	rotation[1] = y;
+
+	rotationMatrixLocal = glm::rotate(glm::mat4(1.0f), y, glm::vec3(0, 1, 0));
 
 	UpdateModel();
 }
 
-void Transform::RotateZ(float x)
+void Transform::RotateY(float velocity)
 {
-	rotation[0] = x;
+	rotation[1] += velocity;
+	SetRotationY(rotation[1]);
+}
 
-	rotationMatrixLocal = glm::rotate(glm::mat4(1.0f), x, glm::vec3(1, 0, 0));
+void Transform::SetRotationZ(float z)
+{
+	rotation[2] = z;
+
+	rotationMatrixLocal = glm::rotate(glm::mat4(1.0f), z, glm::vec3(0, 0, 1));
 
 	UpdateModel();
+}
+
+void Transform::RotateZ(float velocity)
+{
+	rotation[2] += velocity;
+	SetRotationZ(rotation[2]);
 }
 
 void Transform::Scale(float x, float y, float z) 
@@ -68,4 +111,24 @@ void Transform::Scale(float x, float y, float z)
 	scaleMatrixLocal = glm::scale(glm::mat4(1.0f), scale);
 
 	UpdateModel();
+}
+
+float Transform::GetRotX() 
+{
+	return rotation.x;
+}
+
+float Transform::GetRotY() 
+{
+	return rotation.y;
+}
+
+float Transform::GetRotZ() 
+{
+	return rotation.z;
+}
+
+mat4 Transform::GetModel()
+{
+	return model;
 }

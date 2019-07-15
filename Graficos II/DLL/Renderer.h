@@ -38,6 +38,7 @@ public:
 	void DisableBuffer(int id);
 	void UpdateMVP();
 	void SetModel(glm::mat4 mod);
+	glm::mat4 GetModel();
 	void LoadIdentityMatrix();
 	void MultiplyModel(glm::mat4 mod);
 	void SetProjectionOrtho(float left, float right, float bottom, float top, float zNear, float zFar);

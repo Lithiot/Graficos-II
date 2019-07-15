@@ -10,16 +10,14 @@
 #include <Camera.h>
 #include <Cube.h>
 #include <Mesh.h>
+#include <Node.h>
+#include <InputManager.h>
 
 class Game : public GameBase
 {
 private:
-	Material* mat1;
-	Material* mat2;
 	Camera* cam;
-	Mesh* mesh1;
-	Mesh* mesh2;
-	Cube* cube;
+	Node* sceneNode;
 	unsigned int programID;
 	float vel;
 public:

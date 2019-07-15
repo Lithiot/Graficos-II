@@ -36,11 +36,15 @@ void GameBase::loop()
 {
 	do
 	{
-		//DeltaTime::Instance()->Update();
 		quit = OnLoop();
 		rend->ClearWindow();
 		OnDraw();
 		rend->SwapBuffer();
 		wind->PollEvents();
 	} while (!wind->ShouldClose() && quit);
+}
+
+Window* GameBase::GetWindow() 
+{
+	return wind;
 }

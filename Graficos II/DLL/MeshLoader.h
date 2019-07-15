@@ -16,21 +16,23 @@
 #include "../external/glm-0.9.9.0/glm/glm.hpp"
 #include "../external/glm-0.9.9.0/glm/glm.hpp"
 #include "Node.h"
+#include "MeshComponent.h"
 
 using namespace std;
 using namespace Assimp;
+
 class ENGINE_API MeshLoader
 {
 private:
 	MeshLoader();
 	static MeshLoader *instance;
-	const aiScene* scene = NULL;
-	Importer importer;
-	void InitFromScene(const aiScene* _pScene, const string& _texturePath, vector<MeshEntry>& _meshEntries, vector<InfoBMP>& _meshTextures, Renderer* _renderer);
-	void InitMesh(unsigned int _index, const aiMesh* _paiMesh, vector<MeshEntry>& _meshEntries, Renderer* _renderer);
+	void GenerateHierarchy(const aiScene* scene, Node* baseNode, aiNode* root, const string& texturePath, Renderer* rend);
+	void InitMesh(const aiMesh* mesh, MeshComponent* meshComponent, Renderer* rend);
 
 public:
-	void LoadMesh( const string& _modelPath, const string& _texturePath, vector<MeshEntry>& _meshEntries, vector<InfoBMP>& _meshTextures, Renderer* _renderer);
+	Node* LoadMesh(const string& modelPath, const string& texturePath, Renderer* rend);
+
+
 	static MeshLoader* GetInstance()
 	{
 		if (instance == NULL)
