@@ -80,3 +80,21 @@ void MeshComponent::SetTexture(string texturePath)
 	texture = TextureLoader::LoadBMP(texturePath.c_str());
 	textureBufferID = rend->GenTextureBuffer(texture.width, texture.height, texture.data);
 }
+
+void MeshComponent::GenerateCollider(glm::vec3 colliderMin, glm::vec3 colliderMax)
+{
+
+	glm::vec3 colliderVertices[CANT_COLLIDER_VERTEX] =
+	{
+		vec3(colliderMin.x, colliderMin.y, colliderMin.z),
+		vec3(colliderMin.x, colliderMax.y, colliderMin.z),
+		vec3(colliderMin.x, colliderMin.y, colliderMax.z),
+		vec3(colliderMin.x, colliderMax.y, colliderMax.z),
+		vec3(colliderMax.x, colliderMin.y, colliderMin.z),
+		vec3(colliderMax.x, colliderMax.y, colliderMin.z),
+		vec3(colliderMax.x, colliderMin.y, colliderMax.z),
+		vec3(colliderMax.x, colliderMax.y, colliderMax.z)
+	};
+
+	collider3d->SetVertex(colliderVertices);
+}

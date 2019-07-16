@@ -23,7 +23,7 @@ bool Game::OnStart()
 	sceneNode->AddChild(MeshLoader::GetInstance()->LoadMesh("Rifle.fbx", "Rifle_texture.bmp", rend, cam));
 	//sceneNode->AddChild(MeshLoader::GetInstance()->LoadMesh("rose.fbx", "rose_texture.bmp", rend));
 	
-	sceneNode->GetChildAtIndex(1)->Move(0.0f, 0.0f, 70.0f);
+	sceneNode->GetChildAtIndex(1)->Move(0.0f, 0.0f, 100.0f);
 	
 	sceneNode->GetChildAtIndex(1)->GetChildAtIndex(1)->Move(0.0f, -20.0f, 0.0f);
 
@@ -64,27 +64,27 @@ bool Game::OnLoop()
 	}
 	else if (InputManager::GetInstance()->GetKeyDown(AKey))
 	{
-		nodeForCamera->RotateX(20.0F * DeltaTime::Instance()->GetDeltaTime());
+		nodeForCamera->RotateX(5.0f * DeltaTime::Instance()->GetDeltaTime());
 	}
 	else if (InputManager::GetInstance()->GetKeyDown(DKey))
 	{
-		nodeForCamera->RotateX(-20.0F * DeltaTime::Instance()->GetDeltaTime());
+		nodeForCamera->RotateX(-5.0f * DeltaTime::Instance()->GetDeltaTime());
 	}
 	else if (InputManager::GetInstance()->GetKeyDown(WKey))
 	{
-		nodeForCamera->RotateY(-20.0F * DeltaTime::Instance()->GetDeltaTime());
+		nodeForCamera->RotateY(-5.0F * DeltaTime::Instance()->GetDeltaTime());
 	}
 	else if (InputManager::GetInstance()->GetKeyDown(SKey))
 	{
-		nodeForCamera->RotateY(20.0F * DeltaTime::Instance()->GetDeltaTime());
+		nodeForCamera->RotateY(5.0F * DeltaTime::Instance()->GetDeltaTime());
 	}
 	else if (InputManager::GetInstance()->GetKeyDown(QKey))
 	{
-		nodeForCamera->RotateZ(20.0F * DeltaTime::Instance()->GetDeltaTime());
+		nodeForCamera->RotateZ(5.0f * DeltaTime::Instance()->GetDeltaTime());
 	}
 	else if (InputManager::GetInstance()->GetKeyDown(EKey))
 	{
-		nodeForCamera->RotateZ(-20.0F * DeltaTime::Instance()->GetDeltaTime());
+		nodeForCamera->RotateZ(-5.0f * DeltaTime::Instance()->GetDeltaTime());
 	}
 
 	

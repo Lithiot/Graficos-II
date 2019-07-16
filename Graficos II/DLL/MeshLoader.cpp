@@ -22,8 +22,6 @@ Node* MeshLoader::LoadMesh(const string& modelPath, const string& texturePath, R
 	Node* baseNode = new Node("baseNode", rend);
 	GenerateHierarchy(scene, baseNode, scene->mRootNode, texturePath, rend, cam);
 
-	GenerateCollider(baseNode);
-
 	return baseNode;
 
 }
@@ -40,6 +38,7 @@ void MeshLoader::GenerateHierarchy(const aiScene* scene, Node* baseNode, aiNode*
 			childNode->AddComponent(meshComponent);
 			unsigned int index = root->mChildren[i]->mMeshes[0];
 			InitMesh(scene->mMeshes[index], meshComponent, rend);
+			meshComponent->GenerateCollider(colliderMin, colliderMax);
 			meshComponent->SetTexture(texturePath);
 			meshComponent->LoadMaterial();
 			if (root->mChildren[i]->mNumChildren > 0)
@@ -91,27 +90,4 @@ void MeshLoader::InitMesh(const aiMesh* mesh, MeshComponent* meshComponent, Rend
 	meshComponent->SetVertices(vertices);
 	meshComponent->SetUVS(uvs);
 	meshComponent->SetFaces(facesIndexes);
-}
-
-void MeshLoader::GenerateCollider(Node* baseNode) 
-{
-	glm::vec3 colliderVertices[CANT_COLLIDER_VERTEX] = 
-	{
-		vec3(colliderMin.x, colliderMin.y, colliderMin.z),
-		vec3(colliderMin.x, colliderMax.y, colliderMin.z),
-		vec3(colliderMin.x, colliderMin.y, colliderMax.z),
-		vec3(colliderMin.x, colliderMax.y, colliderMax.z),
-		vec3(colliderMax.x, colliderMin.y, colliderMin.z),
-		vec3(colliderMax.x, colliderMax.y, colliderMin.z),
-		vec3(colliderMax.x, colliderMin.y, colliderMax.z),
-		vec3(colliderMax.x, colliderMax.y, colliderMax.z)
-	};
-
-	for (int i = 0; i < baseNode->GetChildsVector()->size(); i++)
-	{
-		if (baseNode->GetChildAtIndex(i)->GetComponentByType(Type::MESH_COMPONENT) != nullptr)
-		{
-			((MeshComponent*)baseNode->GetChildAtIndex(i)->GetComponentByType(Type::MESH_COMPONENT))->collider3d->SetVertex(colliderVertices);
-		}
-	}
 }

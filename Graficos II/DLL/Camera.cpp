@@ -57,55 +57,25 @@ void Camera::Strafe(float velocity)
 
 void Camera::Roll(float velocity) 
 {
-	glm::mat4 rot = glm::rotate(glm::mat4(1.0f), (float)(velocity * DeltaTime::Instance()->GetDeltaTime()), (glm::vec3)forward);
-	glm::vec4 aux = glm::vec4(forward.x, forward.y, forward.z, 0.0f);
-	aux = rot * aux;
-	forward.x = aux.x;
-	forward.y = aux.y;
-	forward.z = aux.z;
-
-	aux = glm::vec4(up.x, up.y, up.z, 0.0f);
-	aux = rot * aux;
-	up.x = aux.x;
-	up.y = aux.y;
-	up.z = aux.z;
+	right = glm::rotate(mat4(1.0f), velocity, (glm::vec3)forward) * right;
+	up = glm::rotate(mat4(1.0f), velocity, (glm::vec3)forward) * up;
 
 	UpdateViewMatrix();
 }
 
 void Camera::Yaw(float velocity) 
 {
-	glm::mat4 rot = glm::rotate(glm::mat4(1.0f), (float)(velocity * DeltaTime::Instance()->GetDeltaTime()), (glm::vec3)up);
-	glm::vec4 aux = glm::vec4(forward.x, forward.y, forward.z, 0.0f);
-	aux = rot * aux;
-	forward.x = aux.x;
-	forward.y = aux.y;
-	forward.z = aux.z;
-
-	aux = glm::vec4(up.x, up.y, up.z, 0.0f);
-	aux = rot * aux;
-	up.x = aux.x;
-	up.y = aux.y;
-	up.z = aux.z;
+	forward = glm::rotate(glm::mat4(1.0f), velocity, (glm::vec3)up) * forward;
+	right = glm::rotate(glm::mat4(1.0f), velocity, (glm::vec3)up) * right;
 
 	UpdateViewMatrix();
 }
 
 void Camera::Pitch(float velocity) 
 {
-	glm::mat4 rot = glm::rotate(glm::mat4(1.0f), (float)(velocity * DeltaTime::Instance()->GetDeltaTime()), (glm::vec3)right);
-	glm::vec4 aux = glm::vec4(forward.x, forward.y, forward.z, 0.0f);
-	aux = rot * aux;
-	forward.x = aux.x;
-	forward.y = aux.y;
-	forward.z = aux.z;
-
-	aux = glm::vec4(up.x, up.y, up.z, 0.0f);
-	aux = rot * aux;
-	up.x = aux.x;
-	up.y = aux.y;
-	up.z = aux.z;
-
+	forward = glm::rotate(glm::mat4(1.0f), velocity, (glm::vec3)right) * forward;
+	up = glm::rotate(glm::mat4(1.0f), velocity, (glm::vec3)right) * up;
+	
 	UpdateViewMatrix();
 }
 

@@ -50,5 +50,6 @@ public:
 	void SetTexture(string texturePath);
 
 	void LoadMaterial();
+	void GenerateCollider(glm::vec3 colliderMin, glm::vec3 colliderMax);
 };
 

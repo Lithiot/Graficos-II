@@ -28,7 +28,7 @@ private:
 	static MeshLoader *instance;
 	void GenerateHierarchy(const aiScene* scene, Node* baseNode, aiNode* root, const string& texturePath, Renderer* rend, Camera* cam);
 	void InitMesh(const aiMesh* mesh, MeshComponent* meshComponent, Renderer* rend);
-	void GenerateCollider(Node* baseNode);
+	//void GenerateCollider(Node* baseNode);
 	vec3 colliderMin;
 	vec3 colliderMax;
 
