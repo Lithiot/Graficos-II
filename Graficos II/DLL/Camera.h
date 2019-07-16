@@ -3,9 +3,11 @@
 #include "Renderer.h"
 #include "Component.h"
 #include "DeltaTime.h"
+
 class ENGINE_API Camera : public Component
 {
 private:
+
 	glm::vec3 position;
 	glm::vec3 rotation;
 	glm::vec3 foward;
@@ -26,5 +28,6 @@ public:
 	void Yaw(float velocity);
 	void Pitch(float velocity);
 	void UpdateViewMatrix();
+	void SetPosition(glm::vec3 pos);
 };
 

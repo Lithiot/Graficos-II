@@ -1,6 +1,6 @@
 #include "MeshComponent.h"
 
-MeshComponent::MeshComponent(Node* node, Renderer* rend) : Component(rend), myNode(node)
+MeshComponent::MeshComponent(Node* node, Renderer* rend) : Component(rend, Type::MESH_COMPONENT), myNode(node)
 {
 	myNode->AddComponent(this);
 }
@@ -52,7 +52,7 @@ void MeshComponent::SetVertices(std::vector<float> vertices)
 void MeshComponent::SetUVS(std::vector<float> uvs)
 {
 	this->uvs = uvs;
-	uvBufferID = rend->GenVertexBuffer(&uvs[0], vertices.size() * sizeof(float));
+	uvBufferID = rend->GenVertexBuffer(&uvs[0], uvs.size() * sizeof(float));
 }
 
 void MeshComponent::SetFaces(std::vector<unsigned int> faces)

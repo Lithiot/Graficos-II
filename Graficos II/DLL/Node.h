@@ -3,7 +3,7 @@
 #include <vector>
 #include "Transform.h"
 #include "Renderer.h"
-#include "Component.h"
+#include "Camera.h"
 class ENGINE_API Node
 {
 private:
@@ -19,9 +19,14 @@ public:
 	void AddChild(Node* child);
 	void AddComponent(Component* component);
 	Node* GetChildAtIndex(unsigned int i);
+	Component* GetComponentByType(Type type);
 	void RemoveNodeAtIndex(unsigned int i);
 	void Update();
 	void Draw();
 	string GetName();
 	Transform* GetTransform();
+	void Move(float x, float y, float z);
+	void RotateX(float x);
+	void RotateY(float y);
+	void RotateZ(float z);
 };

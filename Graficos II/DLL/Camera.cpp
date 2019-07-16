@@ -2,7 +2,7 @@
 #define GLM_ENABLE_EXPERIMENTAL
 #include <glm/gtx/transform.hpp>
 
-Camera::Camera(Renderer* rend) : Component(rend), position(0.0f,0.0f,-1.0f), foward(0.0f,0.0f,1.0f), right(1.0f,0.0f,0.0f),
+Camera::Camera(Renderer* rend) : Component(rend, Type::CAMERA), position(0.0f,0.0f,-1.0f), foward(0.0f,0.0f,1.0f), right(1.0f,0.0f,0.0f),
 								 up(0.0f, 1.0f, 0.0f), rotation(position + foward)
 {
 	
@@ -25,7 +25,6 @@ void Camera::Update()
 
 void Camera::Draw() 
 {
-	
 }
 
 void Camera::Destroy() 
@@ -102,5 +101,11 @@ void Camera::Pitch(float velocity)
 void Camera::UpdateViewMatrix() 
 {
 	rend->SetViewMatrix(position, position + foward, up);
+}
+
+void Camera::SetPosition(glm::vec3 pos) 
+{
+	position = pos;
+	UpdateViewMatrix();
 }
 

@@ -25,6 +25,19 @@ Node* Node::GetChildAtIndex(unsigned int i)
 	return childs->at(i);
 }
 
+Component * Node::GetComponentByType(Type type)
+{
+	for (int i = 0; i < components->size(); i++)
+	{
+		if (components->at(i)->GetType() == type)
+		{
+			return components->at(i);
+		}
+	}
+
+	return NULL;
+}
+
 void Node::RemoveNodeAtIndex(unsigned int i)
 {
 	int size = childs->size() - 1;
@@ -75,4 +88,59 @@ string Node::GetName()
 Transform* Node::GetTransform() 
 {
 	return transform;
+}
+
+void Node::Move(float x, float y, float z)
+{
+	x = transform->position[0] + x;
+	y = transform->position[1] + y;
+	z = transform->position[2] + z;
+
+	transform->Translate(x, y ,z);
+
+	Camera* cam = (Camera*)GetComponentByType(Type::CAMERA);
+
+	if (cam)
+	{
+		cam->SetPosition(transform->position);
+	}
+}
+
+void Node::RotateX(float x) 
+{
+	Camera* cam = (Camera*)GetComponentByType(Type::CAMERA);
+
+	if (cam)
+	{
+		cam->Yaw(x);
+	}
+
+	x = transform->rotation[0] + x;
+	transform->SetRotationX(x);
+}
+
+void Node::RotateY(float y) 
+{
+	Camera* cam = (Camera*)GetComponentByType(Type::CAMERA);
+
+	if (cam)
+	{
+		cam->Pitch(y);
+	}
+
+	y = transform->rotation[1] + y;
+	transform->SetRotationY(y);
+}
+
+void Node::RotateZ(float z) 
+{
+	Camera* cam = (Camera*)GetComponentByType(Type::CAMERA);
+
+	if (cam)
+	{
+		cam->Roll(z);
+	}
+
+	z = transform->rotation[2] + z;
+	transform->SetRotationZ(z);
 }

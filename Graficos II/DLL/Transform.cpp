@@ -1,6 +1,6 @@
 #include "Transform.h"
 
-Transform::Transform(Renderer* rend) : Component(rend), model(mat4(1.0f)), translationMatrixLocal(mat4(1.0f)), rotationMatrixLocal(mat4(1.0f)),
+Transform::Transform(Renderer* rend) : Component(rend, Type::TRANSFORM), model(mat4(1.0f)), translationMatrixLocal(mat4(1.0f)), rotationMatrixLocal(mat4(1.0f)),
 									   scaleMatrixLocal(mat4(1.0f))
 {
 	position = rotation = scale = vec3(0.0f);
@@ -12,8 +12,6 @@ Transform::~Transform()
 
 void Transform::Start() 
 {
-	
-
 	UpdateModel();
 }
 
@@ -44,15 +42,6 @@ void Transform::Translate(float x, float y, float z)
 	translationMatrixLocal = translate(glm::mat4(1.0f), position);
 
 	UpdateModel();
-}
-
-void Transform::Move(float x, float y, float z) 
-{
-	position[0] += x;
-	position[1] += y;
-	position[2] += z;
-
-	Translate(position[0], position[1], position[2]);
 }
 
 void Transform::SetRotationX(float x) 
