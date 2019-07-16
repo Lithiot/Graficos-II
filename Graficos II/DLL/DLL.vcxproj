@@ -129,6 +129,7 @@ COPY "$(SolutionDir)external\AssImp\lib\" "$(OutDir)" /Y</Command>
     <ClInclude Include="BoundingBox.h" />
     <ClInclude Include="Camera.h" />
     <ClInclude Include="Circle.h" />
+    <ClInclude Include="Collider3D.h" />
     <ClInclude Include="CollisionManager.h" />
     <ClInclude Include="Component.h" />
     <ClInclude Include="Cube.h" />
@@ -159,6 +160,7 @@ COPY "$(SolutionDir)external\AssImp\lib\" "$(OutDir)" /Y</Command>
     <ClCompile Include="BoundingBox.cpp" />
     <ClCompile Include="Camera.cpp" />
     <ClCompile Include="Circle.cpp" />
+    <ClCompile Include="Collider3D.cpp" />
     <ClCompile Include="CollisionManager.cpp" />
     <ClCompile Include="Component.cpp" />
     <ClCompile Include="Cube.cpp" />

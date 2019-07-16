@@ -20,12 +20,10 @@ bool Game::OnStart()
 	cam = new Camera(rend);
 	nodeForCamera->AddComponent(cam);
 
-	sceneNode->AddChild(MeshLoader::GetInstance()->LoadMesh("Rifle.fbx", "Rifle_texture.bmp", rend));
-	sceneNode->AddChild(MeshLoader::GetInstance()->LoadMesh("rose.fbx", "rose_texture.bmp", rend));
+	sceneNode->AddChild(MeshLoader::GetInstance()->LoadMesh("Rifle.fbx", "Rifle_texture.bmp", rend, cam));
+	//sceneNode->AddChild(MeshLoader::GetInstance()->LoadMesh("rose.fbx", "rose_texture.bmp", rend));
 	
 	sceneNode->GetChildAtIndex(1)->Move(0.0f, 0.0f, 70.0f);
-
-	rend->SetProjectionPerspective(45.0f, 2.4f, 0.1f, 100000.0f);
 	
 	sceneNode->GetChildAtIndex(1)->GetChildAtIndex(1)->Move(0.0f, -20.0f, 0.0f);
 

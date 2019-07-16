@@ -25,6 +25,15 @@ Node* Node::GetChildAtIndex(unsigned int i)
 	return childs->at(i);
 }
 
+std::vector<Node*>* Node::GetChildsVector() 
+{
+	if (childs == nullptr || childs->size() == 0)
+	{
+		return nullptr;
+	}
+	return childs;
+}
+
 Component * Node::GetComponentByType(Type type)
 {
 	for (int i = 0; i < components->size(); i++)

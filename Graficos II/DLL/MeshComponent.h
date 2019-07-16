@@ -1,9 +1,11 @@
 #pragma once
 
+#include "Component.h"
 #include "Exports.h"
-#include "Node.h"
 #include "TextureLoader.h"
 #include "Material.h"
+#include "Collider3D.h"
+#include "Camera.h"
 #include <glm\glm.hpp>
 #include <glm\gtc\matrix_transform.hpp>
 
@@ -16,11 +18,11 @@ using namespace std;
 class ENGINE_API MeshComponent : public Component
 {
 private:
-	Node* myNode;
 	string modelPath;
 	string texturePath;
 	InfoBMP texture;
 	Material* material;
+	Camera* cam;
 	unsigned int programID;
 	std::vector<float> vertices;
 	std::vector<float> uvs;
@@ -32,8 +34,10 @@ private:
 	unsigned int textureBufferID;
 
 public:
-	MeshComponent(Node* node, Renderer* rend);
+	MeshComponent(Renderer* rend, Camera* cam);
 	~MeshComponent();
+
+	Collider3D* collider3d;
 
 	void Start() override;
 	void Update() override;

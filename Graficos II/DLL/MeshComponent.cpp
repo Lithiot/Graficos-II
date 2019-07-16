@@ -1,8 +1,7 @@
 #include "MeshComponent.h"
 
-MeshComponent::MeshComponent(Node* node, Renderer* rend) : Component(rend, Type::MESH_COMPONENT), myNode(node)
+MeshComponent::MeshComponent(Renderer* rend, Camera* cam) : Component(rend, Type::MESH_COMPONENT), collider3d(new Collider3D(rend)), cam(cam)
 {
-	myNode->AddComponent(this);
 }
 
 MeshComponent::~MeshComponent()
@@ -22,20 +21,29 @@ void MeshComponent::Update()
 
 void MeshComponent::Draw()
 {
-	if (material != NULL)
+	if (cam->BoxInFrustum(collider3d))
 	{
-		material->Bind();
-		material->SetMatrixProperty("MVP", rend->GetMVP());
-		material->BindTexture("myTextureSampler", textureBufferID);
+		cout << "Is inside frustum" << endl;
+
+		if (material != NULL)
+		{
+			material->Bind();
+			material->SetMatrixProperty("MVP", rend->GetMVP());
+			material->BindTexture("myTextureSampler", textureBufferID);
+		}
+		rend->EnableAtribArray(0);
+		rend->EnableAtribArray(1);
+		rend->BindBuffer(vertexBufferID, 0);
+		rend->BindTextureBuffer(uvBufferID, 1);
+		rend->BindIndexBuffer(IndexBufferID);
+		rend->DrawIndexBuffer(facesIndex.size());
+		rend->DisableBuffer(0);
+		rend->DisableBuffer(1);
 	}
-	rend->EnableAtribArray(0);
-	rend->EnableAtribArray(1);
-	rend->BindBuffer(vertexBufferID, 0);
-	rend->BindTextureBuffer(uvBufferID, 1);
-	rend->BindIndexBuffer(IndexBufferID);
-	rend->DrawIndexBuffer(facesIndex.size());
-	rend->DisableBuffer(0);
-	rend->DisableBuffer(1);
+	else
+	{
+		cout << "Is Outside Frustum" << endl;
+	}
 }
 
 void MeshComponent::Destroy() 

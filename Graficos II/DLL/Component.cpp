@@ -12,6 +12,10 @@ void Component::Update()
 {
 }
 
+void Component::Draw() 
+{
+}
+
 string Component::GetName() 
 {
 	return name;

@@ -26,11 +26,14 @@ class ENGINE_API MeshLoader
 private:
 	MeshLoader();
 	static MeshLoader *instance;
-	void GenerateHierarchy(const aiScene* scene, Node* baseNode, aiNode* root, const string& texturePath, Renderer* rend);
+	void GenerateHierarchy(const aiScene* scene, Node* baseNode, aiNode* root, const string& texturePath, Renderer* rend, Camera* cam);
 	void InitMesh(const aiMesh* mesh, MeshComponent* meshComponent, Renderer* rend);
+	void GenerateCollider(Node* baseNode);
+	vec3 colliderMin;
+	vec3 colliderMax;
 
 public:
-	Node* LoadMesh(const string& modelPath, const string& texturePath, Renderer* rend);
+	Node* LoadMesh(const string& modelPath, const string& texturePath, Renderer* rend, Camera* cam);
 
 
 	static MeshLoader* GetInstance()

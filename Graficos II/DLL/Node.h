@@ -4,6 +4,7 @@
 #include "Transform.h"
 #include "Renderer.h"
 #include "Camera.h"
+
 class ENGINE_API Node
 {
 private:
@@ -19,6 +20,7 @@ public:
 	void AddChild(Node* child);
 	void AddComponent(Component* component);
 	Node* GetChildAtIndex(unsigned int i);
+	std::vector<Node*>* GetChildsVector();
 	Component* GetComponentByType(Type type);
 	void RemoveNodeAtIndex(unsigned int i);
 	void Update();
