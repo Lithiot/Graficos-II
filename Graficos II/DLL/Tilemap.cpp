@@ -1,4 +1,5 @@
 #include "Tilemap.h"
+#include "DeltaTime.h"
 
 Tilemap::Tilemap(Renderer* rend, float width, float height, const char* filename, float cantTilesX, float cantTilesY)
 		: Shape(rend), mapWidth(width), mapHeight(height), cantX(cantTilesX), cantY(cantTilesY), lastPosX(0), lastPosY(0), xPos(0), yPos(0)
@@ -19,23 +20,23 @@ Tilemap::Tilemap(Renderer* rend, float width, float height, const char* filename
 	for (int i = 0; i < cantVertex; i = i + 12)
 	{
 		// Coordenada 1
-		vertexes[i] = -10.0f + tileW * column;
-		vertexes[i + 1] = 10.0f - tileH * row;
+		vertexes[i] = -1.0f + tileW * column;
+		vertexes[i + 1] = 1.0f - tileH * row;
 		vertexes[i + 2] = 0.0f;
 
 		// Coordenada 2
-		vertexes[i + 3] = -10.0f + tileW * column;
-		vertexes[i + 4] = (10.0f - tileH) - tileH * row;
+		vertexes[i + 3] = -1.0f + tileW * column;
+		vertexes[i + 4] = (1.0f - tileH) - tileH * row;
 		vertexes[i + 5] = 0.0f;
 		
 		// Coordenada 3
-		vertexes[i + 6] = (-10.0f + tileW) + tileW * column;
-		vertexes[i + 7] = (10.0f - tileH) - tileH * row;
+		vertexes[i + 6] = (-1.0f + tileW) + tileW * column;
+		vertexes[i + 7] = (1.0f - tileH) - tileH * row;
 		vertexes[i + 8] = 0.0f;
 
 		// Coordenada 4
-		vertexes[i + 9] = (-10.0f + tileW) + tileW * column;
-		vertexes[i + 10] = 10.0f - tileH * row;
+		vertexes[i + 9] = (-1.0f + tileW) + tileW * column;
+		vertexes[i + 10] = 1.0f - tileH * row;
 		vertexes[i + 11] = 0.0f;
 		
 		if (column >= 12 - 1)
@@ -49,6 +50,8 @@ Tilemap::Tilemap(Renderer* rend, float width, float height, const char* filename
 	
 	mapIds = new vector<int>();
 	bidimensionalIDs = vector<vector<int>>(height, vector<int>(width));
+	tilesWithCollides = new vector<int>();
+	tilesOnScreen = vector<vector<int>>(12, vector<int>(12));
 	LoadMapIDs(filename);
 
 	vertexUVTexture = new float[cantUVvertex];
@@ -184,13 +187,14 @@ void Tilemap::SetTilemapVertex(float* vertex, int cant)
 
 void Tilemap::UpdateTilemap(float x, float y) 
 {
-	if (lastPosX + 2.0f <= x) 
+	if (lastPosX + 1.95f <= x) 
 	{
 		xPos++;
 		this->SetTranslation(this->GetPosX() + 2.0f, this->GetPosY(), this->GetPosZ());
 		lastPosX = x;
 		lastPosY = y;
-		cout << "Tilemap position is now " << GetPosX() << ", " << GetPosY() << ", " << GetPosZ() << endl;
+		cout << "Tilemap position is now " << GetPosX() << ", " << GetPosY() << endl;
+		cout << "Player position is now " << x << ", " << y << endl;
 	}
 
 	for (int i = yPos; i < yPos + 12; i++)
@@ -201,6 +205,78 @@ void Tilemap::UpdateTilemap(float x, float y)
 		}
 	}
 
+	int aux = 0;
+
+	for (int i = 0; i < tilesOnScreen.size(); i++)
+	{
+		for (int j = 0; j < tilesOnScreen.at(i).size(); j++)
+		{
+			tilesOnScreen[i][j] = mapIds->at(aux);
+			aux++;
+		}
+	}
+
 	LoadUVs();
 	SetTextures(vertexUVTexture, cantUVvertex);
+}
+
+void Tilemap::SetCollisionableTiles(int id) 
+{
+	tilesWithCollides->push_back(id);
+}
+
+bool Tilemap::IsNextTileCollisionable(float playerX, float playerY, float size, Direction dir) 
+{
+	int row;
+	int col;
+
+	switch (dir)
+	{
+	case UP:
+		row = (playerY - size - this->GetPosY()) / tileH;
+		col = (playerX - this->GetPosX()) / tileW;
+		if (row < 0) row *= -1;
+		if (col < 0) col *= -1;
+		row--;
+		break;
+	case DOWN:
+		row = (playerY - this->GetPosY()) / tileH;
+		col = (playerX - this->GetPosX()) / tileW;
+		if (row < 0) row *= -1;
+		if (col < 0) col *= -1;
+		row++;
+		break;
+	case RIGHT:
+		row = (playerY - size - this->GetPosY()) / tileH;
+		col = (playerX - this->GetPosX()) / tileW;
+		if (row < 0) row *= -1;
+		if (col < 0) col *= -1;
+		col++;
+		break;
+	case LEFT:
+		row = (playerY - this->GetPosY()) / tileH;
+		col = (playerX + size - this->GetPosX()) / tileW;
+		if (row < 0) row *= -1;
+		if (col < 0) col *= -1;
+		col--;
+		break;
+	}
+
+	int id = tilesOnScreen.at(row).at(col);
+
+	for (int i = 0; i < tilesWithCollides->size(); i++)
+	{
+		if (id == tilesWithCollides->at(i))
+		{
+			return true;
+		}
+	}
+
+	return false;
+}
+
+void Tilemap::SetLastPositions(float x, float y) 
+{
+	lastPosX = x;
+	lastPosY = y;
 }

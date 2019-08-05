@@ -6,6 +6,11 @@
 #include <vector>
 using namespace std;
 
+enum Direction
+{
+	UP, DOWN, RIGHT, LEFT
+};
+
 class ENGINE_API Tilemap : public Shape
 {
 private:
@@ -21,8 +26,9 @@ private:
 	float lastPosY;
 	float lastPosX;
 	vector<int>* mapIds;
-	vector<int> tilesWithCollides;
+	vector<int>* tilesWithCollides;
 	vector<vector<int>> bidimensionalIDs;
+	vector<vector<int>> tilesOnScreen;
 public:
 	Tilemap(Renderer* rend, float width, float height, const char* filename, float cantTilesX, float cantTilesY);
 	~Tilemap();
@@ -33,5 +39,8 @@ public:
 	void LoadMapIDs(const char* file);
 	void SetTilemapVertex(float* vertex, int cant);
 	void UpdateTilemap(float x, float y);
+	void SetCollisionableTiles(int id);
+	bool IsNextTileCollisionable(float posX, float posY, float size, Direction dir);
+	void SetLastPositions(float x, float y);
 };
 

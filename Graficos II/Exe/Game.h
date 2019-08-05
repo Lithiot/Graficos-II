@@ -8,6 +8,7 @@
 #include <Sprite.h>
 #include <Tilemap.h>
 #include <DeltaTime.h>
+#include <InputManager.h>
 class Game : public GameBase
 {
 private:
