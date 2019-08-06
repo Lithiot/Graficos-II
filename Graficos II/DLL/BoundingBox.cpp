@@ -1,6 +1,6 @@
 #include "BoundingBox.h"
 
-BoundingBox::BoundingBox(float w, float h, Layers lyr, bool staticState) : width(w), heigth(h), layer(lyr), isStatic(staticState)
+BoundingBox::BoundingBox(float w, float h, Layers lyr, bool staticState, bool triggerState) : width(w), heigth(h), layer(lyr), isStatic(staticState), isTrigger(triggerState)
 {
 }
 
@@ -26,6 +26,11 @@ float BoundingBox::GetWidth()
 bool BoundingBox::GetIsStatic() 
 {
 	return isStatic;
+}
+
+bool BoundingBox::GetIsTrigger()
+{
+	return isTrigger;
 }
 
 void BoundingBox::SetPosition(glm::vec3 pos) 

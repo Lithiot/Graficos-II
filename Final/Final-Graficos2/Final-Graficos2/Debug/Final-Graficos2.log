@@ -1,0 +1,370 @@
+﻿  Colectable.cpp
+C:\Users\Agustin\Desktop\Projects\Graficos-II\Final\Final-Graficos2\EngineDLL\includes\Renderer.h(12,22): warning C4251:  'Renderer::projection': struct 'glm::mat<4,4,float,0>' needs to have dll-interface to be used by clients of class 'Renderer'
+C:\Users\Agustin\Desktop\Projects\Graficos-II\Final\Final-Graficos2\external\glm-0.9.9.0\glm\detail\type_mat.hpp(303): message :  see declaration of 'glm::mat<4,4,float,0>'
+C:\Users\Agustin\Desktop\Projects\Graficos-II\Final\Final-Graficos2\EngineDLL\includes\Renderer.h(13,16): warning C4251:  'Renderer::view': struct 'glm::mat<4,4,float,0>' needs to have dll-interface to be used by clients of class 'Renderer'
+C:\Users\Agustin\Desktop\Projects\Graficos-II\Final\Final-Graficos2\external\glm-0.9.9.0\glm\detail\type_mat.hpp(303): message :  see declaration of 'glm::mat<4,4,float,0>'
+C:\Users\Agustin\Desktop\Projects\Graficos-II\Final\Final-Graficos2\EngineDLL\includes\Renderer.h(14,17): warning C4251:  'Renderer::model': struct 'glm::mat<4,4,float,0>' needs to have dll-interface to be used by clients of class 'Renderer'
+C:\Users\Agustin\Desktop\Projects\Graficos-II\Final\Final-Graficos2\external\glm-0.9.9.0\glm\detail\type_mat.hpp(303): message :  see declaration of 'glm::mat<4,4,float,0>'
+C:\Users\Agustin\Desktop\Projects\Graficos-II\Final\Final-Graficos2\EngineDLL\includes\Renderer.h(15,15): warning C4251:  'Renderer::mvp': struct 'glm::mat<4,4,float,0>' needs to have dll-interface to be used by clients of class 'Renderer'
+C:\Users\Agustin\Desktop\Projects\Graficos-II\Final\Final-Graficos2\external\glm-0.9.9.0\glm\detail\type_mat.hpp(303): message :  see declaration of 'glm::mat<4,4,float,0>'
+C:\Users\Agustin\Desktop\Projects\Graficos-II\Final\Final-Graficos2\EngineDLL\includes\BoundingBox.h(13,17): warning C4251:  'BoundingBox::pivot': struct 'glm::vec<3,float,0>' needs to have dll-interface to be used by clients of class 'BoundingBox'
+C:\Users\Agustin\Desktop\Projects\Graficos-II\Final\Final-Graficos2\external\glm-0.9.9.0\glm\detail\type_vec.hpp(229): message :  see declaration of 'glm::vec<3,float,0>'
+C:\Users\Agustin\Desktop\Projects\Graficos-II\Final\Final-Graficos2\EngineDLL\includes\BoundingBox.h(14,20): warning C4251:  'BoundingBox::position': struct 'glm::vec<3,float,0>' needs to have dll-interface to be used by clients of class 'BoundingBox'
+C:\Users\Agustin\Desktop\Projects\Graficos-II\Final\Final-Graficos2\external\glm-0.9.9.0\glm\detail\type_vec.hpp(229): message :  see declaration of 'glm::vec<3,float,0>'
+C:\Users\Agustin\Desktop\Projects\Graficos-II\Final\Final-Graficos2\EngineDLL\includes\EventManager.h(35,29): warning C4251:  'EventManager::createdEvents': class 'std::vector<Event,std::allocator<_Ty>>' needs to have dll-interface to be used by clients of class 'EventManager'
+C:\Users\Agustin\Desktop\Projects\Graficos-II\Final\Final-Graficos2\EngineDLL\includes\EventManager.h(35,29): warning C4251:         with
+C:\Users\Agustin\Desktop\Projects\Graficos-II\Final\Final-Graficos2\EngineDLL\includes\EventManager.h(35,29): warning C4251:         [
+C:\Users\Agustin\Desktop\Projects\Graficos-II\Final\Final-Graficos2\EngineDLL\includes\EventManager.h(35,29): warning C4251:             _Ty=Event
+C:\Users\Agustin\Desktop\Projects\Graficos-II\Final\Final-Graficos2\EngineDLL\includes\EventManager.h(35,29): warning C4251:         ]
+C:\Users\Agustin\Desktop\Projects\Graficos-II\Final\Final-Graficos2\EngineDLL\includes\EventManager.h(35): message :  see declaration of 'std::vector<Event,std::allocator<_Ty>>'
+C:\Users\Agustin\Desktop\Projects\Graficos-II\Final\Final-Graficos2\EngineDLL\includes\EventManager.h(35): message :         with
+C:\Users\Agustin\Desktop\Projects\Graficos-II\Final\Final-Graficos2\EngineDLL\includes\EventManager.h(35): message :         [
+C:\Users\Agustin\Desktop\Projects\Graficos-II\Final\Final-Graficos2\EngineDLL\includes\EventManager.h(35): message :             _Ty=Event
+C:\Users\Agustin\Desktop\Projects\Graficos-II\Final\Final-Graficos2\EngineDLL\includes\EventManager.h(35): message :         ]
+C:\Users\Agustin\Desktop\Projects\Graficos-II\Final\Final-Graficos2\EngineDLL\includes\Entity.h(13,23): warning C4251:  'Entity::translation': struct 'glm::vec<3,float,0>' needs to have dll-interface to be used by clients of class 'Entity'
+C:\Users\Agustin\Desktop\Projects\Graficos-II\Final\Final-Graficos2\external\glm-0.9.9.0\glm\detail\type_vec.hpp(229): message :  see declaration of 'glm::vec<3,float,0>'
+C:\Users\Agustin\Desktop\Projects\Graficos-II\Final\Final-Graficos2\EngineDLL\includes\Entity.h(14,20): warning C4251:  'Entity::rotation': struct 'glm::vec<3,float,0>' needs to have dll-interface to be used by clients of class 'Entity'
+C:\Users\Agustin\Desktop\Projects\Graficos-II\Final\Final-Graficos2\external\glm-0.9.9.0\glm\detail\type_vec.hpp(229): message :  see declaration of 'glm::vec<3,float,0>'
+C:\Users\Agustin\Desktop\Projects\Graficos-II\Final\Final-Graficos2\EngineDLL\includes\Entity.h(15,17): warning C4251:  'Entity::scale': struct 'glm::vec<3,float,0>' needs to have dll-interface to be used by clients of class 'Entity'
+C:\Users\Agustin\Desktop\Projects\Graficos-II\Final\Final-Graficos2\external\glm-0.9.9.0\glm\detail\type_vec.hpp(229): message :  see declaration of 'glm::vec<3,float,0>'
+C:\Users\Agustin\Desktop\Projects\Graficos-II\Final\Final-Graficos2\EngineDLL\includes\Entity.h(17,28): warning C4251:  'Entity::eventKeys': class 'std::vector<int,std::allocator<_Ty>>' needs to have dll-interface to be used by clients of class 'Entity'
+C:\Users\Agustin\Desktop\Projects\Graficos-II\Final\Final-Graficos2\EngineDLL\includes\Entity.h(17,28): warning C4251:         with
+C:\Users\Agustin\Desktop\Projects\Graficos-II\Final\Final-Graficos2\EngineDLL\includes\Entity.h(17,28): warning C4251:         [
+C:\Users\Agustin\Desktop\Projects\Graficos-II\Final\Final-Graficos2\EngineDLL\includes\Entity.h(17,28): warning C4251:             _Ty=int
+C:\Users\Agustin\Desktop\Projects\Graficos-II\Final\Final-Graficos2\EngineDLL\includes\Entity.h(17,28): warning C4251:         ]
+C:\Users\Agustin\Desktop\Projects\Graficos-II\Final\Final-Graficos2\EngineDLL\includes\Entity.h(17): message :  see declaration of 'std::vector<int,std::allocator<_Ty>>'
+C:\Users\Agustin\Desktop\Projects\Graficos-II\Final\Final-Graficos2\EngineDLL\includes\Entity.h(17): message :         with
+C:\Users\Agustin\Desktop\Projects\Graficos-II\Final\Final-Graficos2\EngineDLL\includes\Entity.h(17): message :         [
+C:\Users\Agustin\Desktop\Projects\Graficos-II\Final\Final-Graficos2\EngineDLL\includes\Entity.h(17): message :             _Ty=int
+C:\Users\Agustin\Desktop\Projects\Graficos-II\Final\Final-Graficos2\EngineDLL\includes\Entity.h(17): message :         ]
+C:\Users\Agustin\Desktop\Projects\Graficos-II\Final\Final-Graficos2\EngineDLL\includes\Entity.h(19,17): warning C4251:  'Entity::pivot': struct 'glm::vec<3,float,0>' needs to have dll-interface to be used by clients of class 'Entity'
+C:\Users\Agustin\Desktop\Projects\Graficos-II\Final\Final-Graficos2\external\glm-0.9.9.0\glm\detail\type_vec.hpp(229): message :  see declaration of 'glm::vec<3,float,0>'
+C:\Users\Agustin\Desktop\Projects\Graficos-II\Final\Final-Graficos2\EngineDLL\includes\Entity.h(20,17): warning C4251:  'Entity::model': struct 'glm::mat<4,4,float,0>' needs to have dll-interface to be used by clients of class 'Entity'
+C:\Users\Agustin\Desktop\Projects\Graficos-II\Final\Final-Graficos2\external\glm-0.9.9.0\glm\detail\type_mat.hpp(303): message :  see declaration of 'glm::mat<4,4,float,0>'
+C:\Users\Agustin\Desktop\Projects\Graficos-II\Final\Final-Graficos2\EngineDLL\includes\Entity.h(21,29): warning C4251:  'Entity::translationMatrix': struct 'glm::mat<4,4,float,0>' needs to have dll-interface to be used by clients of class 'Entity'
+C:\Users\Agustin\Desktop\Projects\Graficos-II\Final\Final-Graficos2\external\glm-0.9.9.0\glm\detail\type_mat.hpp(303): message :  see declaration of 'glm::mat<4,4,float,0>'
+C:\Users\Agustin\Desktop\Projects\Graficos-II\Final\Final-Graficos2\EngineDLL\includes\Entity.h(22,26): warning C4251:  'Entity::rotationMatrix': struct 'glm::mat<4,4,float,0>' needs to have dll-interface to be used by clients of class 'Entity'
+C:\Users\Agustin\Desktop\Projects\Graficos-II\Final\Final-Graficos2\external\glm-0.9.9.0\glm\detail\type_mat.hpp(303): message :  see declaration of 'glm::mat<4,4,float,0>'
+C:\Users\Agustin\Desktop\Projects\Graficos-II\Final\Final-Graficos2\EngineDLL\includes\Entity.h(23,23): warning C4251:  'Entity::scaleMatrix': struct 'glm::mat<4,4,float,0>' needs to have dll-interface to be used by clients of class 'Entity'
+C:\Users\Agustin\Desktop\Projects\Graficos-II\Final\Final-Graficos2\external\glm-0.9.9.0\glm\detail\type_mat.hpp(303): message :  see declaration of 'glm::mat<4,4,float,0>'
+C:\Users\Agustin\Desktop\Projects\Graficos-II\Final\Final-Graficos2\EngineDLL\includes\TextureLoader.h(19,2): warning C4091:  'static ': ignored on left of 'TextureLoader' when no variable is declared
+C:\Users\Agustin\Desktop\Projects\Graficos-II\Final\Final-Graficos2\EngineDLL\includes\CollisionManager.h(14,43): warning C4251:  'CollisionManager::registeredEntities': class 'std::vector<std::list<Entity *,std::allocator<_Ty>> *,std::allocator<std::list<_Ty,std::allocator<_Ty>>*>>' needs to have dll-interface to be used by clients of class 'CollisionManager'
+C:\Users\Agustin\Desktop\Projects\Graficos-II\Final\Final-Graficos2\EngineDLL\includes\CollisionManager.h(14,43): warning C4251:         with
+C:\Users\Agustin\Desktop\Projects\Graficos-II\Final\Final-Graficos2\EngineDLL\includes\CollisionManager.h(14,43): warning C4251:         [
+C:\Users\Agustin\Desktop\Projects\Graficos-II\Final\Final-Graficos2\EngineDLL\includes\CollisionManager.h(14,43): warning C4251:             _Ty=Entity *
+C:\Users\Agustin\Desktop\Projects\Graficos-II\Final\Final-Graficos2\EngineDLL\includes\CollisionManager.h(14,43): warning C4251:         ]
+  Game.cpp
+C:\Users\Agustin\Desktop\Projects\Graficos-II\Final\Final-Graficos2\EngineDLL\includes\CollisionManager.h(14): message :  see declaration of 'std::vector<std::list<Entity *,std::allocator<_Ty>> *,std::allocator<std::list<_Ty,std::allocator<_Ty>>*>>'
+C:\Users\Agustin\Desktop\Projects\Graficos-II\Final\Final-Graficos2\EngineDLL\includes\CollisionManager.h(14): message :         with
+C:\Users\Agustin\Desktop\Projects\Graficos-II\Final\Final-Graficos2\EngineDLL\includes\CollisionManager.h(14): message :         [
+C:\Users\Agustin\Desktop\Projects\Graficos-II\Final\Final-Graficos2\EngineDLL\includes\CollisionManager.h(14): message :             _Ty=Entity *
+C:\Users\Agustin\Desktop\Projects\Graficos-II\Final\Final-Graficos2\EngineDLL\includes\CollisionManager.h(14): message :         ]
+C:\Users\Agustin\Desktop\Projects\Graficos-II\Final\Final-Graficos2\EngineDLL\includes\Renderer.h(12,22): warning C4251:  'Renderer::projection': struct 'glm::mat<4,4,float,0>' needs to have dll-interface to be used by clients of class 'Renderer'
+C:\Users\Agustin\Desktop\Projects\Graficos-II\Final\Final-Graficos2\external\glm-0.9.9.0\glm\detail\type_mat.hpp(303): message :  see declaration of 'glm::mat<4,4,float,0>'
+C:\Users\Agustin\Desktop\Projects\Graficos-II\Final\Final-Graficos2\EngineDLL\includes\Renderer.h(13,16): warning C4251:  'Renderer::view': struct 'glm::mat<4,4,float,0>' needs to have dll-interface to be used by clients of class 'Renderer'
+C:\Users\Agustin\Desktop\Projects\Graficos-II\Final\Final-Graficos2\external\glm-0.9.9.0\glm\detail\type_mat.hpp(303): message :  see declaration of 'glm::mat<4,4,float,0>'
+C:\Users\Agustin\Desktop\Projects\Graficos-II\Final\Final-Graficos2\EngineDLL\includes\Renderer.h(14,17): warning C4251:  'Renderer::model': struct 'glm::mat<4,4,float,0>' needs to have dll-interface to be used by clients of class 'Renderer'
+C:\Users\Agustin\Desktop\Projects\Graficos-II\Final\Final-Graficos2\external\glm-0.9.9.0\glm\detail\type_mat.hpp(303): message :  see declaration of 'glm::mat<4,4,float,0>'
+C:\Users\Agustin\Desktop\Projects\Graficos-II\Final\Final-Graficos2\EngineDLL\includes\Renderer.h(15,15): warning C4251:  'Renderer::mvp': struct 'glm::mat<4,4,float,0>' needs to have dll-interface to be used by clients of class 'Renderer'
+C:\Users\Agustin\Desktop\Projects\Graficos-II\Final\Final-Graficos2\external\glm-0.9.9.0\glm\detail\type_mat.hpp(303): message :  see declaration of 'glm::mat<4,4,float,0>'
+C:\Users\Agustin\Desktop\Projects\Graficos-II\Final\Final-Graficos2\EngineDLL\includes\BoundingBox.h(13,17): warning C4251:  'BoundingBox::pivot': struct 'glm::vec<3,float,0>' needs to have dll-interface to be used by clients of class 'BoundingBox'
+C:\Users\Agustin\Desktop\Projects\Graficos-II\Final\Final-Graficos2\external\glm-0.9.9.0\glm\detail\type_vec.hpp(229): message :  see declaration of 'glm::vec<3,float,0>'
+C:\Users\Agustin\Desktop\Projects\Graficos-II\Final\Final-Graficos2\EngineDLL\includes\BoundingBox.h(14,20): warning C4251:  'BoundingBox::position': struct 'glm::vec<3,float,0>' needs to have dll-interface to be used by clients of class 'BoundingBox'
+C:\Users\Agustin\Desktop\Projects\Graficos-II\Final\Final-Graficos2\external\glm-0.9.9.0\glm\detail\type_vec.hpp(229): message :  see declaration of 'glm::vec<3,float,0>'
+C:\Users\Agustin\Desktop\Projects\Graficos-II\Final\Final-Graficos2\EngineDLL\includes\EventManager.h(35,29): warning C4251:  'EventManager::createdEvents': class 'std::vector<Event,std::allocator<_Ty>>' needs to have dll-interface to be used by clients of class 'EventManager'
+C:\Users\Agustin\Desktop\Projects\Graficos-II\Final\Final-Graficos2\EngineDLL\includes\EventManager.h(35,29): warning C4251:         with
+C:\Users\Agustin\Desktop\Projects\Graficos-II\Final\Final-Graficos2\EngineDLL\includes\EventManager.h(35,29): warning C4251:         [
+C:\Users\Agustin\Desktop\Projects\Graficos-II\Final\Final-Graficos2\EngineDLL\includes\EventManager.h(35,29): warning C4251:             _Ty=Event
+C:\Users\Agustin\Desktop\Projects\Graficos-II\Final\Final-Graficos2\EngineDLL\includes\EventManager.h(35,29): warning C4251:         ]
+C:\Users\Agustin\Desktop\Projects\Graficos-II\Final\Final-Graficos2\EngineDLL\includes\EventManager.h(35): message :  see declaration of 'std::vector<Event,std::allocator<_Ty>>'
+C:\Users\Agustin\Desktop\Projects\Graficos-II\Final\Final-Graficos2\EngineDLL\includes\EventManager.h(35): message :         with
+C:\Users\Agustin\Desktop\Projects\Graficos-II\Final\Final-Graficos2\EngineDLL\includes\EventManager.h(35): message :         [
+C:\Users\Agustin\Desktop\Projects\Graficos-II\Final\Final-Graficos2\EngineDLL\includes\EventManager.h(35): message :             _Ty=Event
+C:\Users\Agustin\Desktop\Projects\Graficos-II\Final\Final-Graficos2\EngineDLL\includes\EventManager.h(35): message :         ]
+C:\Users\Agustin\Desktop\Projects\Graficos-II\Final\Final-Graficos2\EngineDLL\includes\Entity.h(13,23): warning C4251:  'Entity::translation': struct 'glm::vec<3,float,0>' needs to have dll-interface to be used by clients of class 'Entity'
+C:\Users\Agustin\Desktop\Projects\Graficos-II\Final\Final-Graficos2\external\glm-0.9.9.0\glm\detail\type_vec.hpp(229): message :  see declaration of 'glm::vec<3,float,0>'
+C:\Users\Agustin\Desktop\Projects\Graficos-II\Final\Final-Graficos2\EngineDLL\includes\Entity.h(14,20): warning C4251:  'Entity::rotation': struct 'glm::vec<3,float,0>' needs to have dll-interface to be used by clients of class 'Entity'
+C:\Users\Agustin\Desktop\Projects\Graficos-II\Final\Final-Graficos2\external\glm-0.9.9.0\glm\detail\type_vec.hpp(229): message :  see declaration of 'glm::vec<3,float,0>'
+C:\Users\Agustin\Desktop\Projects\Graficos-II\Final\Final-Graficos2\EngineDLL\includes\Entity.h(15,17): warning C4251:  'Entity::scale': struct 'glm::vec<3,float,0>' needs to have dll-interface to be used by clients of class 'Entity'
+C:\Users\Agustin\Desktop\Projects\Graficos-II\Final\Final-Graficos2\external\glm-0.9.9.0\glm\detail\type_vec.hpp(229): message :  see declaration of 'glm::vec<3,float,0>'
+C:\Users\Agustin\Desktop\Projects\Graficos-II\Final\Final-Graficos2\EngineDLL\includes\Entity.h(17,28): warning C4251:  'Entity::eventKeys': class 'std::vector<int,std::allocator<_Ty>>' needs to have dll-interface to be used by clients of class 'Entity'
+C:\Users\Agustin\Desktop\Projects\Graficos-II\Final\Final-Graficos2\EngineDLL\includes\Entity.h(17,28): warning C4251:         with
+C:\Users\Agustin\Desktop\Projects\Graficos-II\Final\Final-Graficos2\EngineDLL\includes\Entity.h(17,28): warning C4251:         [
+C:\Users\Agustin\Desktop\Projects\Graficos-II\Final\Final-Graficos2\EngineDLL\includes\Entity.h(17,28): warning C4251:             _Ty=int
+C:\Users\Agustin\Desktop\Projects\Graficos-II\Final\Final-Graficos2\EngineDLL\includes\Entity.h(17,28): warning C4251:         ]
+C:\Users\Agustin\Desktop\Projects\Graficos-II\Final\Final-Graficos2\EngineDLL\includes\Entity.h(17): message :  see declaration of 'std::vector<int,std::allocator<_Ty>>'
+C:\Users\Agustin\Desktop\Projects\Graficos-II\Final\Final-Graficos2\EngineDLL\includes\Entity.h(17): message :         with
+C:\Users\Agustin\Desktop\Projects\Graficos-II\Final\Final-Graficos2\EngineDLL\includes\Entity.h(17): message :         [
+C:\Users\Agustin\Desktop\Projects\Graficos-II\Final\Final-Graficos2\EngineDLL\includes\Entity.h(17): message :             _Ty=int
+C:\Users\Agustin\Desktop\Projects\Graficos-II\Final\Final-Graficos2\EngineDLL\includes\Entity.h(17): message :         ]
+C:\Users\Agustin\Desktop\Projects\Graficos-II\Final\Final-Graficos2\EngineDLL\includes\Entity.h(19,17): warning C4251:  'Entity::pivot': struct 'glm::vec<3,float,0>' needs to have dll-interface to be used by clients of class 'Entity'
+C:\Users\Agustin\Desktop\Projects\Graficos-II\Final\Final-Graficos2\external\glm-0.9.9.0\glm\detail\type_vec.hpp(229): message :  see declaration of 'glm::vec<3,float,0>'
+C:\Users\Agustin\Desktop\Projects\Graficos-II\Final\Final-Graficos2\EngineDLL\includes\Entity.h(20,17): warning C4251:  'Entity::model': struct 'glm::mat<4,4,float,0>' needs to have dll-interface to be used by clients of class 'Entity'
+C:\Users\Agustin\Desktop\Projects\Graficos-II\Final\Final-Graficos2\external\glm-0.9.9.0\glm\detail\type_mat.hpp(303): message :  see declaration of 'glm::mat<4,4,float,0>'
+C:\Users\Agustin\Desktop\Projects\Graficos-II\Final\Final-Graficos2\EngineDLL\includes\Entity.h(21,29): warning C4251:  'Entity::translationMatrix': struct 'glm::mat<4,4,float,0>' needs to have dll-interface to be used by clients of class 'Entity'
+C:\Users\Agustin\Desktop\Projects\Graficos-II\Final\Final-Graficos2\external\glm-0.9.9.0\glm\detail\type_mat.hpp(303): message :  see declaration of 'glm::mat<4,4,float,0>'
+C:\Users\Agustin\Desktop\Projects\Graficos-II\Final\Final-Graficos2\EngineDLL\includes\Entity.h(22,26): warning C4251:  'Entity::rotationMatrix': struct 'glm::mat<4,4,float,0>' needs to have dll-interface to be used by clients of class 'Entity'
+C:\Users\Agustin\Desktop\Projects\Graficos-II\Final\Final-Graficos2\external\glm-0.9.9.0\glm\detail\type_mat.hpp(303): message :  see declaration of 'glm::mat<4,4,float,0>'
+C:\Users\Agustin\Desktop\Projects\Graficos-II\Final\Final-Graficos2\EngineDLL\includes\Entity.h(23,23): warning C4251:  'Entity::scaleMatrix': struct 'glm::mat<4,4,float,0>' needs to have dll-interface to be used by clients of class 'Entity'
+C:\Users\Agustin\Desktop\Projects\Graficos-II\Final\Final-Graficos2\external\glm-0.9.9.0\glm\detail\type_mat.hpp(303): message :  see declaration of 'glm::mat<4,4,float,0>'
+C:\Users\Agustin\Desktop\Projects\Graficos-II\Final\Final-Graficos2\EngineDLL\includes\TextureLoader.h(19,2): warning C4091:  'static ': ignored on left of 'TextureLoader' when no variable is declared
+C:\Users\Agustin\Desktop\Projects\Graficos-II\Final\Final-Graficos2\EngineDLL\includes\Tilemap.h(30,38): warning C4251:  'Tilemap::bidimensionalIDs': class 'std::vector<std::vector<int,std::allocator<_Ty>>,std::allocator<std::vector<_Ty,std::allocator<_Ty>>>>' needs to have dll-interface to be used by clients of class 'Tilemap'
+C:\Users\Agustin\Desktop\Projects\Graficos-II\Final\Final-Graficos2\EngineDLL\includes\Tilemap.h(30,38): warning C4251:         with
+C:\Users\Agustin\Desktop\Projects\Graficos-II\Final\Final-Graficos2\EngineDLL\includes\Tilemap.h(30,38): warning C4251:         [
+C:\Users\Agustin\Desktop\Projects\Graficos-II\Final\Final-Graficos2\EngineDLL\includes\Tilemap.h(30,38): warning C4251:             _Ty=int
+C:\Users\Agustin\Desktop\Projects\Graficos-II\Final\Final-Graficos2\EngineDLL\includes\Tilemap.h(30,38): warning C4251:         ]
+C:\Users\Agustin\Desktop\Projects\Graficos-II\Final\Final-Graficos2\EngineDLL\includes\Tilemap.h(30): message :  see declaration of 'std::vector<std::vector<int,std::allocator<_Ty>>,std::allocator<std::vector<_Ty,std::allocator<_Ty>>>>'
+C:\Users\Agustin\Desktop\Projects\Graficos-II\Final\Final-Graficos2\EngineDLL\includes\Tilemap.h(30): message :         with
+C:\Users\Agustin\Desktop\Projects\Graficos-II\Final\Final-Graficos2\EngineDLL\includes\Tilemap.h(30): message :         [
+C:\Users\Agustin\Desktop\Projects\Graficos-II\Final\Final-Graficos2\EngineDLL\includes\Tilemap.h(30): message :             _Ty=int
+C:\Users\Agustin\Desktop\Projects\Graficos-II\Final\Final-Graficos2\EngineDLL\includes\Tilemap.h(30): message :         ]
+C:\Users\Agustin\Desktop\Projects\Graficos-II\Final\Final-Graficos2\EngineDLL\includes\Tilemap.h(31,35): warning C4251:  'Tilemap::tilesOnScreen': class 'std::vector<std::vector<int,std::allocator<_Ty>>,std::allocator<std::vector<_Ty,std::allocator<_Ty>>>>' needs to have dll-interface to be used by clients of class 'Tilemap'
+C:\Users\Agustin\Desktop\Projects\Graficos-II\Final\Final-Graficos2\EngineDLL\includes\Tilemap.h(31,35): warning C4251:         with
+C:\Users\Agustin\Desktop\Projects\Graficos-II\Final\Final-Graficos2\EngineDLL\includes\Tilemap.h(31,35): warning C4251:         [
+C:\Users\Agustin\Desktop\Projects\Graficos-II\Final\Final-Graficos2\EngineDLL\includes\Tilemap.h(31,35): warning C4251:             _Ty=int
+C:\Users\Agustin\Desktop\Projects\Graficos-II\Final\Final-Graficos2\EngineDLL\includes\Tilemap.h(31,35): warning C4251:         ]
+C:\Users\Agustin\Desktop\Projects\Graficos-II\Final\Final-Graficos2\EngineDLL\includes\Tilemap.h(30): message :  see declaration of 'std::vector<std::vector<int,std::allocator<_Ty>>,std::allocator<std::vector<_Ty,std::allocator<_Ty>>>>'
+C:\Users\Agustin\Desktop\Projects\Graficos-II\Final\Final-Graficos2\EngineDLL\includes\Tilemap.h(30): message :         with
+C:\Users\Agustin\Desktop\Projects\Graficos-II\Final\Final-Graficos2\EngineDLL\includes\Tilemap.h(30): message :         [
+C:\Users\Agustin\Desktop\Projects\Graficos-II\Final\Final-Graficos2\EngineDLL\includes\Tilemap.h(30): message :             _Ty=int
+C:\Users\Agustin\Desktop\Projects\Graficos-II\Final\Final-Graficos2\EngineDLL\includes\Tilemap.h(30): message :         ]
+C:\Users\Agustin\Desktop\Projects\Graficos-II\Final\Final-Graficos2\EngineDLL\includes\CollisionManager.h(14,43): warning C4251:  'CollisionManager::registeredEntities': class 'std::vector<std::list<Entity *,std::allocator<_Ty>> *,std::allocator<std::list<_Ty,std::allocator<_Ty>>*>>' needs to have dll-interface to be used by clients of class 'CollisionManager'
+C:\Users\Agustin\Desktop\Projects\Graficos-II\Final\Final-Graficos2\EngineDLL\includes\CollisionManager.h(14,43): warning C4251:         with
+C:\Users\Agustin\Desktop\Projects\Graficos-II\Final\Final-Graficos2\EngineDLL\includes\CollisionManager.h(14,43): warning C4251:         [
+C:\Users\Agustin\Desktop\Projects\Graficos-II\Final\Final-Graficos2\EngineDLL\includes\CollisionManager.h(14,43): warning C4251:             _Ty=Entity *
+C:\Users\Agustin\Desktop\Projects\Graficos-II\Final\Final-Graficos2\EngineDLL\includes\CollisionManager.h(14,43): warning C4251:         ]
+C:\Users\Agustin\Desktop\Projects\Graficos-II\Final\Final-Graficos2\EngineDLL\includes\CollisionManager.h(14): message :  see declaration of 'std::vector<std::list<Entity *,std::allocator<_Ty>> *,std::allocator<std::list<_Ty,std::allocator<_Ty>>*>>'
+C:\Users\Agustin\Desktop\Projects\Graficos-II\Final\Final-Graficos2\EngineDLL\includes\CollisionManager.h(14): message :         with
+C:\Users\Agustin\Desktop\Projects\Graficos-II\Final\Final-Graficos2\EngineDLL\includes\CollisionManager.h(14): message :         [
+C:\Users\Agustin\Desktop\Projects\Graficos-II\Final\Final-Graficos2\EngineDLL\includes\CollisionManager.h(14): message :             _Ty=Entity *
+C:\Users\Agustin\Desktop\Projects\Graficos-II\Final\Final-Graficos2\EngineDLL\includes\CollisionManager.h(14): message :         ]
+C:\Users\Agustin\Desktop\Projects\Graficos-II\Final\Final-Graficos2\Final-Graficos2\Game.cpp(98,20): warning C4018:  '<': signed/unsigned mismatch
+  Main.cpp
+C:\Users\Agustin\Desktop\Projects\Graficos-II\Final\Final-Graficos2\Final-Graficos2\Game.cpp(123,21): warning C4018:  '<': signed/unsigned mismatch
+C:\Users\Agustin\Desktop\Projects\Graficos-II\Final\Final-Graficos2\EngineDLL\includes\Renderer.h(12,22): warning C4251:  'Renderer::projection': struct 'glm::mat<4,4,float,0>' needs to have dll-interface to be used by clients of class 'Renderer'
+C:\Users\Agustin\Desktop\Projects\Graficos-II\Final\Final-Graficos2\external\glm-0.9.9.0\glm\detail\type_mat.hpp(303): message :  see declaration of 'glm::mat<4,4,float,0>'
+C:\Users\Agustin\Desktop\Projects\Graficos-II\Final\Final-Graficos2\EngineDLL\includes\Renderer.h(13,16): warning C4251:  'Renderer::view': struct 'glm::mat<4,4,float,0>' needs to have dll-interface to be used by clients of class 'Renderer'
+C:\Users\Agustin\Desktop\Projects\Graficos-II\Final\Final-Graficos2\external\glm-0.9.9.0\glm\detail\type_mat.hpp(303): message :  see declaration of 'glm::mat<4,4,float,0>'
+C:\Users\Agustin\Desktop\Projects\Graficos-II\Final\Final-Graficos2\EngineDLL\includes\Renderer.h(14,17): warning C4251:  'Renderer::model': struct 'glm::mat<4,4,float,0>' needs to have dll-interface to be used by clients of class 'Renderer'
+C:\Users\Agustin\Desktop\Projects\Graficos-II\Final\Final-Graficos2\external\glm-0.9.9.0\glm\detail\type_mat.hpp(303): message :  see declaration of 'glm::mat<4,4,float,0>'
+C:\Users\Agustin\Desktop\Projects\Graficos-II\Final\Final-Graficos2\EngineDLL\includes\Renderer.h(15,15): warning C4251:  'Renderer::mvp': struct 'glm::mat<4,4,float,0>' needs to have dll-interface to be used by clients of class 'Renderer'
+C:\Users\Agustin\Desktop\Projects\Graficos-II\Final\Final-Graficos2\external\glm-0.9.9.0\glm\detail\type_mat.hpp(303): message :  see declaration of 'glm::mat<4,4,float,0>'
+C:\Users\Agustin\Desktop\Projects\Graficos-II\Final\Final-Graficos2\EngineDLL\includes\BoundingBox.h(13,17): warning C4251:  'BoundingBox::pivot': struct 'glm::vec<3,float,0>' needs to have dll-interface to be used by clients of class 'BoundingBox'
+C:\Users\Agustin\Desktop\Projects\Graficos-II\Final\Final-Graficos2\external\glm-0.9.9.0\glm\detail\type_vec.hpp(229): message :  see declaration of 'glm::vec<3,float,0>'
+C:\Users\Agustin\Desktop\Projects\Graficos-II\Final\Final-Graficos2\EngineDLL\includes\BoundingBox.h(14,20): warning C4251:  'BoundingBox::position': struct 'glm::vec<3,float,0>' needs to have dll-interface to be used by clients of class 'BoundingBox'
+C:\Users\Agustin\Desktop\Projects\Graficos-II\Final\Final-Graficos2\external\glm-0.9.9.0\glm\detail\type_vec.hpp(229): message :  see declaration of 'glm::vec<3,float,0>'
+C:\Users\Agustin\Desktop\Projects\Graficos-II\Final\Final-Graficos2\EngineDLL\includes\EventManager.h(35,29): warning C4251:  'EventManager::createdEvents': class 'std::vector<Event,std::allocator<_Ty>>' needs to have dll-interface to be used by clients of class 'EventManager'
+C:\Users\Agustin\Desktop\Projects\Graficos-II\Final\Final-Graficos2\EngineDLL\includes\EventManager.h(35,29): warning C4251:         with
+C:\Users\Agustin\Desktop\Projects\Graficos-II\Final\Final-Graficos2\EngineDLL\includes\EventManager.h(35,29): warning C4251:         [
+C:\Users\Agustin\Desktop\Projects\Graficos-II\Final\Final-Graficos2\EngineDLL\includes\EventManager.h(35,29): warning C4251:             _Ty=Event
+C:\Users\Agustin\Desktop\Projects\Graficos-II\Final\Final-Graficos2\EngineDLL\includes\EventManager.h(35,29): warning C4251:         ]
+C:\Users\Agustin\Desktop\Projects\Graficos-II\Final\Final-Graficos2\EngineDLL\includes\EventManager.h(35): message :  see declaration of 'std::vector<Event,std::allocator<_Ty>>'
+C:\Users\Agustin\Desktop\Projects\Graficos-II\Final\Final-Graficos2\EngineDLL\includes\EventManager.h(35): message :         with
+C:\Users\Agustin\Desktop\Projects\Graficos-II\Final\Final-Graficos2\EngineDLL\includes\EventManager.h(35): message :         [
+C:\Users\Agustin\Desktop\Projects\Graficos-II\Final\Final-Graficos2\EngineDLL\includes\EventManager.h(35): message :             _Ty=Event
+C:\Users\Agustin\Desktop\Projects\Graficos-II\Final\Final-Graficos2\EngineDLL\includes\EventManager.h(35): message :         ]
+C:\Users\Agustin\Desktop\Projects\Graficos-II\Final\Final-Graficos2\EngineDLL\includes\Entity.h(13,23): warning C4251:  'Entity::translation': struct 'glm::vec<3,float,0>' needs to have dll-interface to be used by clients of class 'Entity'
+C:\Users\Agustin\Desktop\Projects\Graficos-II\Final\Final-Graficos2\external\glm-0.9.9.0\glm\detail\type_vec.hpp(229): message :  see declaration of 'glm::vec<3,float,0>'
+C:\Users\Agustin\Desktop\Projects\Graficos-II\Final\Final-Graficos2\EngineDLL\includes\Entity.h(14,20): warning C4251:  'Entity::rotation': struct 'glm::vec<3,float,0>' needs to have dll-interface to be used by clients of class 'Entity'
+C:\Users\Agustin\Desktop\Projects\Graficos-II\Final\Final-Graficos2\external\glm-0.9.9.0\glm\detail\type_vec.hpp(229): message :  see declaration of 'glm::vec<3,float,0>'
+C:\Users\Agustin\Desktop\Projects\Graficos-II\Final\Final-Graficos2\EngineDLL\includes\Entity.h(15,17): warning C4251:  'Entity::scale': struct 'glm::vec<3,float,0>' needs to have dll-interface to be used by clients of class 'Entity'
+C:\Users\Agustin\Desktop\Projects\Graficos-II\Final\Final-Graficos2\external\glm-0.9.9.0\glm\detail\type_vec.hpp(229): message :  see declaration of 'glm::vec<3,float,0>'
+C:\Users\Agustin\Desktop\Projects\Graficos-II\Final\Final-Graficos2\EngineDLL\includes\Entity.h(17,28): warning C4251:  'Entity::eventKeys': class 'std::vector<int,std::allocator<_Ty>>' needs to have dll-interface to be used by clients of class 'Entity'
+C:\Users\Agustin\Desktop\Projects\Graficos-II\Final\Final-Graficos2\EngineDLL\includes\Entity.h(17,28): warning C4251:         with
+C:\Users\Agustin\Desktop\Projects\Graficos-II\Final\Final-Graficos2\EngineDLL\includes\Entity.h(17,28): warning C4251:         [
+C:\Users\Agustin\Desktop\Projects\Graficos-II\Final\Final-Graficos2\EngineDLL\includes\Entity.h(17,28): warning C4251:             _Ty=int
+C:\Users\Agustin\Desktop\Projects\Graficos-II\Final\Final-Graficos2\EngineDLL\includes\Entity.h(17,28): warning C4251:         ]
+C:\Users\Agustin\Desktop\Projects\Graficos-II\Final\Final-Graficos2\EngineDLL\includes\Entity.h(17): message :  see declaration of 'std::vector<int,std::allocator<_Ty>>'
+C:\Users\Agustin\Desktop\Projects\Graficos-II\Final\Final-Graficos2\EngineDLL\includes\Entity.h(17): message :         with
+C:\Users\Agustin\Desktop\Projects\Graficos-II\Final\Final-Graficos2\EngineDLL\includes\Entity.h(17): message :         [
+C:\Users\Agustin\Desktop\Projects\Graficos-II\Final\Final-Graficos2\EngineDLL\includes\Entity.h(17): message :             _Ty=int
+C:\Users\Agustin\Desktop\Projects\Graficos-II\Final\Final-Graficos2\EngineDLL\includes\Entity.h(17): message :         ]
+C:\Users\Agustin\Desktop\Projects\Graficos-II\Final\Final-Graficos2\EngineDLL\includes\Entity.h(19,17): warning C4251:  'Entity::pivot': struct 'glm::vec<3,float,0>' needs to have dll-interface to be used by clients of class 'Entity'
+C:\Users\Agustin\Desktop\Projects\Graficos-II\Final\Final-Graficos2\external\glm-0.9.9.0\glm\detail\type_vec.hpp(229): message :  see declaration of 'glm::vec<3,float,0>'
+C:\Users\Agustin\Desktop\Projects\Graficos-II\Final\Final-Graficos2\EngineDLL\includes\Entity.h(20,17): warning C4251:  'Entity::model': struct 'glm::mat<4,4,float,0>' needs to have dll-interface to be used by clients of class 'Entity'
+C:\Users\Agustin\Desktop\Projects\Graficos-II\Final\Final-Graficos2\external\glm-0.9.9.0\glm\detail\type_mat.hpp(303): message :  see declaration of 'glm::mat<4,4,float,0>'
+C:\Users\Agustin\Desktop\Projects\Graficos-II\Final\Final-Graficos2\EngineDLL\includes\Entity.h(21,29): warning C4251:  'Entity::translationMatrix': struct 'glm::mat<4,4,float,0>' needs to have dll-interface to be used by clients of class 'Entity'
+C:\Users\Agustin\Desktop\Projects\Graficos-II\Final\Final-Graficos2\external\glm-0.9.9.0\glm\detail\type_mat.hpp(303): message :  see declaration of 'glm::mat<4,4,float,0>'
+C:\Users\Agustin\Desktop\Projects\Graficos-II\Final\Final-Graficos2\EngineDLL\includes\Entity.h(22,26): warning C4251:  'Entity::rotationMatrix': struct 'glm::mat<4,4,float,0>' needs to have dll-interface to be used by clients of class 'Entity'
+C:\Users\Agustin\Desktop\Projects\Graficos-II\Final\Final-Graficos2\external\glm-0.9.9.0\glm\detail\type_mat.hpp(303): message :  see declaration of 'glm::mat<4,4,float,0>'
+C:\Users\Agustin\Desktop\Projects\Graficos-II\Final\Final-Graficos2\EngineDLL\includes\Entity.h(23,23): warning C4251:  'Entity::scaleMatrix': struct 'glm::mat<4,4,float,0>' needs to have dll-interface to be used by clients of class 'Entity'
+C:\Users\Agustin\Desktop\Projects\Graficos-II\Final\Final-Graficos2\external\glm-0.9.9.0\glm\detail\type_mat.hpp(303): message :  see declaration of 'glm::mat<4,4,float,0>'
+C:\Users\Agustin\Desktop\Projects\Graficos-II\Final\Final-Graficos2\EngineDLL\includes\TextureLoader.h(19,2): warning C4091:  'static ': ignored on left of 'TextureLoader' when no variable is declared
+C:\Users\Agustin\Desktop\Projects\Graficos-II\Final\Final-Graficos2\EngineDLL\includes\Tilemap.h(30,38): warning C4251:  'Tilemap::bidimensionalIDs': class 'std::vector<std::vector<int,std::allocator<_Ty>>,std::allocator<std::vector<_Ty,std::allocator<_Ty>>>>' needs to have dll-interface to be used by clients of class 'Tilemap'
+C:\Users\Agustin\Desktop\Projects\Graficos-II\Final\Final-Graficos2\EngineDLL\includes\Tilemap.h(30,38): warning C4251:         with
+C:\Users\Agustin\Desktop\Projects\Graficos-II\Final\Final-Graficos2\EngineDLL\includes\Tilemap.h(30,38): warning C4251:         [
+C:\Users\Agustin\Desktop\Projects\Graficos-II\Final\Final-Graficos2\EngineDLL\includes\Tilemap.h(30,38): warning C4251:             _Ty=int
+C:\Users\Agustin\Desktop\Projects\Graficos-II\Final\Final-Graficos2\EngineDLL\includes\Tilemap.h(30,38): warning C4251:         ]
+C:\Users\Agustin\Desktop\Projects\Graficos-II\Final\Final-Graficos2\EngineDLL\includes\Tilemap.h(30): message :  see declaration of 'std::vector<std::vector<int,std::allocator<_Ty>>,std::allocator<std::vector<_Ty,std::allocator<_Ty>>>>'
+C:\Users\Agustin\Desktop\Projects\Graficos-II\Final\Final-Graficos2\EngineDLL\includes\Tilemap.h(30): message :         with
+C:\Users\Agustin\Desktop\Projects\Graficos-II\Final\Final-Graficos2\EngineDLL\includes\Tilemap.h(30): message :         [
+C:\Users\Agustin\Desktop\Projects\Graficos-II\Final\Final-Graficos2\EngineDLL\includes\Tilemap.h(30): message :             _Ty=int
+C:\Users\Agustin\Desktop\Projects\Graficos-II\Final\Final-Graficos2\EngineDLL\includes\Tilemap.h(30): message :         ]
+C:\Users\Agustin\Desktop\Projects\Graficos-II\Final\Final-Graficos2\EngineDLL\includes\Tilemap.h(31,35): warning C4251:  'Tilemap::tilesOnScreen': class 'std::vector<std::vector<int,std::allocator<_Ty>>,std::allocator<std::vector<_Ty,std::allocator<_Ty>>>>' needs to have dll-interface to be used by clients of class 'Tilemap'
+C:\Users\Agustin\Desktop\Projects\Graficos-II\Final\Final-Graficos2\EngineDLL\includes\Tilemap.h(31,35): warning C4251:         with
+C:\Users\Agustin\Desktop\Projects\Graficos-II\Final\Final-Graficos2\EngineDLL\includes\Tilemap.h(31,35): warning C4251:         [
+C:\Users\Agustin\Desktop\Projects\Graficos-II\Final\Final-Graficos2\EngineDLL\includes\Tilemap.h(31,35): warning C4251:             _Ty=int
+C:\Users\Agustin\Desktop\Projects\Graficos-II\Final\Final-Graficos2\EngineDLL\includes\Tilemap.h(31,35): warning C4251:         ]
+C:\Users\Agustin\Desktop\Projects\Graficos-II\Final\Final-Graficos2\EngineDLL\includes\Tilemap.h(30): message :  see declaration of 'std::vector<std::vector<int,std::allocator<_Ty>>,std::allocator<std::vector<_Ty,std::allocator<_Ty>>>>'
+C:\Users\Agustin\Desktop\Projects\Graficos-II\Final\Final-Graficos2\EngineDLL\includes\Tilemap.h(30): message :         with
+C:\Users\Agustin\Desktop\Projects\Graficos-II\Final\Final-Graficos2\EngineDLL\includes\Tilemap.h(30): message :         [
+C:\Users\Agustin\Desktop\Projects\Graficos-II\Final\Final-Graficos2\EngineDLL\includes\Tilemap.h(30): message :             _Ty=int
+C:\Users\Agustin\Desktop\Projects\Graficos-II\Final\Final-Graficos2\EngineDLL\includes\Tilemap.h(30): message :         ]
+C:\Users\Agustin\Desktop\Projects\Graficos-II\Final\Final-Graficos2\EngineDLL\includes\CollisionManager.h(14,43): warning C4251:  'CollisionManager::registeredEntities': class 'std::vector<std::list<Entity *,std::allocator<_Ty>> *,std::allocator<std::list<_Ty,std::allocator<_Ty>>*>>' needs to have dll-interface to be used by clients of class 'CollisionManager'
+C:\Users\Agustin\Desktop\Projects\Graficos-II\Final\Final-Graficos2\EngineDLL\includes\CollisionManager.h(14,43): warning C4251:         with
+C:\Users\Agustin\Desktop\Projects\Graficos-II\Final\Final-Graficos2\EngineDLL\includes\CollisionManager.h(14,43): warning C4251:         [
+C:\Users\Agustin\Desktop\Projects\Graficos-II\Final\Final-Graficos2\EngineDLL\includes\CollisionManager.h(14,43): warning C4251:             _Ty=Entity *
+C:\Users\Agustin\Desktop\Projects\Graficos-II\Final\Final-Graficos2\EngineDLL\includes\CollisionManager.h(14,43): warning C4251:         ]
+C:\Users\Agustin\Desktop\Projects\Graficos-II\Final\Final-Graficos2\EngineDLL\includes\CollisionManager.h(14): message :  see declaration of 'std::vector<std::list<Entity *,std::allocator<_Ty>> *,std::allocator<std::list<_Ty,std::allocator<_Ty>>*>>'
+C:\Users\Agustin\Desktop\Projects\Graficos-II\Final\Final-Graficos2\EngineDLL\includes\CollisionManager.h(14): message :         with
+C:\Users\Agustin\Desktop\Projects\Graficos-II\Final\Final-Graficos2\EngineDLL\includes\CollisionManager.h(14): message :         [
+C:\Users\Agustin\Desktop\Projects\Graficos-II\Final\Final-Graficos2\EngineDLL\includes\CollisionManager.h(14): message :             _Ty=Entity *
+C:\Users\Agustin\Desktop\Projects\Graficos-II\Final\Final-Graficos2\EngineDLL\includes\CollisionManager.h(14): message :         ]
+  Object.cpp
+C:\Users\Agustin\Desktop\Projects\Graficos-II\Final\Final-Graficos2\Final-Graficos2\Main.cpp(6,1): warning C4326:  return type of 'main' should be 'int' instead of 'void'
+C:\Users\Agustin\Desktop\Projects\Graficos-II\Final\Final-Graficos2\EngineDLL\includes\Renderer.h(12,22): warning C4251:  'Renderer::projection': struct 'glm::mat<4,4,float,0>' needs to have dll-interface to be used by clients of class 'Renderer'
+C:\Users\Agustin\Desktop\Projects\Graficos-II\Final\Final-Graficos2\external\glm-0.9.9.0\glm\detail\type_mat.hpp(303): message :  see declaration of 'glm::mat<4,4,float,0>'
+C:\Users\Agustin\Desktop\Projects\Graficos-II\Final\Final-Graficos2\EngineDLL\includes\Renderer.h(13,16): warning C4251:  'Renderer::view': struct 'glm::mat<4,4,float,0>' needs to have dll-interface to be used by clients of class 'Renderer'
+C:\Users\Agustin\Desktop\Projects\Graficos-II\Final\Final-Graficos2\external\glm-0.9.9.0\glm\detail\type_mat.hpp(303): message :  see declaration of 'glm::mat<4,4,float,0>'
+C:\Users\Agustin\Desktop\Projects\Graficos-II\Final\Final-Graficos2\EngineDLL\includes\Renderer.h(14,17): warning C4251:  'Renderer::model': struct 'glm::mat<4,4,float,0>' needs to have dll-interface to be used by clients of class 'Renderer'
+C:\Users\Agustin\Desktop\Projects\Graficos-II\Final\Final-Graficos2\external\glm-0.9.9.0\glm\detail\type_mat.hpp(303): message :  see declaration of 'glm::mat<4,4,float,0>'
+C:\Users\Agustin\Desktop\Projects\Graficos-II\Final\Final-Graficos2\EngineDLL\includes\Renderer.h(15,15): warning C4251:  'Renderer::mvp': struct 'glm::mat<4,4,float,0>' needs to have dll-interface to be used by clients of class 'Renderer'
+C:\Users\Agustin\Desktop\Projects\Graficos-II\Final\Final-Graficos2\external\glm-0.9.9.0\glm\detail\type_mat.hpp(303): message :  see declaration of 'glm::mat<4,4,float,0>'
+C:\Users\Agustin\Desktop\Projects\Graficos-II\Final\Final-Graficos2\EngineDLL\includes\BoundingBox.h(13,17): warning C4251:  'BoundingBox::pivot': struct 'glm::vec<3,float,0>' needs to have dll-interface to be used by clients of class 'BoundingBox'
+C:\Users\Agustin\Desktop\Projects\Graficos-II\Final\Final-Graficos2\external\glm-0.9.9.0\glm\detail\type_vec.hpp(229): message :  see declaration of 'glm::vec<3,float,0>'
+C:\Users\Agustin\Desktop\Projects\Graficos-II\Final\Final-Graficos2\EngineDLL\includes\BoundingBox.h(14,20): warning C4251:  'BoundingBox::position': struct 'glm::vec<3,float,0>' needs to have dll-interface to be used by clients of class 'BoundingBox'
+C:\Users\Agustin\Desktop\Projects\Graficos-II\Final\Final-Graficos2\external\glm-0.9.9.0\glm\detail\type_vec.hpp(229): message :  see declaration of 'glm::vec<3,float,0>'
+C:\Users\Agustin\Desktop\Projects\Graficos-II\Final\Final-Graficos2\EngineDLL\includes\EventManager.h(35,29): warning C4251:  'EventManager::createdEvents': class 'std::vector<Event,std::allocator<_Ty>>' needs to have dll-interface to be used by clients of class 'EventManager'
+C:\Users\Agustin\Desktop\Projects\Graficos-II\Final\Final-Graficos2\EngineDLL\includes\EventManager.h(35,29): warning C4251:         with
+C:\Users\Agustin\Desktop\Projects\Graficos-II\Final\Final-Graficos2\EngineDLL\includes\EventManager.h(35,29): warning C4251:         [
+C:\Users\Agustin\Desktop\Projects\Graficos-II\Final\Final-Graficos2\EngineDLL\includes\EventManager.h(35,29): warning C4251:             _Ty=Event
+C:\Users\Agustin\Desktop\Projects\Graficos-II\Final\Final-Graficos2\EngineDLL\includes\EventManager.h(35,29): warning C4251:         ]
+C:\Users\Agustin\Desktop\Projects\Graficos-II\Final\Final-Graficos2\EngineDLL\includes\EventManager.h(35): message :  see declaration of 'std::vector<Event,std::allocator<_Ty>>'
+C:\Users\Agustin\Desktop\Projects\Graficos-II\Final\Final-Graficos2\EngineDLL\includes\EventManager.h(35): message :         with
+C:\Users\Agustin\Desktop\Projects\Graficos-II\Final\Final-Graficos2\EngineDLL\includes\EventManager.h(35): message :         [
+C:\Users\Agustin\Desktop\Projects\Graficos-II\Final\Final-Graficos2\EngineDLL\includes\EventManager.h(35): message :             _Ty=Event
+C:\Users\Agustin\Desktop\Projects\Graficos-II\Final\Final-Graficos2\EngineDLL\includes\EventManager.h(35): message :         ]
+C:\Users\Agustin\Desktop\Projects\Graficos-II\Final\Final-Graficos2\EngineDLL\includes\Entity.h(13,23): warning C4251:  'Entity::translation': struct 'glm::vec<3,float,0>' needs to have dll-interface to be used by clients of class 'Entity'
+C:\Users\Agustin\Desktop\Projects\Graficos-II\Final\Final-Graficos2\external\glm-0.9.9.0\glm\detail\type_vec.hpp(229): message :  see declaration of 'glm::vec<3,float,0>'
+C:\Users\Agustin\Desktop\Projects\Graficos-II\Final\Final-Graficos2\EngineDLL\includes\Entity.h(14,20): warning C4251:  'Entity::rotation': struct 'glm::vec<3,float,0>' needs to have dll-interface to be used by clients of class 'Entity'
+C:\Users\Agustin\Desktop\Projects\Graficos-II\Final\Final-Graficos2\external\glm-0.9.9.0\glm\detail\type_vec.hpp(229): message :  see declaration of 'glm::vec<3,float,0>'
+C:\Users\Agustin\Desktop\Projects\Graficos-II\Final\Final-Graficos2\EngineDLL\includes\Entity.h(15,17): warning C4251:  'Entity::scale': struct 'glm::vec<3,float,0>' needs to have dll-interface to be used by clients of class 'Entity'
+C:\Users\Agustin\Desktop\Projects\Graficos-II\Final\Final-Graficos2\external\glm-0.9.9.0\glm\detail\type_vec.hpp(229): message :  see declaration of 'glm::vec<3,float,0>'
+C:\Users\Agustin\Desktop\Projects\Graficos-II\Final\Final-Graficos2\EngineDLL\includes\Entity.h(17,28): warning C4251:  'Entity::eventKeys': class 'std::vector<int,std::allocator<_Ty>>' needs to have dll-interface to be used by clients of class 'Entity'
+C:\Users\Agustin\Desktop\Projects\Graficos-II\Final\Final-Graficos2\EngineDLL\includes\Entity.h(17,28): warning C4251:         with
+C:\Users\Agustin\Desktop\Projects\Graficos-II\Final\Final-Graficos2\EngineDLL\includes\Entity.h(17,28): warning C4251:         [
+C:\Users\Agustin\Desktop\Projects\Graficos-II\Final\Final-Graficos2\EngineDLL\includes\Entity.h(17,28): warning C4251:             _Ty=int
+C:\Users\Agustin\Desktop\Projects\Graficos-II\Final\Final-Graficos2\EngineDLL\includes\Entity.h(17,28): warning C4251:         ]
+C:\Users\Agustin\Desktop\Projects\Graficos-II\Final\Final-Graficos2\EngineDLL\includes\Entity.h(17): message :  see declaration of 'std::vector<int,std::allocator<_Ty>>'
+C:\Users\Agustin\Desktop\Projects\Graficos-II\Final\Final-Graficos2\EngineDLL\includes\Entity.h(17): message :         with
+C:\Users\Agustin\Desktop\Projects\Graficos-II\Final\Final-Graficos2\EngineDLL\includes\Entity.h(17): message :         [
+C:\Users\Agustin\Desktop\Projects\Graficos-II\Final\Final-Graficos2\EngineDLL\includes\Entity.h(17): message :             _Ty=int
+C:\Users\Agustin\Desktop\Projects\Graficos-II\Final\Final-Graficos2\EngineDLL\includes\Entity.h(17): message :         ]
+C:\Users\Agustin\Desktop\Projects\Graficos-II\Final\Final-Graficos2\EngineDLL\includes\Entity.h(19,17): warning C4251:  'Entity::pivot': struct 'glm::vec<3,float,0>' needs to have dll-interface to be used by clients of class 'Entity'
+C:\Users\Agustin\Desktop\Projects\Graficos-II\Final\Final-Graficos2\external\glm-0.9.9.0\glm\detail\type_vec.hpp(229): message :  see declaration of 'glm::vec<3,float,0>'
+C:\Users\Agustin\Desktop\Projects\Graficos-II\Final\Final-Graficos2\EngineDLL\includes\Entity.h(20,17): warning C4251:  'Entity::model': struct 'glm::mat<4,4,float,0>' needs to have dll-interface to be used by clients of class 'Entity'
+C:\Users\Agustin\Desktop\Projects\Graficos-II\Final\Final-Graficos2\external\glm-0.9.9.0\glm\detail\type_mat.hpp(303): message :  see declaration of 'glm::mat<4,4,float,0>'
+C:\Users\Agustin\Desktop\Projects\Graficos-II\Final\Final-Graficos2\EngineDLL\includes\Entity.h(21,29): warning C4251:  'Entity::translationMatrix': struct 'glm::mat<4,4,float,0>' needs to have dll-interface to be used by clients of class 'Entity'
+C:\Users\Agustin\Desktop\Projects\Graficos-II\Final\Final-Graficos2\external\glm-0.9.9.0\glm\detail\type_mat.hpp(303): message :  see declaration of 'glm::mat<4,4,float,0>'
+C:\Users\Agustin\Desktop\Projects\Graficos-II\Final\Final-Graficos2\EngineDLL\includes\Entity.h(22,26): warning C4251:  'Entity::rotationMatrix': struct 'glm::mat<4,4,float,0>' needs to have dll-interface to be used by clients of class 'Entity'
+C:\Users\Agustin\Desktop\Projects\Graficos-II\Final\Final-Graficos2\external\glm-0.9.9.0\glm\detail\type_mat.hpp(303): message :  see declaration of 'glm::mat<4,4,float,0>'
+C:\Users\Agustin\Desktop\Projects\Graficos-II\Final\Final-Graficos2\EngineDLL\includes\Entity.h(23,23): warning C4251:  'Entity::scaleMatrix': struct 'glm::mat<4,4,float,0>' needs to have dll-interface to be used by clients of class 'Entity'
+C:\Users\Agustin\Desktop\Projects\Graficos-II\Final\Final-Graficos2\external\glm-0.9.9.0\glm\detail\type_mat.hpp(303): message :  see declaration of 'glm::mat<4,4,float,0>'
+C:\Users\Agustin\Desktop\Projects\Graficos-II\Final\Final-Graficos2\EngineDLL\includes\TextureLoader.h(19,2): warning C4091:  'static ': ignored on left of 'TextureLoader' when no variable is declared
+C:\Users\Agustin\Desktop\Projects\Graficos-II\Final\Final-Graficos2\EngineDLL\includes\CollisionManager.h(14,43): warning C4251:  'CollisionManager::registeredEntities': class 'std::vector<std::list<Entity *,std::allocator<_Ty>> *,std::allocator<std::list<_Ty,std::allocator<_Ty>>*>>' needs to have dll-interface to be used by clients of class 'CollisionManager'
+C:\Users\Agustin\Desktop\Projects\Graficos-II\Final\Final-Graficos2\EngineDLL\includes\CollisionManager.h(14,43): warning C4251:         with
+C:\Users\Agustin\Desktop\Projects\Graficos-II\Final\Final-Graficos2\EngineDLL\includes\CollisionManager.h(14,43): warning C4251:         [
+C:\Users\Agustin\Desktop\Projects\Graficos-II\Final\Final-Graficos2\EngineDLL\includes\CollisionManager.h(14,43): warning C4251:             _Ty=Entity *
+C:\Users\Agustin\Desktop\Projects\Graficos-II\Final\Final-Graficos2\EngineDLL\includes\CollisionManager.h(14,43): warning C4251:         ]
+  Player.cpp
+C:\Users\Agustin\Desktop\Projects\Graficos-II\Final\Final-Graficos2\EngineDLL\includes\CollisionManager.h(14): message :  see declaration of 'std::vector<std::list<Entity *,std::allocator<_Ty>> *,std::allocator<std::list<_Ty,std::allocator<_Ty>>*>>'
+C:\Users\Agustin\Desktop\Projects\Graficos-II\Final\Final-Graficos2\EngineDLL\includes\CollisionManager.h(14): message :         with
+C:\Users\Agustin\Desktop\Projects\Graficos-II\Final\Final-Graficos2\EngineDLL\includes\CollisionManager.h(14): message :         [
+C:\Users\Agustin\Desktop\Projects\Graficos-II\Final\Final-Graficos2\EngineDLL\includes\CollisionManager.h(14): message :             _Ty=Entity *
+C:\Users\Agustin\Desktop\Projects\Graficos-II\Final\Final-Graficos2\EngineDLL\includes\CollisionManager.h(14): message :         ]
+C:\Users\Agustin\Desktop\Projects\Graficos-II\Final\Final-Graficos2\EngineDLL\includes\Renderer.h(12,22): warning C4251:  'Renderer::projection': struct 'glm::mat<4,4,float,0>' needs to have dll-interface to be used by clients of class 'Renderer'
+C:\Users\Agustin\Desktop\Projects\Graficos-II\Final\Final-Graficos2\external\glm-0.9.9.0\glm\detail\type_mat.hpp(303): message :  see declaration of 'glm::mat<4,4,float,0>'
+C:\Users\Agustin\Desktop\Projects\Graficos-II\Final\Final-Graficos2\EngineDLL\includes\Renderer.h(13,16): warning C4251:  'Renderer::view': struct 'glm::mat<4,4,float,0>' needs to have dll-interface to be used by clients of class 'Renderer'
+C:\Users\Agustin\Desktop\Projects\Graficos-II\Final\Final-Graficos2\external\glm-0.9.9.0\glm\detail\type_mat.hpp(303): message :  see declaration of 'glm::mat<4,4,float,0>'
+C:\Users\Agustin\Desktop\Projects\Graficos-II\Final\Final-Graficos2\EngineDLL\includes\Renderer.h(14,17): warning C4251:  'Renderer::model': struct 'glm::mat<4,4,float,0>' needs to have dll-interface to be used by clients of class 'Renderer'
+C:\Users\Agustin\Desktop\Projects\Graficos-II\Final\Final-Graficos2\external\glm-0.9.9.0\glm\detail\type_mat.hpp(303): message :  see declaration of 'glm::mat<4,4,float,0>'
+C:\Users\Agustin\Desktop\Projects\Graficos-II\Final\Final-Graficos2\EngineDLL\includes\Renderer.h(15,15): warning C4251:  'Renderer::mvp': struct 'glm::mat<4,4,float,0>' needs to have dll-interface to be used by clients of class 'Renderer'
+C:\Users\Agustin\Desktop\Projects\Graficos-II\Final\Final-Graficos2\external\glm-0.9.9.0\glm\detail\type_mat.hpp(303): message :  see declaration of 'glm::mat<4,4,float,0>'
+C:\Users\Agustin\Desktop\Projects\Graficos-II\Final\Final-Graficos2\EngineDLL\includes\BoundingBox.h(13,17): warning C4251:  'BoundingBox::pivot': struct 'glm::vec<3,float,0>' needs to have dll-interface to be used by clients of class 'BoundingBox'
+C:\Users\Agustin\Desktop\Projects\Graficos-II\Final\Final-Graficos2\external\glm-0.9.9.0\glm\detail\type_vec.hpp(229): message :  see declaration of 'glm::vec<3,float,0>'
+C:\Users\Agustin\Desktop\Projects\Graficos-II\Final\Final-Graficos2\EngineDLL\includes\BoundingBox.h(14,20): warning C4251:  'BoundingBox::position': struct 'glm::vec<3,float,0>' needs to have dll-interface to be used by clients of class 'BoundingBox'
+C:\Users\Agustin\Desktop\Projects\Graficos-II\Final\Final-Graficos2\external\glm-0.9.9.0\glm\detail\type_vec.hpp(229): message :  see declaration of 'glm::vec<3,float,0>'
+C:\Users\Agustin\Desktop\Projects\Graficos-II\Final\Final-Graficos2\EngineDLL\includes\EventManager.h(35,29): warning C4251:  'EventManager::createdEvents': class 'std::vector<Event,std::allocator<_Ty>>' needs to have dll-interface to be used by clients of class 'EventManager'
+C:\Users\Agustin\Desktop\Projects\Graficos-II\Final\Final-Graficos2\EngineDLL\includes\EventManager.h(35,29): warning C4251:         with
+C:\Users\Agustin\Desktop\Projects\Graficos-II\Final\Final-Graficos2\EngineDLL\includes\EventManager.h(35,29): warning C4251:         [
+C:\Users\Agustin\Desktop\Projects\Graficos-II\Final\Final-Graficos2\EngineDLL\includes\EventManager.h(35,29): warning C4251:             _Ty=Event
+C:\Users\Agustin\Desktop\Projects\Graficos-II\Final\Final-Graficos2\EngineDLL\includes\EventManager.h(35,29): warning C4251:         ]
+C:\Users\Agustin\Desktop\Projects\Graficos-II\Final\Final-Graficos2\EngineDLL\includes\EventManager.h(35): message :  see declaration of 'std::vector<Event,std::allocator<_Ty>>'
+C:\Users\Agustin\Desktop\Projects\Graficos-II\Final\Final-Graficos2\EngineDLL\includes\EventManager.h(35): message :         with
+C:\Users\Agustin\Desktop\Projects\Graficos-II\Final\Final-Graficos2\EngineDLL\includes\EventManager.h(35): message :         [
+C:\Users\Agustin\Desktop\Projects\Graficos-II\Final\Final-Graficos2\EngineDLL\includes\EventManager.h(35): message :             _Ty=Event
+C:\Users\Agustin\Desktop\Projects\Graficos-II\Final\Final-Graficos2\EngineDLL\includes\EventManager.h(35): message :         ]
+C:\Users\Agustin\Desktop\Projects\Graficos-II\Final\Final-Graficos2\EngineDLL\includes\Entity.h(13,23): warning C4251:  'Entity::translation': struct 'glm::vec<3,float,0>' needs to have dll-interface to be used by clients of class 'Entity'
+C:\Users\Agustin\Desktop\Projects\Graficos-II\Final\Final-Graficos2\external\glm-0.9.9.0\glm\detail\type_vec.hpp(229): message :  see declaration of 'glm::vec<3,float,0>'
+C:\Users\Agustin\Desktop\Projects\Graficos-II\Final\Final-Graficos2\EngineDLL\includes\Entity.h(14,20): warning C4251:  'Entity::rotation': struct 'glm::vec<3,float,0>' needs to have dll-interface to be used by clients of class 'Entity'
+C:\Users\Agustin\Desktop\Projects\Graficos-II\Final\Final-Graficos2\external\glm-0.9.9.0\glm\detail\type_vec.hpp(229): message :  see declaration of 'glm::vec<3,float,0>'
+C:\Users\Agustin\Desktop\Projects\Graficos-II\Final\Final-Graficos2\EngineDLL\includes\Entity.h(15,17): warning C4251:  'Entity::scale': struct 'glm::vec<3,float,0>' needs to have dll-interface to be used by clients of class 'Entity'
+C:\Users\Agustin\Desktop\Projects\Graficos-II\Final\Final-Graficos2\external\glm-0.9.9.0\glm\detail\type_vec.hpp(229): message :  see declaration of 'glm::vec<3,float,0>'
+C:\Users\Agustin\Desktop\Projects\Graficos-II\Final\Final-Graficos2\EngineDLL\includes\Entity.h(17,28): warning C4251:  'Entity::eventKeys': class 'std::vector<int,std::allocator<_Ty>>' needs to have dll-interface to be used by clients of class 'Entity'
+C:\Users\Agustin\Desktop\Projects\Graficos-II\Final\Final-Graficos2\EngineDLL\includes\Entity.h(17,28): warning C4251:         with
+C:\Users\Agustin\Desktop\Projects\Graficos-II\Final\Final-Graficos2\EngineDLL\includes\Entity.h(17,28): warning C4251:         [
+C:\Users\Agustin\Desktop\Projects\Graficos-II\Final\Final-Graficos2\EngineDLL\includes\Entity.h(17,28): warning C4251:             _Ty=int
+C:\Users\Agustin\Desktop\Projects\Graficos-II\Final\Final-Graficos2\EngineDLL\includes\Entity.h(17,28): warning C4251:         ]
+C:\Users\Agustin\Desktop\Projects\Graficos-II\Final\Final-Graficos2\EngineDLL\includes\Entity.h(17): message :  see declaration of 'std::vector<int,std::allocator<_Ty>>'
+C:\Users\Agustin\Desktop\Projects\Graficos-II\Final\Final-Graficos2\EngineDLL\includes\Entity.h(17): message :         with
+C:\Users\Agustin\Desktop\Projects\Graficos-II\Final\Final-Graficos2\EngineDLL\includes\Entity.h(17): message :         [
+C:\Users\Agustin\Desktop\Projects\Graficos-II\Final\Final-Graficos2\EngineDLL\includes\Entity.h(17): message :             _Ty=int
+C:\Users\Agustin\Desktop\Projects\Graficos-II\Final\Final-Graficos2\EngineDLL\includes\Entity.h(17): message :         ]
+C:\Users\Agustin\Desktop\Projects\Graficos-II\Final\Final-Graficos2\EngineDLL\includes\Entity.h(19,17): warning C4251:  'Entity::pivot': struct 'glm::vec<3,float,0>' needs to have dll-interface to be used by clients of class 'Entity'
+C:\Users\Agustin\Desktop\Projects\Graficos-II\Final\Final-Graficos2\external\glm-0.9.9.0\glm\detail\type_vec.hpp(229): message :  see declaration of 'glm::vec<3,float,0>'
+C:\Users\Agustin\Desktop\Projects\Graficos-II\Final\Final-Graficos2\EngineDLL\includes\Entity.h(20,17): warning C4251:  'Entity::model': struct 'glm::mat<4,4,float,0>' needs to have dll-interface to be used by clients of class 'Entity'
+C:\Users\Agustin\Desktop\Projects\Graficos-II\Final\Final-Graficos2\external\glm-0.9.9.0\glm\detail\type_mat.hpp(303): message :  see declaration of 'glm::mat<4,4,float,0>'
+C:\Users\Agustin\Desktop\Projects\Graficos-II\Final\Final-Graficos2\EngineDLL\includes\Entity.h(21,29): warning C4251:  'Entity::translationMatrix': struct 'glm::mat<4,4,float,0>' needs to have dll-interface to be used by clients of class 'Entity'
+C:\Users\Agustin\Desktop\Projects\Graficos-II\Final\Final-Graficos2\external\glm-0.9.9.0\glm\detail\type_mat.hpp(303): message :  see declaration of 'glm::mat<4,4,float,0>'
+C:\Users\Agustin\Desktop\Projects\Graficos-II\Final\Final-Graficos2\EngineDLL\includes\Entity.h(22,26): warning C4251:  'Entity::rotationMatrix': struct 'glm::mat<4,4,float,0>' needs to have dll-interface to be used by clients of class 'Entity'
+C:\Users\Agustin\Desktop\Projects\Graficos-II\Final\Final-Graficos2\external\glm-0.9.9.0\glm\detail\type_mat.hpp(303): message :  see declaration of 'glm::mat<4,4,float,0>'
+C:\Users\Agustin\Desktop\Projects\Graficos-II\Final\Final-Graficos2\EngineDLL\includes\Entity.h(23,23): warning C4251:  'Entity::scaleMatrix': struct 'glm::mat<4,4,float,0>' needs to have dll-interface to be used by clients of class 'Entity'
+C:\Users\Agustin\Desktop\Projects\Graficos-II\Final\Final-Graficos2\external\glm-0.9.9.0\glm\detail\type_mat.hpp(303): message :  see declaration of 'glm::mat<4,4,float,0>'
+C:\Users\Agustin\Desktop\Projects\Graficos-II\Final\Final-Graficos2\EngineDLL\includes\TextureLoader.h(19,2): warning C4091:  'static ': ignored on left of 'TextureLoader' when no variable is declared
+C:\Users\Agustin\Desktop\Projects\Graficos-II\Final\Final-Graficos2\EngineDLL\includes\CollisionManager.h(14,43): warning C4251:  'CollisionManager::registeredEntities': class 'std::vector<std::list<Entity *,std::allocator<_Ty>> *,std::allocator<std::list<_Ty,std::allocator<_Ty>>*>>' needs to have dll-interface to be used by clients of class 'CollisionManager'
+C:\Users\Agustin\Desktop\Projects\Graficos-II\Final\Final-Graficos2\EngineDLL\includes\CollisionManager.h(14,43): warning C4251:         with
+C:\Users\Agustin\Desktop\Projects\Graficos-II\Final\Final-Graficos2\EngineDLL\includes\CollisionManager.h(14,43): warning C4251:         [
+C:\Users\Agustin\Desktop\Projects\Graficos-II\Final\Final-Graficos2\EngineDLL\includes\CollisionManager.h(14,43): warning C4251:             _Ty=Entity *
+C:\Users\Agustin\Desktop\Projects\Graficos-II\Final\Final-Graficos2\EngineDLL\includes\CollisionManager.h(14,43): warning C4251:         ]
+C:\Users\Agustin\Desktop\Projects\Graficos-II\Final\Final-Graficos2\EngineDLL\includes\CollisionManager.h(14): message :  see declaration of 'std::vector<std::list<Entity *,std::allocator<_Ty>> *,std::allocator<std::list<_Ty,std::allocator<_Ty>>*>>'
+C:\Users\Agustin\Desktop\Projects\Graficos-II\Final\Final-Graficos2\EngineDLL\includes\CollisionManager.h(14): message :         with
+C:\Users\Agustin\Desktop\Projects\Graficos-II\Final\Final-Graficos2\EngineDLL\includes\CollisionManager.h(14): message :         [
+C:\Users\Agustin\Desktop\Projects\Graficos-II\Final\Final-Graficos2\EngineDLL\includes\CollisionManager.h(14): message :             _Ty=Entity *
+C:\Users\Agustin\Desktop\Projects\Graficos-II\Final\Final-Graficos2\EngineDLL\includes\CollisionManager.h(14): message :         ]
+C:\Users\Agustin\Desktop\Projects\Graficos-II\Final\Final-Graficos2\EngineDLL\includes\Tilemap.h(30,38): warning C4251:  'Tilemap::bidimensionalIDs': class 'std::vector<std::vector<int,std::allocator<_Ty>>,std::allocator<std::vector<_Ty,std::allocator<_Ty>>>>' needs to have dll-interface to be used by clients of class 'Tilemap'
+C:\Users\Agustin\Desktop\Projects\Graficos-II\Final\Final-Graficos2\EngineDLL\includes\Tilemap.h(30,38): warning C4251:         with
+C:\Users\Agustin\Desktop\Projects\Graficos-II\Final\Final-Graficos2\EngineDLL\includes\Tilemap.h(30,38): warning C4251:         [
+C:\Users\Agustin\Desktop\Projects\Graficos-II\Final\Final-Graficos2\EngineDLL\includes\Tilemap.h(30,38): warning C4251:             _Ty=int
+C:\Users\Agustin\Desktop\Projects\Graficos-II\Final\Final-Graficos2\EngineDLL\includes\Tilemap.h(30,38): warning C4251:         ]
+C:\Users\Agustin\Desktop\Projects\Graficos-II\Final\Final-Graficos2\EngineDLL\includes\Tilemap.h(30): message :  see declaration of 'std::vector<std::vector<int,std::allocator<_Ty>>,std::allocator<std::vector<_Ty,std::allocator<_Ty>>>>'
+C:\Users\Agustin\Desktop\Projects\Graficos-II\Final\Final-Graficos2\EngineDLL\includes\Tilemap.h(30): message :         with
+C:\Users\Agustin\Desktop\Projects\Graficos-II\Final\Final-Graficos2\EngineDLL\includes\Tilemap.h(30): message :         [
+C:\Users\Agustin\Desktop\Projects\Graficos-II\Final\Final-Graficos2\EngineDLL\includes\Tilemap.h(30): message :             _Ty=int
+C:\Users\Agustin\Desktop\Projects\Graficos-II\Final\Final-Graficos2\EngineDLL\includes\Tilemap.h(30): message :         ]
+C:\Users\Agustin\Desktop\Projects\Graficos-II\Final\Final-Graficos2\EngineDLL\includes\Tilemap.h(31,35): warning C4251:  'Tilemap::tilesOnScreen': class 'std::vector<std::vector<int,std::allocator<_Ty>>,std::allocator<std::vector<_Ty,std::allocator<_Ty>>>>' needs to have dll-interface to be used by clients of class 'Tilemap'
+C:\Users\Agustin\Desktop\Projects\Graficos-II\Final\Final-Graficos2\EngineDLL\includes\Tilemap.h(31,35): warning C4251:         with
+C:\Users\Agustin\Desktop\Projects\Graficos-II\Final\Final-Graficos2\EngineDLL\includes\Tilemap.h(31,35): warning C4251:         [
+C:\Users\Agustin\Desktop\Projects\Graficos-II\Final\Final-Graficos2\EngineDLL\includes\Tilemap.h(31,35): warning C4251:             _Ty=int
+C:\Users\Agustin\Desktop\Projects\Graficos-II\Final\Final-Graficos2\EngineDLL\includes\Tilemap.h(31,35): warning C4251:         ]
+C:\Users\Agustin\Desktop\Projects\Graficos-II\Final\Final-Graficos2\EngineDLL\includes\Tilemap.h(30): message :  see declaration of 'std::vector<std::vector<int,std::allocator<_Ty>>,std::allocator<std::vector<_Ty,std::allocator<_Ty>>>>'
+C:\Users\Agustin\Desktop\Projects\Graficos-II\Final\Final-Graficos2\EngineDLL\includes\Tilemap.h(30): message :         with
+C:\Users\Agustin\Desktop\Projects\Graficos-II\Final\Final-Graficos2\EngineDLL\includes\Tilemap.h(30): message :         [
+C:\Users\Agustin\Desktop\Projects\Graficos-II\Final\Final-Graficos2\EngineDLL\includes\Tilemap.h(30): message :             _Ty=int
+C:\Users\Agustin\Desktop\Projects\Graficos-II\Final\Final-Graficos2\EngineDLL\includes\Tilemap.h(30): message :         ]
+C:\Users\Agustin\Desktop\Projects\Graficos-II\Final\Final-Graficos2\Final-Graficos2\Player.cpp(29,44): warning C4244:  'argument': conversion from 'double' to 'float', possible loss of data
+C:\Users\Agustin\Desktop\Projects\Graficos-II\Final\Final-Graficos2\Final-Graficos2\Player.cpp(36,64): warning C4244:  'argument': conversion from 'double' to 'float', possible loss of data
+  Generating Code...
+C:\Users\Agustin\Desktop\Projects\Graficos-II\Final\Final-Graficos2\Final-Graficos2\Player.cpp(41,64): warning C4244:  'argument': conversion from 'double' to 'float', possible loss of data
+  Final-Graficos2.vcxproj -> C:\Users\Agustin\Desktop\Projects\Graficos-II\Final\Final-Graficos2\Debug\Final-Graficos2.exe
+          1 file(s) copied.
+          1 file(s) copied.

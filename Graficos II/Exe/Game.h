@@ -12,21 +12,14 @@
 class Game : public GameBase
 {
 private:
-	Triangle* triangle1;
-	Square* square1;
-	Circle* circle1;
-	Sprite* sprite1;
-	Sprite* sprite2;
 	Sprite* sprite3;
-	Material* mat1;
-	Material* mat2;
+	Sprite* sprite2;
 	Material* mat3;
-	Material* mat4;
-	Material* mat5;
 	Material* tileMat;
 	Tilemap* tileMap;
 	unsigned int programID;
 	float vel;
+	bool sprite2ActiveState;
 public:
 	Game();
 	~Game();

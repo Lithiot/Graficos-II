@@ -5,7 +5,7 @@
 Entity::Entity(Renderer* rend) : renderer(rend), model(1.0f), 
 								 translation(0.0f, 0.0f, 0.0f), rotation(0.0f, 0.0f, 0.0f),
 								 scale(1.0f, 1.0f, 1.0f), translationMatrix(1.0f),
-								 rotationMatrix(1.0f), scaleMatrix(1.0f), collider(NULL)
+								 rotationMatrix(1.0f), scaleMatrix(1.0f), collider(NULL), isActive(true)
 {
 }
 Entity::~Entity()
@@ -94,8 +94,43 @@ BoundingBox* Entity::GetCollider()
 {
 	return collider;
 }
-void Entity::SetCollider(float width, float height, Layers layer, bool staticState) 
+bool Entity::GetIsActive()
 {
-	collider = new BoundingBox(width, height, layer, staticState);
+	return isActive;
+}
+void Entity::SetIsActive(bool state) 
+{
+	isActive = state;
+}
+
+void Entity::SetCollider(float width, float height, Layers layer, bool staticState, bool triggerState) 
+{
+	collider = new BoundingBox(width, height, layer, staticState, triggerState);
 	collider->SetPosition(translation);
+}
+
+void Entity::AddEvent(int key, int value, int* valueToChange)
+{
+	EventManager::Instance()->AddNewEvent(key, value, valueToChange);
+	eventKeys.push_back(key);
+}
+
+void Entity::AddEvent(int key, float value, float* valueToChange)
+{
+	EventManager::Instance()->AddNewEvent(key, value, valueToChange);
+	eventKeys.push_back(key);
+}
+
+void Entity::AddEvent(int key, bool value, bool* valueToChange)
+{
+	EventManager::Instance()->AddNewEvent(key, value, valueToChange);
+	eventKeys.push_back(key);
+}
+
+void Entity::fireEvents() 
+{
+	for (int i = 0; i < eventKeys.size(); i++)
+	{
+		EventManager::Instance()->ExecuteEvent(eventKeys.at(i));
+	}
 }

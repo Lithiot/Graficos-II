@@ -45,6 +45,11 @@ void CollisionManager::CollisionResolver(int i, int j)
 
 void CollisionManager::ResolveCollision(Entity* A, Entity* B)
 {
+	if (A->GetIsActive() == false)
+		return;
+	if (B->GetIsActive() == false)
+		return;
+
 	glm::vec3 dist = (A->GetTranslation() - B->GetTranslation());
 	glm::vec3 module = abs(dist);
 
@@ -55,6 +60,11 @@ void CollisionManager::ResolveCollision(Entity* A, Entity* B)
 	{
 		float penetrationX = totalWidth - module.x;
 		float penetrationY = totalHeigth - module.y;
+
+		if (A->GetCollider()->GetIsTrigger())
+			A->fireEvents();
+		if (B->GetCollider()->GetIsTrigger())
+			B->fireEvents();
 
 		if (penetrationX > penetrationY)
 		{
