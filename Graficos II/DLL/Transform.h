@@ -29,7 +29,7 @@ public:
 
 	void Start() override;
 	void Update() override;
-	void Draw() override;
+	bool Draw() override;
 	void Destroy() override;
 
 	void UpdateModel();

@@ -10,6 +10,8 @@ class ENGINE_API Node
 private:
 	Renderer* rend;
 
+	Node* parent;
+
 	string name;
 	Transform* transform;
 	std::vector<Node*>* childs;
@@ -26,6 +28,8 @@ public:
 	void Update();
 	void Draw();
 	string GetName();
+	Node* GetParent();
+	void SetParent(Node* _parent);
 	Transform* GetTransform();
 	void Move(float x, float y, float z);
 	void RotateX(float x);

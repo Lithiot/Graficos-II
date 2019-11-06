@@ -41,7 +41,7 @@ public:
 
 	void Start() override;
 	void Update() override;
-	void Draw() override;
+	bool Draw() override;
 	void Destroy() override;
 
 	void SetVertices(std::vector<float> vertices);
@@ -51,5 +51,6 @@ public:
 
 	void LoadMaterial();
 	void GenerateCollider(glm::vec3 colliderMin, glm::vec3 colliderMax);
+	void UpdateCollider(vec3 _collider3d[CANT_COLLIDER_VERTEX]);
 };
 

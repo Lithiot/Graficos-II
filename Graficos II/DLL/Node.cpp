@@ -1,5 +1,6 @@
 #include "Node.h"
 
+
 Node::Node(string name, Renderer* rend) : childs(new std::vector<Node*>), components(new std::vector<Component*>), transform(new Transform(rend)), name(name), rend(rend)
 {
 	AddComponent(transform);
@@ -12,11 +13,13 @@ Node::~Node()
 
 void Node::AddChild(Node* child) 
 {
+	child->SetParent(this);
 	childs->push_back(child);
 }
 
 void Node::AddComponent(Component* component) 
 {
+	component->SetOwner(this);
 	components->push_back(component);
 }
 
@@ -74,15 +77,23 @@ void Node::Draw()
 	glm::mat4 originalView = rend->GetViewMatrix();
 	rend->MultiplyModel(transform->GetModel());
 
-	for (int i = 0; i < components->size(); i++)
-	{
-		components->at(i)->Draw();
-	}
+	bool keepDrawing = true;
 
-	for (int i = 0; i < childs->size(); i++)
-	{
-		childs->at(i)->Draw();
-	}
+	if (keepDrawing)
+		for (int i = 0; i < components->size(); i++)
+		{
+			if (!components->at(i)->Draw()) 
+			{
+				keepDrawing = false;
+				break;
+			}
+		}
+
+	if (keepDrawing)
+		for (int i = 0; i < childs->size(); i++)
+		{
+			childs->at(i)->Draw();
+		}
 
 	rend->SetModel(originalModel);
 	rend->SetViewMatrix(originalView);
@@ -152,4 +163,14 @@ void Node::RotateZ(float z)
 
 	z = transform->rotation[2] + z;
 	transform->SetRotationZ(z);
+}
+
+Node* Node::GetParent() 
+{
+	return parent;
+}
+
+void Node::SetParent(Node* _parent) 
+{
+	parent = _parent;
 }

@@ -1,4 +1,5 @@
 #include "MeshComponent.h"
+#include "Node.h"
 
 MeshComponent::MeshComponent(Renderer* rend, Camera* cam) : Component(rend, Type::MESH_COMPONENT), collider3d(new Collider3D(rend)), cam(cam)
 {
@@ -16,15 +17,29 @@ void MeshComponent::Start()
 
 void MeshComponent::Update() 
 {
-	
+	glm::vec3 colliderVertices[CANT_COLLIDER_VERTEX] =
+	{
+		collider3d->GetVertex(0), collider3d->GetVertex(1),
+		collider3d->GetVertex(2), collider3d->GetVertex(3),
+		collider3d->GetVertex(4), collider3d->GetVertex(5),
+		collider3d->GetVertex(6), collider3d->GetVertex(7),
+	};
+
+	if (owner && owner->GetParent())
+		if (owner->GetParent()->GetComponentByType(Type::MESH_COMPONENT))
+		{
+			MeshComponent* meh = (MeshComponent*)owner->GetParent()->GetComponentByType(Type::MESH_COMPONENT);
+			if (meh != NULL)
+			{
+				meh->UpdateCollider(colliderVertices);
+			}
+		}
 }
 
-void MeshComponent::Draw()
+bool MeshComponent::Draw()
 {
 	if (cam->BoxInFrustum(collider3d))
 	{
-		cout << "Is inside frustum" << endl;
-
 		if (material != NULL)
 		{
 			material->Bind();
@@ -39,10 +54,15 @@ void MeshComponent::Draw()
 		rend->DrawIndexBuffer(facesIndex.size());
 		rend->DisableBuffer(0);
 		rend->DisableBuffer(1);
+
+		collider3d->Draw();
+
+		DeltaTime::Instance()->AddMeshDrawn();
+		return true;
 	}
 	else
 	{
-		cout << "Is Outside Frustum" << endl;
+		return false;
 	}
 }
 
@@ -83,7 +103,6 @@ void MeshComponent::SetTexture(string texturePath)
 
 void MeshComponent::GenerateCollider(glm::vec3 colliderMin, glm::vec3 colliderMax)
 {
-
 	glm::vec3 colliderVertices[CANT_COLLIDER_VERTEX] =
 	{
 		vec3(colliderMin.x, colliderMin.y, colliderMin.z),
@@ -96,5 +115,20 @@ void MeshComponent::GenerateCollider(glm::vec3 colliderMin, glm::vec3 colliderMa
 		vec3(colliderMax.x, colliderMax.y, colliderMax.z)
 	};
 
+	if(owner && owner->GetParent())
+		if (owner->GetParent()->GetComponentByType(Type::MESH_COMPONENT)) 
+		{
+			MeshComponent* meh = (MeshComponent*)owner->GetParent()->GetComponentByType(Type::MESH_COMPONENT);
+			if (meh != NULL)
+			{
+				meh->UpdateCollider(colliderVertices);
+			}
+		}
+
 	collider3d->SetVertex(colliderVertices);
+}
+
+void MeshComponent::UpdateCollider(vec3 _collider3d[CANT_COLLIDER_VERTEX])
+{
+	collider3d->UpdateVertex(_collider3d);
 }

@@ -8,6 +8,8 @@
 using namespace std;
 using namespace glm;
 
+class Cube;
+
 #define CANT_COLLIDER_VERTEX 8
 
 class ENGINE_API Collider3D
@@ -15,12 +17,15 @@ class ENGINE_API Collider3D
 private:
 	vec3 collider3d [CANT_COLLIDER_VERTEX];
 	Renderer* rend;
+	Cube* wireCube;
 public:
 	Collider3D(Renderer* rend);
 	~Collider3D();
 
 	vec3 GetVertex(int index);
-	void SetVertex(glm::vec3 _collider3d[CANT_COLLIDER_VERTEX]);
+	void SetVertex(vec3 _collider3d[CANT_COLLIDER_VERTEX]);
+	void UpdateVertex(vec3 _collider3d[CANT_COLLIDER_VERTEX]);
+	void Draw();
 	bool loaded;
 };
 

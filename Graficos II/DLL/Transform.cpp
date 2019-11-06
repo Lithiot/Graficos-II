@@ -20,9 +20,9 @@ void Transform::Update()
 	
 }
 
-void Transform::Draw() 
+bool Transform::Draw() 
 {
-	
+	return true;
 }
 
 void Transform::Destroy() 

@@ -1,7 +1,6 @@
 #include "GameBase.h"
 #include "TextureLoader.h"
 
-
 GameBase::GameBase() :wind(new Window()), rend(new Renderer()), quit(false)
 {
 }

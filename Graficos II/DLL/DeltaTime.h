@@ -9,6 +9,9 @@ private:
 	double lastTime;
 	double currentTime;
 	double deltaTime;
+
+	int meshCount;
+
 public:
 	DeltaTime();
 	~DeltaTime();
@@ -18,6 +21,10 @@ public:
 	double CalculateDeltaTime();
 	void Update();
 	void DestroyInstance();
+
+	void SetMeshDrawn(int meshDrawn);
+	void AddMeshDrawn();
+	int GetMeshDrawn();
 
 	static DeltaTime* Instance()
 	{

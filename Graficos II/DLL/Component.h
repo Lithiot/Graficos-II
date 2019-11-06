@@ -5,6 +5,8 @@
 
 using namespace std;
 
+class Node;
+
 enum Type 
 {
 	MESH_COMPONENT, CAMERA, TRANSFORM
@@ -17,6 +19,7 @@ private:
 	Type type;
 protected:
 	Renderer* rend;
+	Node* owner;
 
 public:
 	Component(Renderer* renderer, Type type);
@@ -24,10 +27,13 @@ public:
 
 	virtual void Start() = 0;
 	virtual void Destroy() = 0;
-	virtual void Draw() = 0;
+	virtual bool Draw() = 0;
 	virtual void Update() = 0;
 
 	string GetName();
 	Type GetType();
+	Node* GetOwner();
+
+	void SetOwner(Node* _owner);
 };
 

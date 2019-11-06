@@ -74,6 +74,8 @@ void Cube::SetIndexes(unsigned int* indexes, int count)
 
 void Cube::Draw()
 {
+	glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
+
 	renderer->LoadIdentityMatrix();
 	renderer->SetModel(model);
 
@@ -91,4 +93,6 @@ void Cube::Draw()
 	renderer->Draw(type, indexCount);
 	renderer->DisableBuffer(0);
 	renderer->DisableBuffer(1);
+
+	glPolygonMode(GL_FRONT_AND_BACK, GL_FILL);
 }

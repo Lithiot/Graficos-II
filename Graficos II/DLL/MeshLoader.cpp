@@ -8,8 +8,8 @@ MeshLoader::MeshLoader()
 
 Node* MeshLoader::LoadMesh(const string& modelPath, const string& texturePath, Renderer* rend, Camera* cam)
 {
-	colliderMin = glm::vec3(99999, 99999, 99999);
-	colliderMax = glm::vec3(-99999, -99999, -99999);
+	colliderMin = glm::vec3(1, 1, 1);
+	colliderMax = glm::vec3(-1, -1, -1);
 
 	Importer importer;
 	const aiScene* scene = importer.ReadFile(modelPath, aiProcess_CalcTangentSpace | aiProcess_Triangulate | aiProcess_JoinIdenticalVertices | aiProcess_SortByPType);
@@ -30,7 +30,7 @@ void MeshLoader::GenerateHierarchy(const aiScene* scene, Node* baseNode, aiNode*
 {
 	for (int i = 0; i < root->mNumChildren; i++)
 	{
-		Node* childNode = new Node("ChildNode", rend);
+		Node* childNode = new Node(root->mChildren[i]->mName.C_Str(), rend);
 		baseNode->AddChild(childNode);
 		if (root->mChildren[i]->mNumMeshes > 0)
 		{
@@ -54,6 +54,9 @@ void MeshLoader::InitMesh(const aiMesh* mesh, MeshComponent* meshComponent, Rend
 	std::vector<float> vertices;
 	std::vector<float> uvs;
 	std::vector<unsigned int> facesIndexes;
+
+	colliderMin = glm::vec3(99999, 99999, 99999);
+	colliderMax = glm::vec3(-99999, -99999, -99999);
 
 	for (unsigned int i = 0; i < mesh->mNumVertices; i++)
 	{

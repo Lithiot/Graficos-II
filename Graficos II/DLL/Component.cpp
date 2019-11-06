@@ -1,4 +1,5 @@
 #include "Component.h"
+#include "Node.h"
 
 Component::Component(Renderer* renderer, Type type) : rend(renderer), type(type)
 {
@@ -12,8 +13,9 @@ void Component::Update()
 {
 }
 
-void Component::Draw() 
+bool Component::Draw() 
 {
+	return true;
 }
 
 string Component::GetName() 
@@ -21,7 +23,17 @@ string Component::GetName()
 	return name;
 }
 
-Type Component::GetType() 
+Type Component::GetType()
 {
 	return type;
+}
+
+Node* Component::GetOwner() 
+{
+	return owner;
+}
+
+void Component::SetOwner(Node* _owner) 
+{
+	owner = _owner;
 }

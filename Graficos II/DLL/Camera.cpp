@@ -34,8 +34,9 @@ void Camera::Update()
 	UpdateViewMatrix();
 }
 
-void Camera::Draw() 
+bool Camera::Draw() 
 {
+	return true;
 }
 
 void Camera::Destroy() 

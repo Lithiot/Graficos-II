@@ -5,6 +5,7 @@ DeltaTime* DeltaTime::instance = NULL;
 DeltaTime::DeltaTime()
 {
 	lastTime = 0;
+	meshCount = 0;
 }
 
 DeltaTime::~DeltaTime()
@@ -41,4 +42,19 @@ void DeltaTime::Update()
 void DeltaTime::DestroyInstance() 
 {
 	delete instance;
+}
+
+void DeltaTime::SetMeshDrawn(int meshDrawn)
+{
+	meshCount = meshDrawn;
+}
+
+void DeltaTime::AddMeshDrawn()
+{
+	meshCount++;
+}
+
+int DeltaTime::GetMeshDrawn()
+{
+	return meshCount;
 }
