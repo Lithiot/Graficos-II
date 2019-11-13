@@ -18,6 +18,7 @@ Collider3D::~Collider3D()
 
 void Collider3D::Draw() 
 {
+
 	wireCube->Draw();
 }
 
@@ -111,7 +112,7 @@ void Collider3D::UpdateVertex(vec3 _collider3d[CANT_COLLIDER_VERTEX])
 		collider3d[6].x, collider3d[6].y, collider3d[6].z,
 		collider3d[7].x, collider3d[7].y, collider3d[7].z,
 	};
-	wireCube->SetVertex(vertexes, CANT_COLLIDER_VERTEX * 3);
+	wireCube->SetVertex(vertexes, CANT_COLLIDER_VERTEX);
 }
 
 void Collider3D::SetVertex(vec3 _collider3d[CANT_COLLIDER_VERTEX])
@@ -135,7 +136,7 @@ void Collider3D::SetVertex(vec3 _collider3d[CANT_COLLIDER_VERTEX])
 		collider3d[6].x, collider3d[6].y, collider3d[6].z,
 		collider3d[7].x, collider3d[7].y, collider3d[7].z,
 	};
-	wireCube->SetVertex(vertexes, CANT_COLLIDER_VERTEX * 3);
+	wireCube->SetVertex(vertexes, CANT_COLLIDER_VERTEX);
 
 	loaded = true;
 }

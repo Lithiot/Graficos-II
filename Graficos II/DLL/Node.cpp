@@ -59,6 +59,11 @@ void Node::RemoveNodeAtIndex(unsigned int i)
 
 void Node::Update() 
 {
+	glm::mat4 originalModel = rend->GetModel();
+	glm::mat4 originalProjection = rend->GetProjection();
+	glm::mat4 originalView = rend->GetViewMatrix();
+	rend->MultiplyModel(transform->GetModel());
+
 	for (int i = 0; i < components->size(); i++)
 	{
 		components->at(i)->Update();
@@ -68,6 +73,10 @@ void Node::Update()
 	{
 		childs->at(i)->Update();
 	}
+
+	rend->SetModel(originalModel);
+	rend->SetViewMatrix(originalView);
+	rend->SetProjectionMatrix(originalProjection);
 }
 
 void Node::Draw() 
@@ -77,23 +86,15 @@ void Node::Draw()
 	glm::mat4 originalView = rend->GetViewMatrix();
 	rend->MultiplyModel(transform->GetModel());
 
-	bool keepDrawing = true;
-
-	if (keepDrawing)
-		for (int i = 0; i < components->size(); i++)
-		{
-			if (!components->at(i)->Draw()) 
-			{
-				keepDrawing = false;
-				break;
-			}
-		}
-
-	if (keepDrawing)
-		for (int i = 0; i < childs->size(); i++)
-		{
-			childs->at(i)->Draw();
-		}
+	for (int i = 0; i < components->size(); i++)
+	{
+		components->at(i)->Draw();
+	}
+	
+	for (int i = 0; i < childs->size(); i++)
+	{
+		childs->at(i)->Draw();
+	}
 
 	rend->SetModel(originalModel);
 	rend->SetViewMatrix(originalView);
@@ -124,6 +125,9 @@ void Node::Move(float x, float y, float z)
 	{
 		cam->SetPosition(transform->position);
 	}
+
+
+
 }
 
 void Node::RotateX(float x) 

@@ -20,12 +20,12 @@ bool Game::OnStart()
 	cam = new Camera(rend);
 	nodeForCamera->AddComponent(cam);
 
-	sceneNode->AddChild(MeshLoader::GetInstance()->LoadMesh("myAk.fbx", "ak_texture.bmp", rend, cam));
-	//sceneNode->AddChild(MeshLoader::GetInstance()->LoadMesh("rose.fbx", "rose_texture.bmp", rend));
+	sceneNode->AddChild(MeshLoader::GetInstance()->LoadMesh("myRifle.fbx", "rifle_texture.bmp", rend, cam));
 	
-	//sceneNode->GetChildAtIndex(0)->Move(0.0f, 0.0f, 100.0f);
-	
-	sceneNode->GetChildAtIndex(1)->GetChildAtIndex(0)->GetChildAtIndex(0)->Move(10.0f, 0.0f, 0.0f);
+	//sceneNode->GetChildAtIndex(1)->GetChildAtIndex(0)->Move(0.0f, 0.0f, 100.0f);
+	sceneNode->GetChildAtIndex(1)->GetChildAtIndex(0)->GetChildAtIndex(1)->Move(0.0f, -20.0f, 0.0f);
+
+	//sceneNode->GetChildAtIndex(1)->GetChildAtIndex(0)->GetChildAtIndex(1)->RotateY(-90.0f);
 
 	std::cout << "Game::Start()" << std::endl;
 	return true;
@@ -41,12 +41,6 @@ bool Game::OnLoop()
 {
 	DeltaTime::Instance()->Update();
 	CollisionManager::Instance()->CheckCollisions();
-
-	sceneNode->GetChildAtIndex(1)->RotateX(1.0f * DeltaTime::Instance()->GetDeltaTime());
-	//sceneNode->GetChildAtIndex(1)->GetChildAtIndex(1)->RotateZ(-3.0f * DeltaTime::Instance()->GetDeltaTime());
-	
-	//sceneNode->GetChildAtIndex(0)->Move(10.0f * DeltaTime::Instance()->GetDeltaTime(), 0.0f, 0.0f);
-
 
 	if (InputManager::GetInstance()->GetKeyDown(DownKey))
 	{

@@ -17,13 +17,13 @@ void MeshComponent::Start()
 
 void MeshComponent::Update() 
 {
-	glm::vec3 colliderVertices[CANT_COLLIDER_VERTEX] =
+	glm::vec3 colliderVertices[CANT_COLLIDER_VERTEX];
+
+	for (int i = 0; i < CANT_COLLIDER_VERTEX; i++)
 	{
-		collider3d->GetVertex(0), collider3d->GetVertex(1),
-		collider3d->GetVertex(2), collider3d->GetVertex(3),
-		collider3d->GetVertex(4), collider3d->GetVertex(5),
-		collider3d->GetVertex(6), collider3d->GetVertex(7),
-	};
+		vec4 aux = vec4(collider3d->GetVertex(i), 0);
+		colliderVertices[i] = aux * rend->GetModel();
+	}
 
 	if (owner && owner->GetParent())
 		if (owner->GetParent()->GetComponentByType(Type::MESH_COMPONENT))
