@@ -1,7 +1,7 @@
 #pragma once
 #include "Exports.h"
 #include "Renderer.h"
-#include "Window.h"
+//#include "Window.h"
 #include "Node.h"
 
 class ENGINE_API GameBase

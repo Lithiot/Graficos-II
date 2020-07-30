@@ -11,10 +11,10 @@
 #include "../external/assimp/include/assimp/Importer.hpp"
 #include "../external/assimp/include/assimp/postprocess.h"
 #include "../external/assimp/include/assimp/scene.h"
-#include "../external/glew-2.1.0/include/GL/glew.h"
-#include "../external/glfw-3.2.1/include/GLFW/glfw3.h"
-#include "../external/glm-0.9.9.0/glm/glm.hpp"
-#include "../external/glm-0.9.9.0/glm/glm.hpp"
+//#include "../external/glew-2.1.0/include/GL/glew.h"
+//#include "../external/glfw-3.2.1/include/GLFW/glfw3.h"
+//#include "../external/glm-0.9.9.0/glm/glm.hpp"
+//#include "../external/glm-0.9.9.0/glm/glm.hpp"
 #include "Node.h"
 #include "MeshComponent.h"
 
@@ -28,7 +28,7 @@ private:
 	static MeshLoader *instance;
 	void GenerateHierarchy(const aiScene* scene, Node* baseNode, aiNode* root, const string& texturePath, Renderer* rend, Camera* cam);
 	void InitMesh(const aiMesh* mesh, MeshComponent* meshComponent, Renderer* rend);
-	//void GenerateCollider(Node* baseNode);
+	void SetNodeTransform(Node* node, aiNode* aiNode);
 	vec3 colliderMin;
 	vec3 colliderMax;
 

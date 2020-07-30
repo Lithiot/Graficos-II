@@ -9,7 +9,6 @@
 #include <glm/glm.hpp>
 using namespace glm;
 #include "Component.h"
-#include "Renderer.h"
 
 class ENGINE_API Transform : public Component
 {
@@ -49,4 +48,8 @@ public:
 	float GetRotX();
 	float GetRotY();
 	float GetRotZ();
+
+	void SetRotationMatrix(float x, float y, float z, float w);
+	void ConvertToEulerAngles(const vec4 quaternion, float& pitch, float& yaw, float& roll);
+	void ClampEulerRotation();
 };

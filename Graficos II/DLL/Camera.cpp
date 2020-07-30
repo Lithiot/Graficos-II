@@ -137,7 +137,7 @@ glm::vec4 Camera::GeneratePlane(glm::vec3 _normal, glm::vec3 _point)
 	return plane;
 }
 
-bool Camera::BoxInFrustum(Collider3D* _collider3d)
+bool Camera::BoxInFrustum(BoxCollider* _collider3d)
 {
 	if (!_collider3d->loaded)
 	{

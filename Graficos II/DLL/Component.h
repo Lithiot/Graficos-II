@@ -9,7 +9,7 @@ class Node;
 
 enum Type 
 {
-	MESH_COMPONENT, CAMERA, TRANSFORM
+	MESH_COMPONENT, CAMERA, TRANSFORM, BOX_COLLIDER
 };
 
 class ENGINE_API Component
@@ -36,4 +36,3 @@ public:
 
 	void SetOwner(Node* _owner);
 };
-

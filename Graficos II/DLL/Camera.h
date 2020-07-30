@@ -1,9 +1,8 @@
 #pragma once
 #include "Exports.h"
-#include "Renderer.h"
-#include "Component.h"
 #include "DeltaTime.h"
 #include "Collider3D.h"
+#include "BoxCollider.h"
 
 enum Planes 
 {
@@ -61,6 +60,6 @@ public:
 	void SetCameraInternals();
 	void SetCameraDefinitions();
 	glm::vec4 GeneratePlane(glm::vec3 _normal, glm::vec3 _point);
-	bool BoxInFrustum(Collider3D * _collider3d);
+	bool BoxInFrustum(BoxCollider* _collider3d);
 };
 

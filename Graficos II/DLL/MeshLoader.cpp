@@ -28,25 +28,60 @@ Node* MeshLoader::LoadMesh(const string& modelPath, const string& texturePath, R
 
 void MeshLoader::GenerateHierarchy(const aiScene* scene, Node* baseNode, aiNode* root, const string& texturePath, Renderer* rend, Camera* cam)
 {
+	//for (int i = 0; i < root->mNumChildren; i++)
+	//{
+	//	std::cout << root->mChildren[i]->mName.C_Str() << endl;
+	//
+	//	if (root->mChildren[i]->mNumChildren > 0) 
+	//	{
+	//		for (int j = 0; j < root->mChildren[i]->mNumChildren; j++)
+	//		{
+	//			std::cout << root->mChildren[i]->mChildren[j]->mName.C_Str() << endl;
+	//		}
+	//	}
+	//}
+
 	for (int i = 0; i < root->mNumChildren; i++)
 	{
 		Node* childNode = new Node(root->mChildren[i]->mName.C_Str(), rend);
 		baseNode->AddChild(childNode);
+		SetNodeTransform(childNode, root->mChildren[i]);
+
 		if (root->mChildren[i]->mNumMeshes > 0)
 		{
 			MeshComponent* meshComponent = new MeshComponent(rend, cam);
 			childNode->AddComponent(meshComponent);
+			// Create the BoxCollider component and add it
+			BoxCollider* boxCollider = new BoxCollider(rend);
+			childNode->AddComponent(boxCollider);
 			unsigned int index = root->mChildren[i]->mMeshes[0];
 			InitMesh(scene->mMeshes[index], meshComponent, rend);
-			meshComponent->GenerateCollider(colliderMin, colliderMax);
+			boxCollider->SetVertex(colliderMin, colliderMax);
 			meshComponent->SetTexture(texturePath);
 			meshComponent->LoadMaterial();
-			if (root->mChildren[i]->mNumChildren > 0)
-			{
-				GenerateHierarchy(scene, childNode, root->mChildren[i], texturePath, rend, cam);
-			}
+		}
+
+		if (root->mChildren[i]->mNumChildren > 0)
+		{
+			GenerateHierarchy(scene, childNode, root->mChildren[i], texturePath, rend, cam);
 		}
 	}
+}
+
+void MeshLoader::SetNodeTransform(Node* node, aiNode* aiNode)
+{
+	aiVector3D position;
+	aiVector3D scale;
+	aiQuaternion rotation;
+
+	Transform* transform = node->GetTransform();
+
+	aiNode->mTransformation.Decompose(scale, rotation, position);
+	
+	transform->SetRotationMatrix(rotation.x, rotation.y, rotation.z, rotation.w);
+
+	transform->Translate(position.x, position.y, position.z);
+	transform->Scale(scale.x, scale.y, scale.z);
 }
 
 void MeshLoader::InitMesh(const aiMesh* mesh, MeshComponent* meshComponent, Renderer* rend)

@@ -18,8 +18,7 @@ Collider3D::~Collider3D()
 
 void Collider3D::Draw() 
 {
-
-	wireCube->Draw();
+	//wireCube->Draw();
 }
 
 vec3 Collider3D::GetVertex(int index)

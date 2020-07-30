@@ -4,14 +4,7 @@
 #include "Exports.h"
 #include "TextureLoader.h"
 #include "Material.h"
-#include "Collider3D.h"
 #include "Camera.h"
-#include <glm\glm.hpp>
-#include <glm\gtc\matrix_transform.hpp>
-
-#include <assimp/Importer.hpp> 
-#include <assimp/scene.h>           
-#include <assimp/postprocess.h>
 
 using namespace std;
 
@@ -37,8 +30,6 @@ public:
 	MeshComponent(Renderer* rend, Camera* cam);
 	~MeshComponent();
 
-	Collider3D* collider3d;
-
 	void Start() override;
 	void Update() override;
 	bool Draw() override;
@@ -50,7 +41,5 @@ public:
 	void SetTexture(string texturePath);
 
 	void LoadMaterial();
-	void GenerateCollider(glm::vec3 colliderMin, glm::vec3 colliderMax);
-	void UpdateCollider(vec3 _collider3d[CANT_COLLIDER_VERTEX]);
 };
 

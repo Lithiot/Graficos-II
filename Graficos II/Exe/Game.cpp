@@ -20,13 +20,11 @@ bool Game::OnStart()
 	cam = new Camera(rend);
 	nodeForCamera->AddComponent(cam);
 
-	sceneNode->AddChild(MeshLoader::GetInstance()->LoadMesh("myRifle.fbx", "rifle_texture.bmp", rend, cam));
+	sceneNode->AddChild(MeshLoader::GetInstance()->LoadMesh("Scene.fbx", "rifle_texture.bmp", rend, cam));
+	//sceneNode->AddChild(MeshLoader::GetInstance()->LoadMesh("myRifle.fbx", "rifle_texture.bmp", rend, cam));
+
+	nodeForCamera->Move(0.0f, 0.0f, -100.0f);
 	
-	//sceneNode->GetChildAtIndex(1)->GetChildAtIndex(0)->Move(0.0f, 0.0f, 100.0f);
-	sceneNode->GetChildAtIndex(1)->GetChildAtIndex(0)->GetChildAtIndex(1)->Move(0.0f, -20.0f, 0.0f);
-
-	//sceneNode->GetChildAtIndex(1)->GetChildAtIndex(0)->GetChildAtIndex(1)->RotateY(-90.0f);
-
 	std::cout << "Game::Start()" << std::endl;
 	return true;
 } 
@@ -60,19 +58,23 @@ bool Game::OnLoop()
 	}
 	else if (InputManager::GetInstance()->GetKeyDown(AKey))
 	{
-		nodeForCamera->RotateX(5.0f * DeltaTime::Instance()->GetDeltaTime());
+		//nodeForCamera->RotateX(5.0f * DeltaTime::Instance()->GetDeltaTime());
+		sceneNode->GetChildAtIndex(1)->GetChildAtIndex(0)->GetChildAtIndex(0)->Move(100 * DeltaTime::Instance()->GetDeltaTime(), 0.0f, 0.0f);
 	}
 	else if (InputManager::GetInstance()->GetKeyDown(DKey))
 	{
-		nodeForCamera->RotateX(-5.0f * DeltaTime::Instance()->GetDeltaTime());
+		//nodeForCamera->RotateX(-5.0f * DeltaTime::Instance()->GetDeltaTime());
+		sceneNode->GetChildAtIndex(1)->GetChildAtIndex(0)->GetChildAtIndex(0)->Move(-100 * DeltaTime::Instance()->GetDeltaTime(), 0.0f, 0.0f);
 	}
 	else if (InputManager::GetInstance()->GetKeyDown(WKey))
 	{
-		nodeForCamera->RotateY(-5.0F * DeltaTime::Instance()->GetDeltaTime());
+		//nodeForCamera->RotateY(-5.0F * DeltaTime::Instance()->GetDeltaTime());
+		sceneNode->GetChildAtIndex(1)->GetChildAtIndex(0)->GetChildAtIndex(0)->Move(0.0f, 100 * DeltaTime::Instance()->GetDeltaTime(), 0.0f);
 	}
 	else if (InputManager::GetInstance()->GetKeyDown(SKey))
 	{
-		nodeForCamera->RotateY(5.0F * DeltaTime::Instance()->GetDeltaTime());
+		//nodeForCamera->RotateY(5.0F * DeltaTime::Instance()->GetDeltaTime());
+		sceneNode->GetChildAtIndex(1)->GetChildAtIndex(0)->GetChildAtIndex(0)->Move(0.0f, -100 * DeltaTime::Instance()->GetDeltaTime(), 0.0f);
 	}
 	else if (InputManager::GetInstance()->GetKeyDown(QKey))
 	{

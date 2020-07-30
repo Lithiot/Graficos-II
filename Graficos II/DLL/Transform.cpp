@@ -119,3 +119,65 @@ mat4 Transform::GetModel()
 {
 	return model;
 }
+
+void Transform::SetRotationMatrix(float x, float y, float z, float w)
+{
+	float pitch, yaw, roll;
+
+	vec4 quaternion = normalize(vec4(x, y, z, w));
+
+	ConvertToEulerAngles(quaternion, pitch, yaw, roll);
+
+	rotation = vec3(pitch, yaw, roll);
+
+	mat4 mat1 = mat4
+	{
+		quaternion.w, quaternion.z, -quaternion.y, quaternion.x,
+		-quaternion.z, quaternion.w, quaternion.x, quaternion.y,
+		quaternion.y, -quaternion.x, quaternion.w, quaternion.z,
+		-quaternion.x, -quaternion.y, -quaternion.z, quaternion.w
+	};
+
+	mat4 mat2 = mat4
+	{
+		quaternion.w, quaternion.z, -quaternion.y, -quaternion.x,
+		-quaternion.z, quaternion.w, quaternion.x, -quaternion.y,
+		quaternion.y, -quaternion.x, quaternion.w, -quaternion.z,
+		quaternion.x, quaternion.y, quaternion.z, quaternion.w
+	};
+
+	rotationMatrixLocal = mat1 * mat2;
+
+	ClampEulerRotation();
+	UpdateModel();
+}
+
+void Transform::ConvertToEulerAngles(const vec4 quaternion, float& pitch, float& yaw, float& roll)
+{
+	float sinPitchCosYaw = 2.0f * (quaternion.w * quaternion.x + quaternion.y * quaternion.z);
+	float cosPitchCosYaw = 1.0f - 2.0f * (quaternion.x * quaternion.x + quaternion.y * quaternion.y);
+	pitch = atan(sinPitchCosYaw, cosPitchCosYaw);
+
+	float sinYaw = 2.0f * (quaternion.w * quaternion.y - quaternion.z * quaternion.x);
+	yaw = (abs(sinYaw) >= 1.0f) ? sign(sinYaw) * half_pi<float>() : asin(sinYaw);
+
+	float sinRollCosYaw = 2.0f * (quaternion.w * quaternion.z + quaternion.x * quaternion.y);
+	float cosRollCosYaw = 1.0f - 2.0f * (quaternion.y * quaternion.y + quaternion.z * quaternion.z);
+	roll = atan(sinRollCosYaw, cosRollCosYaw);
+
+	pitch = degrees(pitch);
+	yaw = degrees(yaw);
+	roll = degrees(roll);
+}
+
+void Transform::ClampEulerRotation()
+{
+	if (rotation.x < 0.0f || rotation.x >= 360.0f)
+		rotation.x = rotation.x - (floor(rotation.x / 360.0f) * 360.0f);
+
+	if (rotation.y < 0.0f || rotation.y >= 360.0f)
+		rotation.y = rotation.y - (floor(rotation.y / 360.0f) * 360.0f);
+
+	if (rotation.z < 0.0f || rotation.z >= 360.0f)
+		rotation.z = rotation.z - (floor(rotation.z / 360.0f) * 360.0f);
+}

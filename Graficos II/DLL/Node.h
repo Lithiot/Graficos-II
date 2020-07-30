@@ -2,7 +2,6 @@
 #include <string>
 #include <vector>
 #include "Transform.h"
-#include "Renderer.h"
 #include "Camera.h"
 
 class ENGINE_API Node

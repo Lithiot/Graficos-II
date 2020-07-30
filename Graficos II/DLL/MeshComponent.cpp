@@ -1,7 +1,7 @@
 #include "MeshComponent.h"
 #include "Node.h"
 
-MeshComponent::MeshComponent(Renderer* rend, Camera* cam) : Component(rend, Type::MESH_COMPONENT), collider3d(new Collider3D(rend)), cam(cam)
+MeshComponent::MeshComponent(Renderer* rend, Camera* cam) : Component(rend, Type::MESH_COMPONENT) ,cam(cam)
 {
 }
 
@@ -17,28 +17,12 @@ void MeshComponent::Start()
 
 void MeshComponent::Update() 
 {
-	glm::vec3 colliderVertices[CANT_COLLIDER_VERTEX];
-
-	for (int i = 0; i < CANT_COLLIDER_VERTEX; i++)
-	{
-		vec4 aux = vec4(collider3d->GetVertex(i), 0);
-		colliderVertices[i] = aux * rend->GetModel();
-	}
-
-	if (owner && owner->GetParent())
-		if (owner->GetParent()->GetComponentByType(Type::MESH_COMPONENT))
-		{
-			MeshComponent* meh = (MeshComponent*)owner->GetParent()->GetComponentByType(Type::MESH_COMPONENT);
-			if (meh != NULL)
-			{
-				meh->UpdateCollider(colliderVertices);
-			}
-		}
 }
 
 bool MeshComponent::Draw()
 {
-	if (cam->BoxInFrustum(collider3d))
+
+	if (cam->BoxInFrustum((BoxCollider*)owner->GetComponentByType(Type::BOX_COLLIDER)))
 	{
 		if (material != NULL)
 		{
@@ -54,8 +38,6 @@ bool MeshComponent::Draw()
 		rend->DrawIndexBuffer(facesIndex.size());
 		rend->DisableBuffer(0);
 		rend->DisableBuffer(1);
-
-		collider3d->Draw();
 
 		DeltaTime::Instance()->AddMeshDrawn();
 		return true;
@@ -99,36 +81,4 @@ void MeshComponent::SetTexture(string texturePath)
 {
 	texture = TextureLoader::LoadBMP(texturePath.c_str());
 	textureBufferID = rend->GenTextureBuffer(texture.width, texture.height, texture.data);
-}
-
-void MeshComponent::GenerateCollider(glm::vec3 colliderMin, glm::vec3 colliderMax)
-{
-	glm::vec3 colliderVertices[CANT_COLLIDER_VERTEX] =
-	{
-		vec3(colliderMin.x, colliderMin.y, colliderMin.z),
-		vec3(colliderMin.x, colliderMax.y, colliderMin.z),
-		vec3(colliderMin.x, colliderMin.y, colliderMax.z),
-		vec3(colliderMin.x, colliderMax.y, colliderMax.z),
-		vec3(colliderMax.x, colliderMin.y, colliderMin.z),
-		vec3(colliderMax.x, colliderMax.y, colliderMin.z),
-		vec3(colliderMax.x, colliderMin.y, colliderMax.z),
-		vec3(colliderMax.x, colliderMax.y, colliderMax.z)
-	};
-
-	if(owner && owner->GetParent())
-		if (owner->GetParent()->GetComponentByType(Type::MESH_COMPONENT)) 
-		{
-			MeshComponent* meh = (MeshComponent*)owner->GetParent()->GetComponentByType(Type::MESH_COMPONENT);
-			if (meh != NULL)
-			{
-				meh->UpdateCollider(colliderVertices);
-			}
-		}
-
-	collider3d->SetVertex(colliderVertices);
-}
-
-void MeshComponent::UpdateCollider(vec3 _collider3d[CANT_COLLIDER_VERTEX])
-{
-	collider3d->UpdateVertex(_collider3d);
 }

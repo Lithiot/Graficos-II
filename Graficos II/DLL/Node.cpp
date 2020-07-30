@@ -1,6 +1,5 @@
 #include "Node.h"
 
-
 Node::Node(string name, Renderer* rend) : childs(new std::vector<Node*>), components(new std::vector<Component*>), transform(new Transform(rend)), name(name), rend(rend)
 {
 	AddComponent(transform);
