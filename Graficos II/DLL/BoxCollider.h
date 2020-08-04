@@ -24,6 +24,8 @@ public:
 	BoxCollider(Renderer* renderer);
 	~BoxCollider();
 
+	static bool drawColliders;
+
 	void Start() override;
 	void Update() override;
 	bool Draw() override;

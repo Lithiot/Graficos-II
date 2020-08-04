@@ -39,6 +39,10 @@ private:
 	float nearWidht;
 	float nearHight;
 
+	std::vector<glm::vec4>* bspPlanes;
+	std::vector<glm::vec3>* bspNormals;
+
+	std::vector<glm::vec3>* bspPoints;
 
 public:
 	Camera(Renderer* rend);
@@ -61,5 +65,9 @@ public:
 	void SetCameraDefinitions();
 	glm::vec4 GeneratePlane(glm::vec3 _normal, glm::vec3 _point);
 	bool BoxInFrustum(BoxCollider* _collider3d);
+
+	void AddBSP(vec3 forward, vec3 pos);
+	bool BoxInBSP(BoxCollider* _collider3d);
+	float GetDistanceToPlane(vec3 point, vec4 _plane, vec3 _planeNormal);
 };
 

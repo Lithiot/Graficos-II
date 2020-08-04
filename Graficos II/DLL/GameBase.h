@@ -23,6 +23,7 @@ public:
 	bool Start();
 	bool Stop();
 	void loop();
+	void PrintNodeChilds(Node* node, int offset);
 
 	Window* GetWindow();
 };

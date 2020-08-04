@@ -50,3 +50,25 @@ Window* GameBase::GetWindow()
 {
 	return wind;
 }
+
+void GameBase::PrintNodeChilds(Node* node, int offset)
+{
+	if (offset != 0) 
+	{
+		for (int j = 0; j < offset; j++)
+		{
+			cout << " ";
+		}
+
+		cout << "|_ ";
+	}
+
+	cout << node->GetName() << endl;
+
+	if (!node->GetChildsVector()) return;
+
+	for (int i = 0; i < node->GetChildsVector()->size(); i++)
+	{
+		PrintNodeChilds(node->GetChildAtIndex(i), offset + 1);
+	}
+}

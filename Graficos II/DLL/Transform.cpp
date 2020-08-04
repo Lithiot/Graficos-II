@@ -120,6 +120,16 @@ mat4 Transform::GetModel()
 	return model;
 }
 
+mat4 Transform::GetRotMatrix()
+{
+	return rotationMatrixLocal;
+}
+
+vec3 Transform::GetPosition()
+{
+	return position;
+}
+
 void Transform::SetRotationMatrix(float x, float y, float z, float w)
 {
 	float pitch, yaw, roll;

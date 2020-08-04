@@ -21,31 +21,33 @@ void MeshComponent::Update()
 
 bool MeshComponent::Draw()
 {
+	BoxCollider* collider = (BoxCollider*)owner->GetComponentByType(Type::BOX_COLLIDER);
 
-	if (cam->BoxInFrustum((BoxCollider*)owner->GetComponentByType(Type::BOX_COLLIDER)))
+	if (cam->BoxInBSP(collider))
 	{
-		if (material != NULL)
+		if (cam->BoxInFrustum(collider))
 		{
-			material->Bind();
-			material->SetMatrixProperty("MVP", rend->GetMVP());
-			material->BindTexture("myTextureSampler", textureBufferID);
-		}
-		rend->EnableAtribArray(0);
-		rend->EnableAtribArray(1);
-		rend->BindBuffer(vertexBufferID, 0);
-		rend->BindTextureBuffer(uvBufferID, 1);
-		rend->BindIndexBuffer(IndexBufferID);
-		rend->DrawIndexBuffer(facesIndex.size());
-		rend->DisableBuffer(0);
-		rend->DisableBuffer(1);
 
-		DeltaTime::Instance()->AddMeshDrawn();
-		return true;
+			if (material != NULL)
+			{
+				material->Bind();
+				material->SetMatrixProperty("MVP", rend->GetMVP());
+				material->BindTexture("myTextureSampler", textureBufferID);
+			}
+			rend->EnableAtribArray(0);
+			rend->EnableAtribArray(1);
+			rend->BindBuffer(vertexBufferID, 0);
+			rend->BindTextureBuffer(uvBufferID, 1);
+			rend->BindIndexBuffer(IndexBufferID);
+			rend->DrawIndexBuffer(facesIndex.size());
+			rend->DisableBuffer(0);
+			rend->DisableBuffer(1);
+
+			DeltaTime::Instance()->AddMeshDrawn();
+			return true;
+		}
 	}
-	else
-	{
-		return false;
-	}
+	return false;
 }
 
 void MeshComponent::Destroy() 

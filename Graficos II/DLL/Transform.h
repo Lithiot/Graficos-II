@@ -45,6 +45,8 @@ public:
 	void RotateZ(float velocity);
 
 	mat4 GetModel();
+	mat4 GetRotMatrix();
+	vec3 GetPosition();
 	float GetRotX();
 	float GetRotY();
 	float GetRotZ();

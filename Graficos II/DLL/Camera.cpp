@@ -3,7 +3,7 @@
 #include <glm/gtx/transform.hpp>
 
 Camera::Camera(Renderer* rend) : Component(rend, Type::CAMERA), position(0.0f,0.0f,-1.0f, 0.0f), forward(0.0f,0.0f,1.0f, 0.0f), right(1.0f,0.0f,0.0f, 0.0f),
-								 up(0.0f, 1.0f, 0.0f, 0.0f), rotation(position + forward)
+								 up(0.0f, 1.0f, 0.0f, 0.0f), rotation(position + forward), bspPlanes(new vector<glm::vec4>()), bspNormals(new vector<glm::vec3>())
 {
 	point = (position + forward);
 	upVector = up;
@@ -173,3 +173,47 @@ bool Camera::BoxInFrustum(BoxCollider* _collider3d)
 	return isInsideFrustum;
 }
 
+void Camera::AddBSP(vec3 forward, vec3 pos)
+{
+	bspPlanes->push_back(GeneratePlane(pos, forward));
+	bspNormals->push_back(forward);
+}
+
+bool Camera::BoxInBSP(BoxCollider* _collider3d)
+{
+	bool outsideBSP = false;
+
+	for (int i = 0; i < bspPlanes->size(); i++)
+	{
+		vec3 cameraDirection = (vec3)position - (vec3)bspPlanes->at(i);
+		float cameraSign = sign(dot(cameraDirection, bspNormals->at(i)));
+
+		for (int j = 0; j < CANT_COLLIDER_VERTEX; j++)
+		{
+			vec3 vertexDirection = _collider3d->GetVertex(j) - (vec3)bspPlanes->at(i);
+			float vertexSign = sign(dot(vertexDirection, bspNormals->at(i)));
+
+			if (cameraSign == vertexSign) 
+			{
+				outsideBSP = false;
+				break;
+			}
+			else
+			{
+				outsideBSP = true;
+			}
+		}
+
+		if (outsideBSP)
+			return false;
+	}
+
+	return true;
+}
+
+float Camera::GetDistanceToPlane(vec3 point, vec4 _plane, vec3 _planeNormal)
+{
+	float distance = 0.0f;
+	distance = dot(_planeNormal, point) + _plane.w;
+	return distance;
+}

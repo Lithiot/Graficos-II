@@ -29,6 +29,7 @@ private:
 	void GenerateHierarchy(const aiScene* scene, Node* baseNode, aiNode* root, const string& texturePath, Renderer* rend, Camera* cam);
 	void InitMesh(const aiMesh* mesh, MeshComponent* meshComponent, Renderer* rend);
 	void SetNodeTransform(Node* node, aiNode* aiNode);
+	void CheckForBSP(aiNode* aiNode, Node* node, Camera* cam);
 	vec3 colliderMin;
 	vec3 colliderMax;
 

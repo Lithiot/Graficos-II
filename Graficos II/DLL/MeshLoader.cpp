@@ -19,6 +19,8 @@ Node* MeshLoader::LoadMesh(const string& modelPath, const string& texturePath, R
 		return nullptr;
 	}
 
+	
+
 	Node* baseNode = new Node("baseNode", rend);
 	GenerateHierarchy(scene, baseNode, scene->mRootNode, texturePath, rend, cam);
 
@@ -28,19 +30,6 @@ Node* MeshLoader::LoadMesh(const string& modelPath, const string& texturePath, R
 
 void MeshLoader::GenerateHierarchy(const aiScene* scene, Node* baseNode, aiNode* root, const string& texturePath, Renderer* rend, Camera* cam)
 {
-	//for (int i = 0; i < root->mNumChildren; i++)
-	//{
-	//	std::cout << root->mChildren[i]->mName.C_Str() << endl;
-	//
-	//	if (root->mChildren[i]->mNumChildren > 0) 
-	//	{
-	//		for (int j = 0; j < root->mChildren[i]->mNumChildren; j++)
-	//		{
-	//			std::cout << root->mChildren[i]->mChildren[j]->mName.C_Str() << endl;
-	//		}
-	//	}
-	//}
-
 	for (int i = 0; i < root->mNumChildren; i++)
 	{
 		Node* childNode = new Node(root->mChildren[i]->mName.C_Str(), rend);
@@ -51,7 +40,6 @@ void MeshLoader::GenerateHierarchy(const aiScene* scene, Node* baseNode, aiNode*
 		{
 			MeshComponent* meshComponent = new MeshComponent(rend, cam);
 			childNode->AddComponent(meshComponent);
-			// Create the BoxCollider component and add it
 			BoxCollider* boxCollider = new BoxCollider(rend);
 			childNode->AddComponent(boxCollider);
 			unsigned int index = root->mChildren[i]->mMeshes[0];
@@ -59,12 +47,28 @@ void MeshLoader::GenerateHierarchy(const aiScene* scene, Node* baseNode, aiNode*
 			boxCollider->SetVertex(colliderMin, colliderMax);
 			meshComponent->SetTexture(texturePath);
 			meshComponent->LoadMaterial();
+
+			CheckForBSP(root->mChildren[i], childNode, cam);
 		}
 
 		if (root->mChildren[i]->mNumChildren > 0)
 		{
 			GenerateHierarchy(scene, childNode, root->mChildren[i], texturePath, rend, cam);
 		}
+	}
+}
+
+void MeshLoader::CheckForBSP(aiNode* aiNode, Node* node, Camera* cam) 
+{
+	if(((string)aiNode->mName.C_Str()).compare(0,3, "BSP") == 0)
+	{
+		cout << aiNode->mName.C_Str() << " it's BSP" << endl;
+		cout << aiNode->mName.C_Str() << " position is: " << node->GetTransform()->GetPosition().x << " ," << node->GetTransform()->GetPosition().y << " ," << node->GetTransform()->GetPosition().z << endl;
+		
+		vec3 bspForward = normalize((vec3)(node->GetTransform()->GetRotMatrix() * vec4(0.0f, 0.0f, 1.0f, 0.0f)));
+		vec3 position = node->GetTransform()->GetPosition();
+
+		cam->AddBSP(bspForward, position);
 	}
 }
 

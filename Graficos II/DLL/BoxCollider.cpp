@@ -2,6 +2,8 @@
 #include "Material.h"
 #include "Node.h"
 
+bool BoxCollider::drawColliders = true;
+
 BoxCollider::BoxCollider(Renderer* renderer) : Component(renderer, Type::BOX_COLLIDER)
 {
 	for (int i = 0; i < CANT_COLLIDER_VERTEX; i++)
@@ -216,6 +218,8 @@ void BoxCollider::UpdateVertex(vec3 _collider3d[CANT_COLLIDER_VERTEX])
 
 bool BoxCollider::Draw()
 {
+	if (!drawColliders) return true;
+
 	glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
 
 	if (material != NULL)
@@ -243,24 +247,24 @@ void BoxCollider::SetFaces()
 	indexCount = 36;
 	unsigned int indexes[36] =
 	{
-		// Front
-		0, 1, 2,
-		0, 2, 3,
-		// Back
-		4, 5, 6,
-		4, 6, 7,
-		// Right
-		1, 5, 6,
-		1, 6, 2,
-		// Left
-		0, 4, 7,
-		0, 7, 3,
-		// Upper
-		3, 2, 6,
-		3, 6, 7,
-		// Bottom
-		0, 1, 5,
-		0, 5, 4
+		//Front
+		2,3,6,
+		6,7,3,
+		//Back
+		0,1,4,
+		4,5,1,
+		//Right
+		6,7,4,
+		4,5,7,
+		//Left
+		0,1,2,
+		2,3,1,
+		//Upper
+		1,3,7,
+		7,5,1,
+		//Bottom
+		0,2,6,
+		6,4,0
 	};
 
 	IndexBufferID = (rend->GenIndexBuffer(indexes, indexCount * sizeof(unsigned int)));
